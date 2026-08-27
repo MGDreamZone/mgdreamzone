@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MG Dream Zone | Luxury Fashion</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            background: #fff8fb;
+            color: #3d1f2d;
+        }
+
+        /* ================= NAVBAR ================= */
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 248, 251, 0.92);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid #f3d3df;
+        }
+
+        .logo {
+            font-family: "Playfair Display", serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: #c2185b;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: #5a1a36;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #5a1a36;
+            font-size: 14px;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #e91e63;
+        }
+
+        .nav-btn {
+            background: #c2185b;
+            color: white;
+            padding: 10px 22px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 13px;
+            transition: 0.3s;
+        }
+
+        .nav-btn:hover {
+            background: #8e1746;
+            transform: translateY(-2px);
+        }
+
+        /* ================= HERO ================= */
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 120px 8% 60px;
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(255, 240, 246, 0.95),
+                    rgba(255, 240, 246, 0.45)
+                ),
+                url("https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1600&q=80");
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-content {
+            max-width: 620px;
+        }
+
+        .hero-subtitle {
+            color: #c2185b;
+            letter-spacing: 4px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-family: "Playfair Display", serif;
+            font-size: 70px;
+            line-height: 1.1;
+            color: #3d1f2d;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 span {
+            color: #e91e63;
+            font-style: italic;
+        }
+
+        .hero p {
+            color: #704456;
+            line-height: 1.8;
+            margin-bottom: 35px;
+            max-width: 520px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn-primary,
+        .btn-secondary {
+            padding: 14px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: 0.3s;
+            font-size: 14px;
+        }
+
+        .btn-primary {
+            background: #c2185b;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #8e1746;
+            transform: translateY(-3px);
+        }
+
+        .btn-secondary {
+            border: 1px solid #c2185b;
+            color: #c2185b;
+        }
+
+        .btn-secondary:hover {
+            background: #c2185b;
+            color: white;
+        }
+
+        /* ================= FEATURES ================= */
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            padding: 50px 8%;
+            background: #5a1a36;
+            color: white;
+            text-align: center;
+        }
+
+        .feature {
+            padding: 20px;
+            border-right: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .feature:last-child {
+            border-right: none;
+        }
+
+        .feature h3 {
+            font-family: "Playfair Display", serif;
+            font-size: 22px;
+            margin-bottom: 8px;
+            color: #ffc1d9;
+        }
+
+        .feature p {
+            font-size: 13px;
+            opacity: 0.8;
+        }
+
+        /* ================= COLLECTION ================= */
+
+        .collection {
+            padding: 100px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 55px;
+        }
+
+        .section-title p {
+            color: #e91e63;
+            letter-spacing: 3px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .section-title h2 {
+            font-family: "Playfair Display", serif;
+            font-size: 45px;
+            color: #3d1f2d;
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(100, 30, 60, 0.08);
+            transition: 0.4s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(100, 30, 60, 0.18);
+        }
+
+        .product-image {
+            height: 380px;
+            overflow: hidden;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+
+        .product-card:hover img {
+            transform: scale(1.08);
+        }
+
+        .product-info {
+            padding: 22px;
+            text-align: center;
+        }
+
+        .product-info h3 {
+            font-family: "Playfair Display", serif;
+            font-size: 22px;
+            margin-bottom: 8px;
+        }
+
+        .product-info p {
+            color: #c2185b;
+            font-size: 14px;
+        }
+
+        /* ================= LUXURY BANNER ================= */
+
+        .luxury-banner {
+            margin: 30px 8% 100px;
+            padding: 80px 8%;
+            text-align: center;
+            background:
+                linear-gradient(
+                    rgba(90, 26, 54, 0.85),
+                    rgba(90, 26, 54, 0.85)
+                ),
+                url("https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1600&q=80");
+            background-size: cover;
+            background-position: center;
+            border-radius: 20px;
+            color: white;
+        }
+
+        .luxury-banner p {
+            letter-spacing: 4px;
+            color: #ffc1d9;
+            font-size: 12px;
+            margin-bottom: 15px;
+        }
+
+        .luxury-banner h2 {
+            font-family: "Playfair Display", serif;
+            font-size: 50px;
+            margin-bottom: 20px;
+        }
+
+        .luxury-banner .btn-primary {
+            display: inline-block;
+            margin-top: 15px;
+            background: #f06292;
+        }
+
+        /* ================= ABOUT ================= */
+
+        .about {
+            padding: 100px 8%;
+            background: #ffeaf2;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .about img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 15px;
+        }
+
+        .about-content p:first-child {
+            color: #c2185b;
+            letter-spacing: 3px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .about-content h2 {
+            font-family: "Playfair Display", serif;
+            font-size: 45px;
+            line-height: 1.2;
+            margin-bottom: 25px;
+        }
+
+        .about-content .description {
+            color: #704456;
+            line-height: 1.9;
+            margin-bottom: 30px;
+        }
+
+        /* ================= NEWSLETTER ================= */
+
+        .newsletter {
+            padding: 100px 8%;
+            text-align: center;
+        }
+
+        .newsletter h2 {
+            font-family: "Playfair Display", serif;
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .newsletter p {
+            color: #704456;
+            margin-bottom: 30px;
+        }
+
+        .newsletter-form {
+            display: flex;
+            max-width: 550px;
+            margin: auto;
+            background: white;
+            border: 1px solid #f3c3d5;
+            border-radius: 50px;
+            overflow: hidden;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            border: none;
+            padding: 17px 25px;
+            outline: none;
+            font-family: "Poppins", sans-serif;
+        }
+
+        .newsletter-form button {
+            border: none;
+            background: #c2185b;
+            color: white;
+            padding: 0 30px;
+            cursor: pointer;
+            font-family: "Poppins", sans-serif;
+            transition: 0.3s;
+        }
+
+        .newsletter-form button:hover {
+            background: #8e1746;
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            background: #3d1f2d;
+            color: white;
+            padding: 60px 8% 25px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 50px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            font-family: "Playfair Display", serif;
+            font-size: 30px;
+            color: #ff9ec2;
+            margin-bottom: 15px;
+        }
+
+        footer p {
+            color: #d9b8c7;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .footer-links h4 {
+            margin-bottom: 18px;
+            color: #ffc1d9;
+        }
+
+        .footer-links a {
+            display: block;
+            color: #d9b8c7;
+            text-decoration: none;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .footer-links a:hover {
+            color: #ff9ec2;
+        }
+
+        .copyright {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            text-align: center;
+            color: #b98b9e;
+            font-size: 13px;
+        }
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 900px) {
+
+            nav ul {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 50px;
+            }
+
+            .products {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .about {
+                grid-template-columns: 1fr;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+            .feature {
+                border-right: none;
+                border-bottom: 1px solid rgba(255,255,255,0.2);
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            nav {
+                padding: 15px 5%;
+            }
+
+            .nav-btn {
+                display: none;
+            }
+
+            .hero {
+                padding: 120px 7% 70px;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .products {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title h2,
+            .about-content h2,
+            .newsletter h2 {
+                font-size: 35px;
+            }
+
+            .luxury-banner h2 {
+                font-size: 36px;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+                border-radius: 15px;
+            }
+
+            .newsletter-form input {
+                width: 100%;
+            }
+
+            .newsletter-form button {
+                padding: 15px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+
+    <nav>
+        <div class="logo">MG <span>Dream Zone</span></div>
+
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#collection">Collection</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+
+        <a href="#collection" class="nav-btn">Shop Now</a>
+    </nav>
+
+
+    <!-- HERO SECTION -->
+
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <p class="hero-subtitle">WELCOME TO MG DREAM ZONE</p>
+
+            <h1>
+                Wear Your <span>Dreams</span><br>
+                Live Your Style
+            </h1>
+
+            <p>
+                Discover a world where elegance meets confidence.
+                MG Dream Zone brings you carefully selected fashion
+                designed to make every moment feel extraordinary.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="#collection" class="btn-primary">
+                    Explore Collection
+                </a>
+
+                <a href="#about" class="btn-secondary">
+                    Discover Our Story
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FEATURES -->
+
+    <section class="features">
+
+        <div class="feature">
+            <h3>Luxury Style</h3>
+            <p>Elegant fashion designed for every dream.</p>
+        </div>
+
+        <div class="feature">
+            <h3>Premium Quality</h3>
+            <p>Beautiful pieces selected with care.</p>
+        </div>
+
+        <div class="feature">
+            <h3>Dream Delivery</h3>
+            <p>Your favorite fashion delivered with love.</p>
+        </div>
+
+    </section>
+
+
+    <!-- COLLECTION -->
+
+    <section class="collection" id="collection">
+
+        <div class="section-title">
+
+            <p>OUR SIGNATURE STYLE</p>
+
+            <h2>New Luxury Collection</h2>
+
+        </div>
+
+
+        <div class="products">
+
+            <!-- Product 1 -->
+
+            <div class="product-card">
+
+                <div class="product-image">
+
+                    <img
+                    src="https://images.unsplash.com/photo-1539008835657-9e8e9680c956?auto=format&fit=crop&w=800&q=80"
+                    alt="Elegant Fashion">
+
+                </div>
+
+                <div class="product-info">
+
+                    <h3>Elegant Pink</h3>
+
+                    <p>Luxury Collection</p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Product 2 -->
+
+            <div class="product-card">
+
+                <div class="product-image">
+
+                    <img
+                    src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=800&q=80"
+                    alt="Modern Fashion">
+
+                </div>
+
+                <div class="product-info">
+
+                    <h3>Modern Muse</h3>
+
+                    <p>Premium Fashion</p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Product 3 -->
+
+            <div class="product-card">
+
+                <div class="product-image">
+
+                    <img
+                    src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=800&q=80"
+                    alt="Luxury Outfit">
+
+                </div>
+
+                <div class="product-info">
+
+                    <h3>Dream Collection</h3>
+
+                    <p>Exclusive Style</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- LUXURY BANNER -->
+
+    <section class="luxury-banner">
+
+        <p>MG DREAM ZONE EXCLUSIVE</p>
+
+        <h2>Fashion Made To Be Remembered</h2>
+
+        <p>
+            Discover timeless elegance and create your own beautiful story.
+        </p>
+
+        <a href="#collection" class="btn-primary">
+            Shop The Collection
+        </a>
+
+    </section>
+
+
+    <!-- ABOUT -->
+
+    <section class="about" id="about">
+
+        <div>
+
+            <img
+            src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=1000&q=80"
+            alt="MG Dream Zone Fashion">
+
+        </div>
+
+
+        <div class="about-content">
+
+            <p>OUR STORY</p>
+
+            <h2>
+                A Dream of Fashion,
+                Beauty & Confidence
+            </h2>
+
+            <p class="description">
+
+                MG Dream Zone is more than just a fashion store.
+                It is a place where style, confidence, creativity,
+                and dreams come together.
+
+                Our mission is to help you discover fashion that
+                makes you feel beautiful, confident, and unique.
+
+            </p>
+
+            <a href="#collection" class="btn-primary">
+                Discover More
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- NEWSLETTER -->
+
+    <section class="newsletter" id="contact">
+
+        <h2>Join The Dream</h2>
+
+        <p>
+            Be the first to discover new collections,
+            exclusive offers and luxury fashion inspiration.
+        </p>
+
+        <div class="newsletter-form">
+
+            <input
+            type="email"
+            id="email"
+            placeholder="Enter your email address">
+
+            <button onclick="subscribe()">
+                Join Now
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div class="footer-content">
+
+            <div>
+
+                <div class="footer-logo">
+                    MG Dream Zone
+                </div>
+
+                <p>
+                    Your destination for beautiful,
+                    elegant and inspiring fashion.
+                    Wear your dreams. Live your style.
+                </p>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <h4>Quick Links</h4>
+
+                <a href="#home">Home</a>
+
+                <a href="#collection">Collection</a>
+
+                <a href="#about">About Us</a>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <h4>Customer Care</h4>
+
+                <a href="#">Contact Us</a>
+
+                <a href="#">Delivery Information</a>
+
+                <a href="#">Privacy Policy</a>
+
+            </div>
+
+        </div>
+
+
+        <div class="copyright">
+
+            © 2026 MG Dream Zone. All Rights Reserved.
+            Designed with ♥ for Fashion Lovers.
+
+        </div>
+
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+        function subscribe() {
+
+            const email = document.getElementById("email").value;
+
+            if (email === "") {
+
+                alert("Please enter your email address.");
+
+            } else {
+
+                alert(
+                    "Welcome to MG Dream Zone! ✨ Thank you for joining us."
+                );
+
+                document.getElementById("email").value = "";
+            }
+
+        }
+
+    </script>
+
+</body>
+</html>
