@@ -3987,7 +3987,7 @@ document.getElementById("adminPhoto")
 
   });
 
-
+```javascript
 async function addProductFromHome() {
 
   const token =
@@ -3995,147 +3995,153 @@ async function addProductFromHome() {
       "mg_admin_access_token"
     );
 
-
   if (!token) {
-
     alert("Please login first.");
-
     return;
-
   }
 
-
-  const file =
-    document.getElementById(
-      "adminPhoto"
-    ).files[0];
+  const files = [
+    document.getElementById("adminPhoto").files[0],
+    document.getElementById("adminPhoto2").files[0],
+    document.getElementById("adminPhoto3").files[0],
+    document.getElementById("adminPhoto4").files[0]
+  ].filter(Boolean);
 
   const name =
-    document.getElementById(
-      "adminName"
-    ).value.trim();
+    document.getElementById("adminName").value.trim();
 
   const price =
-    document.getElementById(
-      "adminPrice"
-    ).value;
+    document.getElementById("adminPrice").value;
 
   const category =
-    document.getElementById(
-      "adminCategory"
-    ).value;
+    document.getElementById("adminCategory").value;
 
   const details =
-    document.getElementById(
-      "adminDetails"
-    ).value.trim();
-
+    document.getElementById("adminDetails").value.trim();
 
   const message =
-    document.getElementById(
-      "adminMessage"
-    );
+    document.getElementById("adminMessage");
 
-
-  if (!file ||
-      !name ||
-      !price ||
-      !category) {
+  if (
+    files.length === 0 ||
+    !name ||
+    !price ||
+    !category
+  ) {
 
     message.textContent =
-      "Please fill all required fields.";
+      "Please add at least Photo 1 and fill all required fields.";
 
     message.style.color =
       "crimson";
 
     return;
-
   }
 
-
   const button =
-    document.getElementById(
-      "adminAddButton"
-    );
+    document.getElementById("adminAddButton");
 
-
-  button.disabled =
-    true;
-
-  button.textContent =
-    "Uploading...";
-
+  button.disabled = true;
+  button.textContent = "Uploading...";
 
   try {
 
-    const extension =
-      file.name.includes(".")
-        ? file.name.substring(
-            file.name.lastIndexOf(".")
-          )
-        : "";
+    const imageURLs = [];
 
+    for (let i = 0; i < files.length; i++) {
 
-    const safeName =
-      name
-        .toLowerCase()
-        .replace(/[^a-z0-9]+/g, "-");
+      const file = files[i];
 
+      const extension =
+        file.name.includes(".")
+          ? file.name.substring(
+              file.name.lastIndexOf(".")
+            )
+          : "";
 
-    const fileName =
-      Date.now() +
-      "-" +
-      safeName +
-      extension;
+      const safeName =
+        name
+          .toLowerCase()
+          .replace(/[^a-z0-9]+/g, "-");
 
+      const fileName =
+        Date.now() +
+        "-" +
+        i +
+        "-" +
+        safeName +
+        extension;
 
-    /* UPLOAD PHOTO */
+      const uploadResponse =
+        await fetch(
+          ADMIN_SUPABASE_URL +
+          "/storage/v1/object/" +
+          ADMIN_BUCKET +
+          "/" +
+          fileName,
+          {
+            method: "POST",
 
-    const uploadResponse =
-      await fetch(
+            headers: {
+              "apikey":
+                ADMIN_SUPABASE_KEY,
+
+              "Authorization":
+                "Bearer " + token,
+
+              "Content-Type":
+                file.type
+            },
+
+            body: file
+          }
+        );
+
+      if (!uploadResponse.ok) {
+
+        throw new Error(
+          "Photo " +
+          (i + 1) +
+          " upload failed: " +
+          await uploadResponse.text()
+        );
+      }
+
+      const imageURL =
         ADMIN_SUPABASE_URL +
-        "/storage/v1/object/" +
+        "/storage/v1/object/public/" +
         ADMIN_BUCKET +
         "/" +
-        fileName,
-        {
-          method: "POST",
+        fileName;
 
-          headers: {
-            "apikey":
-              ADMIN_SUPABASE_KEY,
-
-            "Authorization":
-              "Bearer " + token,
-
-            "Content-Type":
-              file.type
-          },
-
-          body: file
-        }
-      );
-
-
-    if (!uploadResponse.ok) {
-
-      throw new Error(
-        "Photo upload failed: " +
-        await uploadResponse.text()
-      );
-
+      imageURLs.push(imageURL);
     }
 
 
-    const imageURL =
-      ADMIN_SUPABASE_URL +
-      "/storage/v1/object/public/" +
-      ADMIN_BUCKET +
-      "/" +
-      fileName;
+    const productData = {
 
+      name: name,
 
-    /* SAVE PRODUCT */
+      price: Number(price),
+
+      category: category,
+
+      image_url:
+        imageURLs[0] || null,
+
+      image_url_2:
+        imageURLs[1] || null,
+
+      image_url_3:
+        imageURLs[2] || null,
+
+      image_url_4:
+        imageURLs[3] || null,
+
+      details: details
+
+    };
+
 
     const productResponse =
       await fetch(
@@ -4158,19 +4164,8 @@ async function addProductFromHome() {
               "return=minimal"
           },
 
-          body: JSON.stringify({
-
-            name: name,
-
-            price: Number(price),
-
-            category: category,
-
-            image_url: imageURL,
-
-            details: details
-
-          })
+          body:
+            JSON.stringify(productData)
         }
       );
 
@@ -4181,7 +4176,6 @@ async function addProductFromHome() {
         "Product could not be saved: " +
         await productResponse.text()
       );
-
     }
 
 
@@ -4197,6 +4191,18 @@ async function addProductFromHome() {
     ).value = "";
 
     document.getElementById(
+      "adminPhoto2"
+    ).value = "";
+
+    document.getElementById(
+      "adminPhoto3"
+    ).value = "";
+
+    document.getElementById(
+      "adminPhoto4"
+    ).value = "";
+
+    document.getElementById(
       "adminName"
     ).value = "";
 
@@ -4205,25 +4211,8 @@ async function addProductFromHome() {
     ).value = "";
 
     document.getElementById(
-      "adminCategory"
-    ).value = "";
-
-    document.getElementById(
       "adminDetails"
     ).value = "";
-
-    document.getElementById(
-      "adminPreview"
-    ).style.display = "none";
-
-
-    /* Reload products if existing function exists */
-
-    if (typeof loadSupabaseProducts === "function") {
-
-      await loadSupabaseProducts();
-
-    }
 
 
   } catch (error) {
@@ -4244,9 +4233,12 @@ async function addProductFromHome() {
     button.textContent =
       "ADD PRODUCT";
 
-   }
+  }
 
 }
+```
+
+
 </script>
 
 <!-- ================================
