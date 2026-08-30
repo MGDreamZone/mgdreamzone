@@ -1,1 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MG DREAM ZONE - Add Product</title>
 
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f8f3f6;
+      color: #333;
+    }
+
+    .container {
+      max-width: 650px;
+      margin: 30px auto;
+      padding: 20px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 18px;
+      padding: 25px;
+      box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+    }
+
+    h1 {
+      text-align: center;
+      color: #b03a72;
+      margin-bottom: 5px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-top: 5px;
+      color: #555;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin: 18px 0 7px;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      font-size: 16px;
+      outline: none;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: #b03a72;
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    #preview {
+      display: none;
+      width: 180px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin: 15px auto;
+      border: 2px solid #eee;
+    }
+
+    button {
+      width: 100%;
+      margin-top: 25px;
+      padding: 15px;
+      border: none;
+      border-radius: 10px;
+      background: #b03a72;
+      color: white;
+      font-size: 17px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #922d5d;
+    }
+
+    button:disabled {
+      background: #aaa;
+      cursor: not-allowed;
+    }
+
+    #message {
+      margin-top: 18px;
+      text-align: center;
+      font-weight: bold;
+      line-height: 1.5;
+    }
+
+    .back-link {
+      display: block;
+      text-align: center;
+      margin-top: 18px;
+      color: #b03a72;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .note {
+      text-align: center;
+      color: #777;
+      font-size: 13px;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <div class="card">
+
+      <h1>MG DREAM ZONE</h1>
+      <h2>Add New Product</h2>
+
+      <!-- PHOTO -->
+      <label for="photo">Product Photo</label>
+      <input
+        id="photo"
+        type="file"
+        accept="image/*"
+      >
+
+      <img
+        id="preview"
+        alt="Product Preview"
+      >
+
+      <!-- NAME -->
+      <label for="name">Product Name</label>
+      <input
+        id="name"
+        type="text"
+        placeholder="Example: Blush Grace Dress"
+      >
+
+      <!-- PRICE -->
+      <label for="price">Price</label>
+      <input
+        id="price"
+        type="number"
+        min="0"
+        step="0.01"
+        placeholder="3500"
+      >
+
+      <!-- CATEGORY -->
+      <label for="category">Category</label>
+      <select id="category">
+
+        <option value="">
+          Select Category
+        </option>
+
+        <option value="Dresses">
+          Dresses
+        </option>
+
+        <option value="Tops">
+          Tops
+        </option>
+
+        <option value="Bottoms">
+          Bottoms
+        </option>
+
+        <option value="Kids">
+          Kids
+        </option>
+
+        <option value="Accessories">
+          Accessories
+        </option>
+
+        <option value="Beauty">
+          Beauty
+        </option>
+
+        <option value="Other">
+          Other
+        </option>
+
+      </select>
+
+      <!-- DETAILS -->
+      <label for="details">Product Details</label>
+
+      <textarea
+        id="details"
+        placeholder="Enter sizes, colours, material, availability etc."
+      ></textarea>
+
+      <!-- ADD BUTTON -->
+      <button
+        id="addBtn"
+        type="button"
+      >
+        ADD PRODUCT
+      </button>
+
+      <!-- MESSAGE -->
+      <div id="message"></div>
+
+      <a
+        class="back-link"
+        href="index.html"
+      >
+        ← Back to Shop
+      </a>
+
+      <div class="note">
+        Product photo and details will be saved automatically.
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <script>
+
+    /* =========================================================
+       SUPABASE SETTINGS
+       ========================================================= */
+
+    const SUPABASE_URL =
+      "https://fbyofjnguoadmgaxgaxw.supabase.co";
+
+    const SUPABASE_KEY =
+      "sb_publishable_RW7ymqiUq4Qor-LuQErzHA_snTpHTTJ";
+
+    const STORAGE_BUCKET =
+      "product-images";
+
+
+    /* =========================================================
+       ELEMENTS
+       ========================================================= */
+
+    const photoInput =
+      document.getElementById("photo");
+
+    const preview =
+      document.getElementById("preview");
+
+    const addButton =
+      document.getElementById("addBtn");
+
+    const message =
+      document.getElementById("message");
+
+
+    /* =========================================================
+       MESSAGE FUNCTION
+       ========================================================= */
+
+    function showMessage(text, success = false) {
+
+      message.textContent = text;
+
+      if (success) {
+        message.style.color = "green";
+      } else {
+        message.style.color = "crimson";
+      }
+
+    }
+
+
+    /* =========================================================
+       IMAGE PREVIEW
+       ========================================================= */
+
+    photoInput.addEventListener("change", function () {
+
+      const file =
+        photoInput.files[0];
+
+      if (!file) {
+
+        preview.style.display = "none";
+
+        return;
+      }
+
+      const imageURL =
+        URL.createObjectURL(file);
+
+      preview.src =
+        imageURL;
+
+      preview.style.display =
+        "block";
+
+    });
+
+
+    /* =========================================================
+       ADD PRODUCT
+       ========================================================= */
+
+    addButton.addEventListener("click", async function () {
+
+      const file =
+        photoInput.files[0];
+
+      const name =
+        document.getElementById("name").value.trim();
+
+      const price =
+        document.getElementById("price").value;
+
+      const category =
+        document.getElementById("category").value;
+
+      const details =
+        document.getElementById("details").value.trim();
+
+
+      /* ---------------------------------------------------------
+         CHECK REQUIRED FIELDS
+         --------------------------------------------------------- */
+
+      if (!file) {
+
+        showMessage(
+          "Please select a product photo."
+        );
+
+        return;
+      }
+
+
+      if (!name) {
+
+        showMessage(
+          "Please enter the product name."
+        );
+
+        return;
+      }
+
+
+      if (!price) {
+
+        showMessage(
+          "Please enter the price."
+        );
+
+        return;
+      }
+
+
+      if (!category) {
+
+        showMessage(
+          "Please select a category."
+        );
+
+        return;
+      }
+
+
+      /* ---------------------------------------------------------
+         START
+         --------------------------------------------------------- */
+
+      addButton.disabled =
+        true;
+
+      addButton.textContent =
+        "Uploading...";
+
+      showMessage(
+        "Uploading product, please wait..."
+      );
+
+
+      try {
+
+        /* =======================================================
+           CREATE UNIQUE IMAGE NAME
+           ======================================================= */
+
+        const fileExtension =
+          file.name.includes(".")
+            ? file.name.substring(
+                file.name.lastIndexOf(".")
+              )
+            : "";
+
+        const safeName =
+          name
+            .toLowerCase()
+            .replace(/[^a-z0-9]+/g, "-")
+            .replace(/^-+|-+$/g, "");
+
+        const fileName =
+          Date.now() +
+          "-" +
+          safeName +
+          fileExtension;
+
+
+        /* =======================================================
+           UPLOAD IMAGE TO SUPABASE STORAGE
+           ======================================================= */
+
+        const uploadURL =
+          SUPABASE_URL +
+          "/storage/v1/object/" +
+          STORAGE_BUCKET +
+          "/" +
+          fileName;
+
+
+        const uploadResponse =
+          await fetch(
+            uploadURL,
+            {
+              method: "POST",
+
+              headers: {
+                "apikey": SUPABASE_KEY,
+                "Authorization":
+                  "Bearer " + SUPABASE_KEY,
+                "Content-Type":
+                  file.type ||
+                  "application/octet-stream",
+                "x-upsert":
+                  "false"
+              },
+
+              body: file
+            }
+          );
+
+
+        if (!uploadResponse.ok) {
+
+          const errorText =
+            await uploadResponse.text();
+
+          throw new Error(
+            "Photo upload failed: " +
+            errorText
+          );
+
+        }
+
+
+        /* =======================================================
+           PUBLIC IMAGE URL
+           ======================================================= */
+
+        const imageURL =
+          SUPABASE_URL +
+          "/storage/v1/object/public/" +
+          STORAGE_BUCKET +
+          "/" +
+          fileName;
+
+
+        /* =======================================================
+           SAVE PRODUCT TO DATABASE
+           ======================================================= */
+
+        const productURL =
+          SUPABASE_URL +
+          "/rest/v1/products";
+
+
+        const productResponse =
+          await fetch(
+            productURL,
+            {
+              method: "POST",
+
+              headers: {
+
+                "apikey":
+                  SUPABASE_KEY,
+
+                "Authorization":
+                  "Bearer " +
+                  SUPABASE_KEY,
+
+                "Content-Type":
+                  "application/json",
+
+                "Prefer":
+                  "return=minimal"
+
+              },
+
+              body: JSON.stringify({
+
+                name:
+                  name,
+
+                price:
+                  Number(price),
+
+                category:
+                  category,
+
+                details:
+                  details,
+
+                image_url:
+                  imageURL
+
+              })
+            }
+          );
+
+
+        if (!productResponse.ok) {
+
+          const errorText =
+            await productResponse.text();
+
+          throw new Error(
+            "Product could not be saved: " +
+            errorText
+          );
+
+        }
+
+
+        /* =======================================================
+           SUCCESS
+           ======================================================= */
+
+        showMessage(
+          "Product added successfully! ❤️",
+          true
+        );
+
+
+        /* CLEAR FORM */
+
+        photoInput.value =
+          "";
+
+        preview.src =
+          "";
+
+        preview.style.display =
+          "none";
+
+        document.getElementById(
+          "name"
+        ).value = "";
+
+        document.getElementById(
+          "price"
+        ).value = "";
+
+        document.getElementById(
+          "category"
+        ).value = "";
+
+        document.getElementById(
+          "details"
+        ).value = "";
+
+
+      } catch (error) {
+
+        console.error(
+          "PRODUCT ERROR:",
+          error
+        );
+
+        showMessage(
+          error.message ||
+          "Something went wrong."
+        );
+
+      } finally {
+
+        addButton.disabled =
+          false;
+
+        addButton.textContent =
+          "ADD PRODUCT";
+
+      }
+
+    });
+
+  </script>
+
+</body>
+</html>
