@@ -3797,11 +3797,33 @@ const ADMIN_BUCKET =
 
 function openAdmin() {
 
-  document.getElementById("adminOverlay").style.display =
-    "block";
+  const overlay =
+    document.getElementById("adminOverlay");
+
+  const login =
+    document.getElementById("adminLogin");
+
+  const productForm =
+    document.getElementById("productForm");
+
+  const message =
+    document.getElementById("adminMessage");
+
+
+  overlay.style.display = "block";
+
+  /* Always show login when Admin is opened */
+  login.style.display = "block";
+
+  /* Hide product form until login */
+  productForm.style.display = "none";
+
+  /* Clear old message */
+  if (message) {
+    message.textContent = "";
+  }
 
 }
-
 
 function closeAdmin() {
 
