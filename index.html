@@ -4200,7 +4200,816 @@ async function addProductFromHome() {
   }
 
 }
+<!-- ================================
+     MANAGE PRODUCTS
+     ================================ -->
 
+<style>
+#manageProductsBtn {
+  width: 100%;
+  padding: 13px;
+  margin-top: 12px;
+  border: none;
+  border-radius: 9px;
+  background: #444;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#manageProductsPanel {
+  display: none;
+  margin-top: 20px;
+}
+
+.manageProduct {
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 12px;
+  margin-bottom: 12px;
+  background: #fafafa;
+}
+
+.manageProduct img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+  float: left;
+  margin-right: 12px;
+}
+
+.manageProductInfo {
+  min-height: 80px;
+}
+
+.manageProductButtons {
+  clear: both;
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.manageProductButtons button {
+  flex: 1;
+  padding: 9px;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.editProductBtn {
+  background: #b03a72;
+  color: white;
+}
+
+.deleteProductBtn {
+  background: #d9534f;
+  color: white;
+}
+
+#editProductBox {
+  display: none;
+  margin-top: 20px;
+  padding: 15px;
+  border-radius: 12px;
+  background: #f7f7f7;
+}
+
+#editProductBox h3 {
+  color: #b03a72;
+}
+
+.editInput,
+.editSelect,
+.editTextarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 11px;
+  margin: 6px 0 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 15px;
+}
+
+.editTextarea {
+  min-height: 90px;
+}
+
+.updateProductBtn {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: #b03a72;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.cancelEditBtn {
+  width: 100%;
+  padding: 10px;
+  margin-top: 8px;
+  border: none;
+  border-radius: 8px;
+  background: #ddd;
+  cursor: pointer;
+}
+</style>
+
+
+<script>
+
+let productBeingEdited = null;
+
+
+/* ==========================================
+   MANAGE PRODUCTS BUTTON
+   ========================================== */
+
+function createManageProductsButton() {
+
+  const productForm =
+    document.getElementById("productForm");
+
+  if (!productForm) return;
+
+  if (document.getElementById("manageProductsBtn")) {
+    return;
+  }
+
+  const button =
+    document.createElement("button");
+
+  button.id =
+    "manageProductsBtn";
+
+  button.textContent =
+    "✏️ Manage Products";
+
+  button.onclick =
+    loadManageProducts;
+
+  productForm.appendChild(button);
+
+}
+
+
+/* ==========================================
+   LOAD PRODUCTS
+   ========================================== */
+
+async function loadManageProducts() {
+
+  const token =
+    sessionStorage.getItem(
+      "mg_admin_access_token"
+    );
+
+  if (!token) {
+
+    alert("Please login first.");
+
+    return;
+
+  }
+
+
+  let panel =
+    document.getElementById(
+      "manageProductsPanel"
+    );
+
+
+  if (!panel) {
+
+    panel =
+      document.createElement("div");
+
+    panel.id =
+      "manageProductsPanel";
+
+    document.getElementById(
+      "productForm"
+    ).appendChild(panel);
+
+  }
+
+
+  panel.style.display =
+    "block";
+
+  panel.innerHTML =
+    "<p>Loading products...</p>";
+
+
+  try {
+
+    const response =
+      await fetch(
+        ADMIN_SUPABASE_URL +
+        "/rest/v1/products?select=*&order=id.desc",
+        {
+          headers: {
+            "apikey":
+              ADMIN_SUPABASE_KEY,
+
+            "Authorization":
+              "Bearer " + token
+          }
+        }
+      );
+
+
+    if (!response.ok) {
+
+      throw new Error(
+        await response.text()
+      );
+
+    }
+
+
+    const products =
+      await response.json();
+
+
+    if (!products.length) {
+
+      panel.innerHTML =
+        "<p>No products found.</p>";
+
+      return;
+
+    }
+
+
+    panel.innerHTML =
+      "<h3>🛍️ Your Products</h3>";
+
+
+    products.forEach(function(product) {
+
+      const item =
+        document.createElement("div");
+
+      item.className =
+        "manageProduct";
+
+
+      item.innerHTML = `
+
+        <img
+          src="${escapeHTML(product.image_url || "")}"
+          alt=""
+        >
+
+        <div class="manageProductInfo">
+
+          <strong>
+            ${escapeHTML(product.name || "Product")}
+          </strong>
+
+          <br>
+
+          Rs.
+          ${Number(product.price || 0).toLocaleString()}
+
+          <br>
+
+          <small>
+            ${escapeHTML(product.category || "")}
+          </small>
+
+        </div>
+
+        <div class="manageProductButtons">
+
+          <button
+            class="editProductBtn"
+            onclick="openEditProduct(${Number(product.id)})"
+          >
+            ✏️ Edit
+          </button>
+
+          <button
+            class="deleteProductBtn"
+            onclick="deleteProduct(${Number(product.id)})"
+          >
+            🗑️ Delete
+          </button>
+
+        </div>
+      `;
+
+
+      panel.appendChild(item);
+
+    });
+
+
+    window.mgProducts =
+      products;
+
+
+  } catch (error) {
+
+    panel.innerHTML =
+      "<p style='color:red'>" +
+      escapeHTML(error.message) +
+      "</p>";
+
+  }
+
+}
+
+
+/* ==========================================
+   EDIT PRODUCT
+   ========================================== */
+
+function openEditProduct(id) {
+
+  const product =
+    (window.mgProducts || [])
+      .find(function(item) {
+
+        return Number(item.id) === Number(id);
+
+      });
+
+
+  if (!product) {
+
+    alert("Product not found.");
+
+    return;
+
+  }
+
+
+  productBeingEdited =
+    product;
+
+
+  let box =
+    document.getElementById(
+      "editProductBox"
+    );
+
+
+  if (!box) {
+
+    box =
+      document.createElement("div");
+
+    box.id =
+      "editProductBox";
+
+    document.getElementById(
+      "manageProductsPanel"
+    ).appendChild(box);
+
+  }
+
+
+  box.style.display =
+    "block";
+
+
+  box.innerHTML = `
+
+    <h3>✏️ Edit Product</h3>
+
+    <label>Product Name</label>
+
+    <input
+      id="editName"
+      class="editInput"
+      type="text"
+      value="${escapeAttribute(product.name || "")}"
+    >
+
+    <label>Price</label>
+
+    <input
+      id="editPrice"
+      class="editInput"
+      type="number"
+      value="${Number(product.price || 0)}"
+    >
+
+    <label>Category</label>
+
+    <select
+      id="editCategory"
+      class="editSelect"
+    >
+
+      <option value="Dresses">Dresses</option>
+      <option value="Tops">Tops</option>
+      <option value="Bottoms">Bottoms</option>
+      <option value="Kids">Kids</option>
+      <option value="Accessories">Accessories</option>
+      <option value="Beauty">Beauty</option>
+      <option value="Other">Other</option>
+
+    </select>
+
+    <label>Details</label>
+
+    <textarea
+      id="editDetails"
+      class="editTextarea"
+    >${escapeHTML(product.details || "")}</textarea>
+
+
+    <button
+      class="updateProductBtn"
+      onclick="updateProduct()"
+    >
+      💾 SAVE CHANGES
+    </button>
+
+    <button
+      class="cancelEditBtn"
+      onclick="cancelEdit()"
+    >
+      CANCEL
+    </button>
+
+  `;
+
+
+  document.getElementById(
+    "editCategory"
+  ).value =
+    product.category || "Other";
+
+
+  box.scrollIntoView({
+    behavior: "smooth"
+  });
+
+}
+
+
+/* ==========================================
+   UPDATE PRODUCT
+   ========================================== */
+
+async function updateProduct() {
+
+  const token =
+    sessionStorage.getItem(
+      "mg_admin_access_token"
+    );
+
+
+  if (!token) {
+
+    alert("Please login first.");
+
+    return;
+
+  }
+
+
+  if (!productBeingEdited) {
+
+    return;
+
+  }
+
+
+  const name =
+    document.getElementById(
+      "editName"
+    ).value.trim();
+
+
+  const price =
+    document.getElementById(
+      "editPrice"
+    ).value;
+
+
+  const category =
+    document.getElementById(
+      "editCategory"
+    ).value;
+
+
+  const details =
+    document.getElementById(
+      "editDetails"
+    ).value.trim();
+
+
+  if (!name || !price || !category) {
+
+    alert(
+      "Please fill all required fields."
+    );
+
+    return;
+
+  }
+
+
+  try {
+
+    const response =
+      await fetch(
+        ADMIN_SUPABASE_URL +
+        "/rest/v1/products?id=eq." +
+        encodeURIComponent(
+          productBeingEdited.id
+        ),
+        {
+          method: "PATCH",
+
+          headers: {
+
+            "apikey":
+              ADMIN_SUPABASE_KEY,
+
+            "Authorization":
+              "Bearer " + token,
+
+            "Content-Type":
+              "application/json",
+
+            "Prefer":
+              "return=minimal"
+
+          },
+
+          body: JSON.stringify({
+
+            name: name,
+
+            price: Number(price),
+
+            category: category,
+
+            details: details
+
+          })
+
+        }
+      );
+
+
+    if (!response.ok) {
+
+      throw new Error(
+        await response.text()
+      );
+
+    }
+
+
+    alert(
+      "Product updated successfully! ❤️"
+    );
+
+
+    productBeingEdited =
+      null;
+
+
+    const box =
+      document.getElementById(
+        "editProductBox"
+      );
+
+
+    if (box) {
+
+      box.style.display =
+        "none";
+
+    }
+
+
+    await loadManageProducts();
+
+
+    if (
+      typeof loadSupabaseProducts ===
+      "function"
+    ) {
+
+      await loadSupabaseProducts();
+
+    }
+
+
+  } catch (error) {
+
+    alert(
+      "Update failed: " +
+      error.message
+    );
+
+  }
+
+}
+
+
+/* ==========================================
+   DELETE PRODUCT
+   ========================================== */
+
+async function deleteProduct(id) {
+
+  const token =
+    sessionStorage.getItem(
+      "mg_admin_access_token"
+    );
+
+
+  if (!token) {
+
+    alert("Please login first.");
+
+    return;
+
+  }
+
+
+  const product =
+    (window.mgProducts || [])
+      .find(function(item) {
+
+        return Number(item.id) === Number(id);
+
+      });
+
+
+  const productName =
+    product
+      ? product.name
+      : "this product";
+
+
+  const confirmed =
+    confirm(
+      "Delete " +
+      productName +
+      " permanently?"
+    );
+
+
+  if (!confirmed) {
+
+    return;
+
+  }
+
+
+  try {
+
+    const response =
+      await fetch(
+        ADMIN_SUPABASE_URL +
+        "/rest/v1/products?id=eq." +
+        encodeURIComponent(id),
+        {
+          method: "DELETE",
+
+          headers: {
+
+            "apikey":
+              ADMIN_SUPABASE_KEY,
+
+            "Authorization":
+              "Bearer " + token,
+
+            "Prefer":
+              "return=minimal"
+
+          }
+
+        }
+      );
+
+
+    if (!response.ok) {
+
+      throw new Error(
+        await response.text()
+      );
+
+    }
+
+
+    alert(
+      "Product deleted successfully."
+    );
+
+
+    await loadManageProducts();
+
+
+    if (
+      typeof loadSupabaseProducts ===
+      "function"
+    ) {
+
+      await loadSupabaseProducts();
+
+    }
+
+
+  } catch (error) {
+
+    alert(
+      "Delete failed: " +
+      error.message
+    );
+
+  }
+
+}
+
+
+/* ==========================================
+   CANCEL EDIT
+   ========================================== */
+
+function cancelEdit() {
+
+  productBeingEdited =
+    null;
+
+
+  const box =
+    document.getElementById(
+      "editProductBox"
+    );
+
+
+  if (box) {
+
+    box.style.display =
+      "none";
+
+  }
+
+}
+
+
+/* ==========================================
+   SECURITY HELPERS
+   ========================================== */
+
+function escapeHTML(value) {
+
+  return String(value || "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+
+}
+
+
+function escapeAttribute(value) {
+
+  return escapeHTML(value);
+
+}
+
+
+/* ==========================================
+   ADD MANAGE BUTTON AFTER LOGIN
+   ========================================== */
+
+const oldAdminLogin =
+  window.adminLogin;
+
+
+if (typeof oldAdminLogin === "function") {
+
+  console.log(
+    "Admin login detected."
+  );
+
+}
+
+
+setTimeout(
+  createManageProductsButton,
+  1000
+);
+
+</script>
 </script>
 </body>
 </html>
