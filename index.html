@@ -4577,30 +4577,18 @@ function openEditProduct(id) {
   const product =
     (window.mgProducts || [])
       .find(function(item) {
-
         return Number(item.id) === Number(id);
-
       });
 
-
   if (!product) {
-
     alert("Product not found.");
-
     return;
-
   }
 
-
-  productBeingEdited =
-    product;
-
+  productBeingEdited = product;
 
   let box =
-    document.getElementById(
-      "editProductBox"
-    );
-
+    document.getElementById("editProductBox");
 
   if (!box) {
 
@@ -4613,17 +4601,45 @@ function openEditProduct(id) {
     document.getElementById(
       "manageProductsPanel"
     ).appendChild(box);
-
   }
 
-
-  box.style.display =
-    "block";
-
+  box.style.display = "block";
 
   box.innerHTML = `
 
     <h3>✏️ Edit Product</h3>
+
+    <label>Photo 1</label>
+    <input
+      id="editPhoto1"
+      class="editInput"
+      type="file"
+      accept="image/*"
+    >
+
+    <label>Photo 2</label>
+    <input
+      id="editPhoto2"
+      class="editInput"
+      type="file"
+      accept="image/*"
+    >
+
+    <label>Photo 3</label>
+    <input
+      id="editPhoto3"
+      class="editInput"
+      type="file"
+      accept="image/*"
+    >
+
+    <label>Photo 4</label>
+    <input
+      id="editPhoto4"
+      class="editInput"
+      type="file"
+      accept="image/*"
+    >
 
     <label>Product Name</label>
 
@@ -4667,7 +4683,6 @@ function openEditProduct(id) {
       class="editTextarea"
     >${escapeHTML(product.details || "")}</textarea>
 
-
     <button
       class="updateProductBtn"
       onclick="updateProduct()"
@@ -4684,12 +4699,10 @@ function openEditProduct(id) {
 
   `;
 
-
   document.getElementById(
     "editCategory"
   ).value =
     product.category || "Other";
-
 
   box.scrollIntoView({
     behavior: "smooth"
