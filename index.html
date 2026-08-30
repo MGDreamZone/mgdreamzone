@@ -4722,40 +4722,30 @@ async function updateProduct() {
       "mg_admin_access_token"
     );
 
-
   if (!token) {
-
     alert("Please login first.");
-
     return;
-
   }
-
 
   if (!productBeingEdited) {
-
+    alert("No product selected.");
     return;
-
   }
-
 
   const name =
     document.getElementById(
       "editName"
     ).value.trim();
 
-
   const price =
     document.getElementById(
       "editPrice"
     ).value;
 
-
   const category =
     document.getElementById(
       "editCategory"
     ).value;
-
 
   const details =
     document.getElementById(
@@ -4764,17 +4754,155 @@ async function updateProduct() {
 
 
   if (!name || !price || !category) {
-
     alert(
       "Please fill all required fields."
     );
-
     return;
-
   }
 
 
+  const files = [
+    document.getElementById("editPhoto1").files[0],
+    document.getElementById("editPhoto2").files[0],
+    document.getElementById("editPhoto3").files[0],
+    document.getElementById("editPhoto4").files[0]
+  ];
+
+
   try {
+
+    const updates = {
+
+      name: name,
+
+      price: Number(price),
+
+      category: category,
+
+      details: details
+
+    };
+
+
+    /* ================================
+       UPLOAD NEW PHOTOS
+       ================================ */
+
+    for (
+      let i = 0;
+      i < files.length;
+      i++
+    ) {
+
+      const file = files[i];
+
+      if (!file) {
+        continue;
+      }
+
+
+      const extension =
+        file.name.includes(".")
+          ? file.name.substring(
+              file.name.lastIndexOf(".")
+            )
+          : "";
+
+
+      const safeName =
+        name
+          .toLowerCase()
+          .replace(
+            /[^a-z0-9]+/g,
+            "-"
+          );
+
+
+      const fileName =
+        Date.now() +
+        "-" +
+        i +
+        "-" +
+        safeName +
+        extension;
+
+
+      const uploadResponse =
+        await fetch(
+          ADMIN_SUPABASE_URL +
+          "/storage/v1/object/" +
+          ADMIN_BUCKET +
+          "/" +
+          fileName,
+          {
+
+            method: "POST",
+
+            headers: {
+
+              "apikey":
+                ADMIN_SUPABASE_KEY,
+
+              "Authorization":
+                "Bearer " + token,
+
+              "Content-Type":
+                file.type
+
+            },
+
+            body: file
+
+          }
+        );
+
+
+      if (!uploadResponse.ok) {
+
+        throw new Error(
+          "Photo " +
+          (i + 1) +
+          " upload failed: " +
+          await uploadResponse.text()
+        );
+
+      }
+
+
+      const imageURL =
+        ADMIN_SUPABASE_URL +
+        "/storage/v1/object/public/" +
+        ADMIN_BUCKET +
+        "/" +
+        fileName;
+
+
+      if (i === 0) {
+        updates.image_url =
+          imageURL;
+      }
+
+      if (i === 1) {
+        updates.image_url_2 =
+          imageURL;
+      }
+
+      if (i === 2) {
+        updates.image_url_3 =
+          imageURL;
+      }
+
+      if (i === 3) {
+        updates.image_url_4 =
+          imageURL;
+      }
+
+    }
+
+
+    /* ================================
+       UPDATE PRODUCT
+       ================================ */
 
     const response =
       await fetch(
@@ -4784,6 +4912,7 @@ async function updateProduct() {
           productBeingEdited.id
         ),
         {
+
           method: "PATCH",
 
           headers: {
@@ -4802,17 +4931,10 @@ async function updateProduct() {
 
           },
 
-          body: JSON.stringify({
-
-            name: name,
-
-            price: Number(price),
-
-            category: category,
-
-            details: details
-
-          })
+          body:
+            JSON.stringify(
+              updates
+            )
 
         }
       );
@@ -4865,6 +4987,8 @@ async function updateProduct() {
 
   } catch (error) {
 
+    console.error(error);
+
     alert(
       "Update failed: " +
       error.message
@@ -4873,7 +4997,6 @@ async function updateProduct() {
   }
 
 }
-
 
 /* ==========================================
    DELETE PRODUCT
