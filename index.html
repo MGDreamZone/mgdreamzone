@@ -3502,6 +3502,28 @@ loadSupabaseProducts();
     }
 
   </script>
+  function subscribeNewsletter(event) {
 
+      event.preventDefault();
+
+      const email =
+        document
+          .getElementById("emailInput")
+          .value;
+
+      if (!email) return;
+
+      document.getElementById("newsletterMsg")
+        .style.display = "block";
+
+      document.getElementById("emailInput")
+        .value = "";
+
+    }
+
+  </script>
+
+</body>
+</html>
 </body>
 </html>
