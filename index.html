@@ -1,2423 +1,4189 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>MG DREAM ZONE | Women's Fashion Boutique</title>
-
-  <meta
-    name="description"
-    content="MG DREAM ZONE - Elegant women's fashion, dresses, saree jackets, kids wear and custom-made clothing in Sri Lanka."
-  >
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
-    rel="stylesheet"
-  >
-
-  <style>
-    :root {
-      --pink: #c76c91;
-      --pink-dark: #a74f73;
-      --pink-soft: #f9edf3;
-      --lavender: #9d8ac2;
-      --lavender-soft: #f2eef9;
-      --cream: #fffdfc;
-      --white: #ffffff;
-      --black: #292329;
-      --muted: #746b73;
-      --border: #eee5eb;
-      --success: #238b57;
-      --shadow: 0 14px 45px rgba(46, 30, 42, 0.10);
-      --radius: 18px;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: "DM Sans", sans-serif;
-      color: var(--black);
-      background: var(--cream);
-      line-height: 1.6;
-    }
-
-    body.no-scroll {
-      overflow: hidden;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    button,
-    input,
-    select {
-      font: inherit;
-    }
-
-    button {
-      cursor: pointer;
-    }
-
-    img {
-      width: 100%;
-      display: block;
-    }
-
-    .container {
-      width: min(1180px, 92%);
-      margin: auto;
-    }
-
-    .serif {
-      font-family: "Playfair Display", serif;
-    }
-
-    /* =========================
-       TOP BAR
-    ========================== */
-
-    .topbar {
-      background: var(--black);
-      color: #fff;
-      text-align: center;
-      padding: 9px 15px;
-      font-size: 12px;
-      letter-spacing: .4px;
-    }
-
-    /* =========================
-       HEADER
-    ========================== */
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: rgba(255,253,252,.96);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .header-main {
-      height: 78px;
-      display: grid;
-      grid-template-columns: 1fr auto 1fr;
-      align-items: center;
-      gap: 25px;
-    }
-
-    .desktop-nav {
-      display: flex;
-      gap: 24px;
-      align-items: center;
-      font-size: 13px;
-      font-weight: 500;
-    }
-
-    .desktop-nav a {
-      position: relative;
-      transition: .25s;
-    }
-
-    .desktop-nav a:hover {
-      color: var(--pink);
-    }
-
-    .brand {
-      text-align: center;
-      line-height: 1;
-    }
-
-    .brand-name {
-      font-family: "Playfair Display", serif;
-      font-size: 28px;
-      font-weight: 700;
-      letter-spacing: .5px;
-      color: var(--pink-dark);
-    }
-
-    .brand-tagline {
-      font-size: 8px;
-      letter-spacing: 3px;
-      margin-top: 7px;
-      color: var(--lavender);
-      font-weight: 700;
-    }
-
-    .header-actions {
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .icon-btn {
-      width: 40px;
-      height: 40px;
-      border: 1px solid var(--border);
-      border-radius: 50%;
-      background: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      transition: .25s;
-    }
-
-    .icon-btn:hover {
-      border-color: var(--pink);
-      color: var(--pink);
-      transform: translateY(-1px);
-    }
-
-    .count {
-      position: absolute;
-      top: -4px;
-      right: -3px;
-      width: 18px;
-      height: 18px;
-      border-radius: 50%;
-      background: var(--pink);
-      color: #fff;
-      font-size: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-    }
-
-    .mobile-toggle {
-      display: none;
-      border: 0;
-      background: transparent;
-      font-size: 25px;
-    }
-
-    /* =========================
-       HERO
-    ========================== */
-
-    .hero {
-      min-height: 650px;
-      display: flex;
-      align-items: center;
-      position: relative;
-      background:
-        linear-gradient(90deg,
-          rgba(37,28,34,.78) 0%,
-          rgba(37,28,34,.44) 47%,
-          rgba(37,28,34,.08) 100%),
-        url("https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1800&q=90")
-        center/cover no-repeat;
-    }
-
-    .hero-content {
-      max-width: 620px;
-      color: #fff;
-      padding: 90px 0;
-    }
-
-    .hero-kicker {
-      text-transform: uppercase;
-      letter-spacing: 4px;
-      font-size: 11px;
-      color: #f7d5e4;
-      margin-bottom: 18px;
-      font-weight: 700;
-    }
-
-    .hero h1 {
-      font-family: "Playfair Display", serif;
-      font-size: clamp(55px, 8vw, 95px);
-      line-height: .95;
-      margin-bottom: 25px;
-    }
-
-    .hero h1 span {
-      color: #efbed3;
-    }
-
-    .hero p {
-      max-width: 530px;
-      font-size: 16px;
-      color: #f7eef3;
-      margin-bottom: 30px;
-    }
-
-    .hero-buttons {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      min-height: 48px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0 25px;
-      border-radius: 100px;
-      border: 1px solid transparent;
-      font-size: 13px;
-      font-weight: 700;
-      transition: .25s;
-    }
-
-    .btn-primary {
-      background: var(--pink);
-      color: #fff;
-    }
-
-    .btn-primary:hover {
-      background: var(--pink-dark);
-      transform: translateY(-2px);
-    }
-
-    .btn-white {
-      background: #fff;
-      color: var(--black);
-    }
-
-    .btn-white:hover {
-      background: var(--pink-soft);
-    }
-
-    .btn-outline-light {
-      border-color: rgba(255,255,255,.7);
-      color: #fff;
-      background: transparent;
-    }
-
-    .btn-outline-light:hover {
-      background: #fff;
-      color: var(--black);
-    }
-
-    /* =========================
-       TRUST STRIP
-    ========================== */
-
-    .trust-strip {
-      border-bottom: 1px solid var(--border);
-      background: #fff;
-    }
-
-    .trust-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 0;
-    }
-
-    .trust-item {
-      padding: 23px 20px;
-      text-align: center;
-      border-right: 1px solid var(--border);
-    }
-
-    .trust-item:last-child {
-      border-right: 0;
-    }
-
-    .trust-icon {
-      font-size: 22px;
-      margin-bottom: 7px;
-    }
-
-    .trust-item strong {
-      display: block;
-      font-size: 13px;
-      margin-bottom: 3px;
-    }
-
-    .trust-item span {
-      color: var(--muted);
-      font-size: 11px;
-    }
-
-    /* =========================
-       GENERAL SECTIONS
-    ========================== */
-
-    section {
-      padding: 85px 0;
-    }
-
-    .section-head {
-      margin-bottom: 40px;
-    }
-
-    .section-head.center {
-      text-align: center;
-    }
-
-    .eyebrow {
-      color: var(--pink);
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      font-size: 10px;
-      font-weight: 800;
-      margin-bottom: 8px;
-    }
-
-    .section-head h2 {
-      font-family: "Playfair Display", serif;
-      font-size: clamp(38px, 5vw, 58px);
-      line-height: 1.05;
-      margin-bottom: 11px;
-    }
-
-    .section-head p {
-      color: var(--muted);
-      max-width: 650px;
-      font-size: 14px;
-    }
-
-    .center p {
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    /* =========================
-       CATEGORY
-    ========================== */
-
-    .category-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
-    }
-
-    .category-card {
-      height: 330px;
-      border-radius: var(--radius);
-      overflow: hidden;
-      position: relative;
-      box-shadow: var(--shadow);
-    }
-
-    .category-card img {
-      height: 100%;
-      object-fit: cover;
-      transition: .5s;
-    }
-
-    .category-card:hover img {
-      transform: scale(1.06);
-    }
-
-    .category-overlay {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      justify-content: flex-end;
-      flex-direction: column;
-      padding: 23px;
-      color: #fff;
-      background: linear-gradient(
-        to top,
-        rgba(30,20,26,.78),
-        rgba(30,20,26,.08)
-      );
-    }
-
-    .category-overlay h3 {
-      font-family: "Playfair Display", serif;
-      font-size: 27px;
-      margin-bottom: 2px;
-    }
-
-    .category-overlay span {
-      font-size: 11px;
-    }
-
-    /* =========================
-       COLLECTION
-    ========================== */
-
-    .collection-section {
-      background: var(--pink-soft);
-    }
-
-    .shop-controls {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 15px;
-      margin-bottom: 28px;
-    }
-
-    .filter-tabs {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .filter-btn {
-      border: 1px solid var(--border);
-      background: #fff;
-      padding: 10px 15px;
-      border-radius: 100px;
-      font-size: 11px;
-      font-weight: 700;
-      transition: .25s;
-    }
-
-    .filter-btn.active,
-    .filter-btn:hover {
-      background: var(--black);
-      color: #fff;
-      border-color: var(--black);
-    }
-
-    .search-box {
-      width: min(280px, 100%);
-      position: relative;
-    }
-
-    .search-box input {
-      width: 100%;
-      border: 1px solid var(--border);
-      border-radius: 100px;
-      padding: 12px 18px;
-      outline: none;
-      background: #fff;
-      font-size: 12px;
-    }
-
-    .search-box input:focus {
-      border-color: var(--pink);
-    }
-
-    .products-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-    }
-
-    .product-card {
-      background: #fff;
-      border-radius: var(--radius);
-      overflow: hidden;
-      border: 1px solid rgba(90,50,70,.07);
-      box-shadow: 0 8px 28px rgba(48,33,42,.05);
-      transition: .3s;
-    }
-
-    .product-card:hover {
-      transform: translateY(-6px);
-      box-shadow: var(--shadow);
-    }
-
-    .product-image {
-      height: 390px;
-      position: relative;
-      overflow: hidden;
-      background: #f3eef1;
-    }
-
-    .product-image img {
-      height: 100%;
-      object-fit: cover;
-      transition: .45s;
-    }
-
-    .product-card:hover .product-image img {
-      transform: scale(1.04);
-    }
-
-    .product-badge {
-      position: absolute;
-      top: 12px;
-      left: 12px;
-      z-index: 2;
-      background: #fff;
-      color: var(--pink-dark);
-      border-radius: 100px;
-      padding: 6px 10px;
-      font-size: 9px;
-      font-weight: 800;
-      letter-spacing: 1px;
-    }
-
-    .heart {
-      position: absolute;
-      right: 12px;
-      top: 12px;
-      z-index: 3;
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      border: none;
-      background: rgba(255,255,255,.92);
-      font-size: 17px;
-      transition: .25s;
-    }
-
-    .heart:hover {
-      color: var(--pink);
-      transform: scale(1.05);
-    }
-
-    .product-info {
-      padding: 18px;
-    }
-
-    .product-category {
-      font-size: 9px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--lavender);
-      font-weight: 800;
-      margin-bottom: 4px;
-    }
-
-    .product-name {
-      font-family: "Playfair Display", serif;
-      font-size: 22px;
-      margin-bottom: 6px;
-    }
-
-    .product-description {
-      font-size: 11px;
-      color: var(--muted);
-      min-height: 42px;
-      margin-bottom: 10px;
-    }
-
-    .stars {
-      font-size: 11px;
-      color: #d79d35;
-      margin-bottom: 10px;
-    }
-
-    .product-bottom {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .price {
-      font-size: 15px;
-      font-weight: 800;
-      color: var(--black);
-    }
-
-    .small-order {
-      border: none;
-      background: var(--pink);
-      color: #fff;
-      padding: 9px 13px;
-      border-radius: 100px;
-      font-size: 10px;
-      font-weight: 800;
-    }
-
-    .small-order:hover {
-      background: var(--pink-dark);
-    }
-
-    /* =========================
-       BANNER
-    ========================== */
-
-    .editorial {
-      background:
-        linear-gradient(90deg,
-          rgba(38,29,36,.78),
-          rgba(38,29,36,.28)),
-        url("https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=1800&q=90")
-        center/cover no-repeat;
-      min-height: 440px;
-      display: flex;
-      align-items: center;
-      color: #fff;
-    }
-
-    .editorial-content {
-      max-width: 620px;
-    }
-
-    .editorial h2 {
-      font-family: "Playfair Display", serif;
-      font-size: clamp(45px, 6vw, 72px);
-      line-height: 1;
-      margin-bottom: 17px;
-    }
-
-    .editorial p {
-      color: #f5edf1;
-      max-width: 560px;
-      margin-bottom: 25px;
-      font-size: 14px;
-    }
-
-    /* =========================
-       CUSTOM
-    ========================== */
-
-    .custom-section {
-      background: var(--lavender-soft);
-    }
-
-    .custom-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 55px;
-      align-items: center;
-    }
-
-    .custom-image {
-      height: 540px;
-      border-radius: 25px;
-      overflow: hidden;
-      box-shadow: var(--shadow);
-    }
-
-    .custom-image img {
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .custom-content h2 {
-      font-family: "Playfair Display", serif;
-      font-size: clamp(42px, 5vw, 62px);
-      line-height: 1.03;
-      margin-bottom: 16px;
-    }
-
-    .custom-content p {
-      font-size: 14px;
-      color: var(--muted);
-      margin-bottom: 20px;
-    }
-
-    .steps {
-      display: grid;
-      gap: 12px;
-      margin: 24px 0 28px;
-    }
-
-    .step {
-      display: grid;
-      grid-template-columns: 40px 1fr;
-      gap: 13px;
-      align-items: center;
-    }
-
-    .step-num {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--pink-dark);
-      font-weight: 800;
-      font-size: 12px;
-    }
-
-    .step strong {
-      display: block;
-      font-size: 13px;
-    }
-
-    .step span {
-      font-size: 11px;
-      color: var(--muted);
-    }
-
-    /* =========================
-       WHY US
-    ========================== */
-
-    .why-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
-    }
-
-    .why-card {
-      padding: 28px 22px;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      background: #fff;
-    }
-
-    .why-icon {
-      font-size: 25px;
-      margin-bottom: 14px;
-    }
-
-    .why-card h3 {
-      font-family: "Playfair Display", serif;
-      font-size: 22px;
-      margin-bottom: 7px;
-    }
-
-    .why-card p {
-      color: var(--muted);
-      font-size: 12px;
-    }
-
-    /* =========================
-       REVIEWS
-    ========================== */
-
-    .reviews-section {
-      background: #fff;
-    }
-
-    .review-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-
-    .review-card {
-      padding: 28px;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      background: #fff;
-    }
-
-    .review-stars {
-      color: #d79d35;
-      letter-spacing: 2px;
-      font-size: 12px;
-      margin-bottom: 15px;
-    }
-
-    .review-text {
-      font-family: "Playfair Display", serif;
-      font-size: 18px;
-      line-height: 1.5;
-      margin-bottom: 18px;
-    }
-
-    .review-name {
-      font-size: 12px;
-      font-weight: 800;
-    }
-
-    .review-location {
-      font-size: 10px;
-      color: var(--muted);
-    }
-
-    /* =========================
-       FAQ
-    ========================== */
-
-    .faq-wrap {
-      max-width: 850px;
-      margin: auto;
-    }
-
-    .faq-item {
-      border-bottom: 1px solid var(--border);
-    }
-
-    .faq-question {
-      width: 100%;
-      background: transparent;
-      border: none;
-      text-align: left;
-      padding: 20px 0;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-weight: 700;
-      font-size: 14px;
-    }
-
-    .faq-plus {
-      font-size: 22px;
-      color: var(--pink);
-      transition: .25s;
-    }
-
-    .faq-answer {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height .3s ease;
-    }
-
-    .faq-answer p {
-      padding-bottom: 20px;
-      font-size: 13px;
-      color: var(--muted);
-    }
-
-    .faq-item.open .faq-plus {
-      transform: rotate(45deg);
-    }
-
-    /* =========================
-       NEWSLETTER
-    ========================== */
-
-    .newsletter {
-      background: linear-gradient(135deg, #f9eaf1, #eee7f8);
-      text-align: center;
-    }
-
-    .newsletter-inner {
-      max-width: 680px;
-      margin: auto;
-    }
-
-    .newsletter h2 {
-      font-family: "Playfair Display", serif;
-      font-size: clamp(40px, 5vw, 60px);
-      line-height: 1;
-      margin-bottom: 13px;
-    }
-
-    .newsletter p {
-      color: var(--muted);
-      font-size: 13px;
-      margin-bottom: 25px;
-    }
-
-    .newsletter-form {
-      display: flex;
-      max-width: 510px;
-      margin: auto;
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: 100px;
-      padding: 5px;
-    }
-
-    .newsletter-form input {
-      min-width: 0;
-      flex: 1;
-      border: none;
-      outline: none;
-      padding: 0 15px;
-      background: transparent;
-      font-size: 12px;
-    }
-
-    .newsletter-form button {
-      border: none;
-      background: var(--black);
-      color: #fff;
-      border-radius: 100px;
-      padding: 12px 20px;
-      font-size: 11px;
-      font-weight: 800;
-    }
-
-    #newsletterMsg {
-      font-size: 11px;
-      margin-top: 12px;
-      color: var(--success);
-      display: none;
-    }
-
-    /* =========================
-       CONTACT
-    ========================== */
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-    }
-
-    .contact-card {
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 30px;
-    }
-
-    .contact-card h3 {
-      font-family: "Playfair Display", serif;
-      font-size: 32px;
-      margin-bottom: 12px;
-    }
-
-    .contact-card p {
-      color: var(--muted);
-      font-size: 13px;
-      margin-bottom: 17px;
-    }
-
-    .contact-info {
-      display: grid;
-      gap: 12px;
-    }
-
-    .contact-line {
-      padding: 13px 0;
-      border-bottom: 1px solid var(--border);
-      font-size: 13px;
-    }
-
-    .contact-line:last-child {
-      border-bottom: 0;
-    }
-
-    .socials {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 9px;
-      margin-top: 18px;
-    }
-
-    .social {
-      background: var(--pink-soft);
-      color: var(--pink-dark);
-      padding: 9px 14px;
-      border-radius: 100px;
-      font-size: 10px;
-      font-weight: 800;
-    }
-
-    /* =========================
-       FOOTER
-    ========================== */
-
-    footer {
-      background: #292329;
-      color: #eee;
-      padding: 60px 0 20px;
-    }
-
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 1.4fr 1fr 1fr 1fr;
-      gap: 40px;
-      margin-bottom: 40px;
-    }
-
-    .footer-brand .brand-name {
-      color: #fff;
-    }
-
-    .footer-brand .brand-tagline {
-      color: #ceb9d8;
-    }
-
-    .footer-brand p {
-      margin-top: 15px;
-      color: #bbb1b9;
-      font-size: 12px;
-      max-width: 350px;
-    }
-
-    .footer-title {
-      color: #f5d9e6;
-      text-transform: uppercase;
-      font-size: 10px;
-      letter-spacing: 2px;
-      margin-bottom: 15px;
-      font-weight: 800;
-    }
-
-    .footer-links {
-      display: grid;
-      gap: 9px;
-      color: #c4bbc2;
-      font-size: 12px;
-    }
-
-    .footer-links a:hover {
-      color: #fff;
-    }
-
-    .copyright {
-      padding-top: 18px;
-      border-top: 1px solid rgba(255,255,255,.10);
-      text-align: center;
-      color: #988e96;
-      font-size: 10px;
-    }
-
-    /* =========================
-       MOBILE NAV
-    ========================== */
-
-    .mobile-menu {
-      position: fixed;
-      inset: 0;
-      z-index: 1500;
-      background: rgba(41,35,41,.55);
-      opacity: 0;
-      visibility: hidden;
-      transition: .25s;
-    }
-
-    .mobile-menu.open {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    .mobile-panel {
-      width: min(330px, 88%);
-      height: 100%;
-      background: #fff;
-      padding: 28px;
-      transform: translateX(-100%);
-      transition: .3s;
-    }
-
-    .mobile-menu.open .mobile-panel {
-      transform: translateX(0);
-    }
-
-    .mobile-close {
-      border: 0;
-      background: transparent;
-      font-size: 27px;
-      margin-bottom: 30px;
-    }
-
-    .mobile-links {
-      display: grid;
-      gap: 0;
-    }
-
-    .mobile-links a {
-      padding: 15px 0;
-      border-bottom: 1px solid var(--border);
-      font-size: 14px;
-      font-weight: 600;
-    }
-
-    /* =========================
-       CART DRAWER
-    ========================== */
-
-    .cart-overlay {
-      position: fixed;
-      inset: 0;
-      z-index: 1600;
-      background: rgba(35,25,31,.55);
-      opacity: 0;
-      visibility: hidden;
-      transition: .25s;
-    }
-
-    .cart-overlay.open {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    .cart-drawer {
-      position: absolute;
-      right: 0;
-      top: 0;
-      height: 100%;
-      width: min(420px, 95%);
-      background: #fff;
-      transform: translateX(100%);
-      transition: .3s;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .cart-overlay.open .cart-drawer {
-      transform: translateX(0);
-    }
-
-    .cart-head {
-      padding: 22px;
-      border-bottom: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .cart-head h3 {
-      font-family: "Playfair Display", serif;
-      font-size: 25px;
-    }
-
-    .close-cart {
-      border: none;
-      background: transparent;
-      font-size: 25px;
-    }
-
-    .cart-items {
-      padding: 18px;
-      overflow-y: auto;
-      flex: 1;
-    }
-
-    .cart-item {
-      display: grid;
-      grid-template-columns: 75px 1fr auto;
-      gap: 12px;
-      align-items: center;
-      padding-bottom: 15px;
-      margin-bottom: 15px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .cart-item img {
-      width: 75px;
-      height: 90px;
-      border-radius: 10px;
-      object-fit: cover;
-    }
-
-    .cart-item h4 {
-      font-family: "Playfair Display", serif;
-      font-size: 17px;
-      line-height: 1.1;
-      margin-bottom: 5px;
-    }
-
-    .cart-item p {
-      font-size: 11px;
-      color: var(--muted);
-    }
-
-    .remove-cart {
-      border: 0;
-      background: transparent;
-      color: #a44d68;
-      font-size: 16px;
-    }
-
-    .cart-footer {
-      padding: 18px;
-      border-top: 1px solid var(--border);
-    }
-
-    .cart-total {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 13px;
-      font-size: 14px;
-      font-weight: 800;
-    }
-
-    .cart-empty {
-      text-align: center;
-      color: var(--muted);
-      padding: 70px 20px;
-      font-size: 13px;
-    }
-
-    /* =========================
-       PRODUCT MODAL
-    ========================== */
-
-    .modal {
-      position: fixed;
-      inset: 0;
-      z-index: 1700;
-      background: rgba(35,25,31,.62);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-      opacity: 0;
-      visibility: hidden;
-      transition: .25s;
-    }
-
-    .modal.open {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    .modal-box {
-      width: min(900px, 100%);
-      max-height: 90vh;
-      overflow-y: auto;
-      background: #fff;
-      border-radius: 22px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      position: relative;
-    }
-
-    .modal-image {
-      min-height: 560px;
-    }
-
-    .modal-image img {
-      height: 100%;
-      object-fit: cover;
-      border-radius: 22px 0 0 22px;
-    }
-
-    .modal-content {
-      padding: 42px;
-      display: flex;
-      justify-content: center;
-      flex-direction: column;
-    }
-
-    .modal-category {
-      text-transform: uppercase;
-      color: var(--lavender);
-      letter-spacing: 2px;
-      font-weight: 800;
-      font-size: 9px;
-      margin-bottom: 6px;
-    }
-
-    .modal-content h2 {
-      font-family: "Playfair Display", serif;
-      font-size: 42px;
-      line-height: 1.05;
-      margin-bottom: 14px;
-    }
-
-    .modal-content p {
-      color: var(--muted);
-      font-size: 13px;
-      margin-bottom: 17px;
-    }
-
-    .modal-price {
-      font-size: 20px;
-      font-weight: 800;
-      margin-bottom: 18px;
-    }
-
-    .size-label {
-      font-size: 11px;
-      font-weight: 800;
-      margin-bottom: 8px;
-    }
-
-    .size-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 7px;
-      margin-bottom: 22px;
-    }
-
-    .size {
-      border: 1px solid var(--border);
-      background: #fff;
-      padding: 8px 13px;
-      border-radius: 100px;
-      font-size: 10px;
-      font-weight: 700;
-    }
-
-    .size:hover,
-    .size.selected {
-      background: var(--black);
-      border-color: var(--black);
-      color: #fff;
-    }
-
-    .modal-actions {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    .modal-close {
-      position: absolute;
-      right: 15px;
-      top: 15px;
-      width: 37px;
-      height: 37px;
-      border: 0;
-      background: #fff;
-      border-radius: 50%;
-      z-index: 2;
-      font-size: 22px;
-    }
-
-    /* =========================
-       FLOAT WHATSAPP
-    ========================== */
-
-    .wa-float {
-      position: fixed;
-      right: 20px;
-      bottom: 20px;
-      z-index: 1200;
-      width: 58px;
-      height: 58px;
-      border-radius: 50%;
-      background: #25d366;
-      color: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 25px;
-      box-shadow: 0 12px 30px rgba(0,0,0,.18);
-    }
-
-    .wa-float:hover {
-      transform: scale(1.06);
-    }
-
-    /* =========================
-       RESPONSIVE
-    ========================== */
-
-    @media(max-width: 1050px) {
-
-      .products-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
-
-      .category-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .why-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .footer-grid {
-        grid-template-columns: 1.5fr 1fr 1fr;
-      }
-    }
-
-    @media(max-width: 820px) {
-
-      .header-main {
-        grid-template-columns: auto 1fr auto;
-      }
-
-      .desktop-nav {
-        display: none;
-      }
-
-      .mobile-toggle {
-        display: block;
-      }
-
-      .brand {
-        justify-self: center;
-      }
-
-      .header-actions {
-        gap: 5px;
-      }
-
-      .hide-mobile {
-        display: none;
-      }
-
-      .trust-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .trust-item {
-        border-bottom: 1px solid var(--border);
-      }
-
-      .custom-grid,
-      .contact-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .custom-image {
-        height: 420px;
-      }
-
-      .review-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .footer-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .modal-box {
-        grid-template-columns: 1fr;
-      }
-
-      .modal-image {
-        min-height: 360px;
-      }
-
-      .modal-image img {
-        border-radius: 22px 22px 0 0;
-      }
-
-      .modal-content {
-        padding: 30px;
-      }
-    }
-
-    @media(max-width: 620px) {
-
-      section {
-        padding: 65px 0;
-      }
-
-      .brand-name {
-        font-size: 22px;
-      }
-
-      .brand-tagline {
-        font-size: 6px;
-        letter-spacing: 2px;
-      }
-
-      .hero {
-        min-height: 610px;
-      }
-
-      .hero-content {
-        padding: 70px 0;
-      }
-
-      .hero h1 {
-        font-size: 58px;
-      }
-
-      .category-grid,
-      .products-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .category-card {
-        height: 255px;
-      }
-
-      .product-image {
-        height: 300px;
-      }
-
-      .product-info {
-        padding: 14px;
-      }
-
-      .product-name {
-        font-size: 18px;
-      }
-
-      .product-description {
-        min-height: auto;
-      }
-
-      .product-bottom {
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      .small-order {
-        width: 100%;
-      }
-
-      .shop-controls {
-        align-items: stretch;
-      }
-
-      .search-box {
-        width: 100%;
-      }
-
-      .why-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .newsletter-form {
-        border-radius: 18px;
-        flex-direction: column;
-        gap: 6px;
-        padding: 7px;
-      }
-
-      .newsletter-form input {
-        min-height: 42px;
-      }
-
-      .newsletter-form button {
-        width: 100%;
-      }
-
-      .footer-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media(max-width: 420px) {
-
-      .category-grid,
-      .products-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .product-image {
-        height: 410px;
-      }
-    }
-  </style>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>MG DREAM ZONE | Luxury Fashion Boutique</title>
+
+<meta
+  name="description"
+  content="MG DREAM ZONE - Elegant women's fashion, dresses, saree jackets, kids wear and custom fashion in Sri Lanka."
+>
+
+<link rel="preconnect"
+      href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin>
+
+<link
+  href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
+  rel="stylesheet"
+>
+
+
+<style>
+
+/* =========================================================
+   MG DREAM ZONE
+   LUXURY DESIGN SYSTEM
+========================================================= */
+
+:root {
+
+  --ink: #211b1d;
+  --ink-soft: #4d4447;
+
+  --cream: #faf7f3;
+  --cream-dark: #f3eee8;
+
+  --white: #ffffff;
+
+  --rose: #b87582;
+  --rose-dark: #8e515e;
+  --rose-light: #f5e7e9;
+
+  --gold: #b99a68;
+  --gold-light: #eadbbd;
+
+  --line: #e8dfda;
+
+  --muted: #7d7372;
+
+  --shadow:
+    0 18px 55px rgba(35, 25, 28, .10);
+
+  --shadow-soft:
+    0 8px 30px rgba(35, 25, 28, .07);
+
+  --radius: 20px;
+
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+body {
+
+  font-family:
+    "DM Sans",
+    sans-serif;
+
+  background:
+    var(--cream);
+
+  color:
+    var(--ink);
+
+  line-height:
+    1.6;
+
+}
+
+
+body.no-scroll {
+  overflow: hidden;
+}
+
+
+img {
+  width: 100%;
+  display: block;
+}
+
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+
+button {
+  cursor: pointer;
+}
+
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+
+.container {
+
+  width:
+    min(1220px, 92%);
+
+  margin:
+    auto;
+
+}
+
+
+.serif {
+  font-family:
+    "Playfair Display",
+    serif;
+}
+
+
+/* =========================================================
+   TOP ANNOUNCEMENT
+========================================================= */
+
+.topbar {
+
+  background:
+    var(--ink);
+
+  color:
+    #fff;
+
+  text-align:
+    center;
+
+  padding:
+    9px 15px;
+
+  font-size:
+    11px;
+
+  letter-spacing:
+    1.2px;
+
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.site-header {
+
+  position:
+    sticky;
+
+  top:
+    0;
+
+  z-index:
+    5000;
+
+  background:
+    rgba(250,247,243,.94);
+
+  backdrop-filter:
+    blur(18px);
+
+  border-bottom:
+    1px solid var(--line);
+
+}
+
+
+.header-inner {
+
+  min-height:
+    82px;
+
+  display:
+    grid;
+
+  grid-template-columns:
+    1fr auto 1fr;
+
+  align-items:
+    center;
+
+  gap:
+    25px;
+
+}
+
+
+.nav-left {
+
+  display:
+    flex;
+
+  gap:
+    23px;
+
+  align-items:
+    center;
+
+}
+
+
+.nav-left a {
+
+  font-size:
+    11px;
+
+  text-transform:
+    uppercase;
+
+  letter-spacing:
+    1px;
+
+  font-weight:
+    600;
+
+  color:
+    var(--ink-soft);
+
+  transition:
+    .25s;
+
+}
+
+
+.nav-left a:hover {
+  color:
+    var(--rose-dark);
+}
+
+
+.brand {
+
+  text-align:
+    center;
+
+  line-height:
+    1;
+
+}
+
+
+.brand-name {
+
+  font-family:
+    "Playfair Display",
+    serif;
+
+  font-size:
+    clamp(24px, 3vw, 32px);
+
+  letter-spacing:
+    2px;
+
+  font-weight:
+    600;
+
+}
+
+
+.brand-sub {
+
+  margin-top:
+    7px;
+
+  font-size:
+    8px;
+
+  letter-spacing:
+    4px;
+
+  text-transform:
+    uppercase;
+
+  color:
+    var(--gold);
+
+}
+
+
+.header-actions {
+
+  display:
+    flex;
+
+  justify-content:
+    flex-end;
+
+  gap:
+    8px;
+
+}
+
+
+.icon-btn {
+
+  width:
+    40px;
+
+  height:
+    40px;
+
+  border:
+    1px solid var(--line);
+
+  background:
+    rgba(255,255,255,.75);
+
+  border-radius:
+    50%;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  transition:
+    .25s;
+
+  position:
+    relative;
+
+}
+
+
+.icon-btn:hover {
+
+  transform:
+    translateY(-2px);
+
+  border-color:
+    var(--rose);
+
+  color:
+    var(--rose-dark);
+
+}
+
+
+.cart-count {
+
+  position:
+    absolute;
+
+  top:
+    -4px;
+
+  right:
+    -3px;
+
+  width:
+    17px;
+
+  height:
+    17px;
+
+  background:
+    var(--rose-dark);
+
+  color:
+    white;
+
+  border-radius:
+    50%;
+
+  font-size:
+    9px;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+}
+
+
+.mobile-menu-btn {
+
+  display:
+    none;
+
+  border:
+    none;
+
+  background:
+    none;
+
+  font-size:
+    25px;
+
+}
+
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+.mobile-menu {
+
+  display:
+    none;
+
+  background:
+    var(--white);
+
+  border-top:
+    1px solid var(--line);
+
+}
+
+
+.mobile-menu.open {
+  display:
+    block;
+}
+
+
+.mobile-menu a {
+
+  display:
+    block;
+
+  padding:
+    15px 6%;
+
+  border-bottom:
+    1px solid var(--line);
+
+  font-size:
+    12px;
+
+  text-transform:
+    uppercase;
+
+  letter-spacing:
+    1px;
+
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+
+  min-height:
+    700px;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  position:
+    relative;
+
+  overflow:
+    hidden;
+
+  background:
+
+    linear-gradient(
+      90deg,
+      rgba(25,20,22,.82),
+      rgba(25,20,22,.45) 45%,
+      rgba(25,20,22,.08)
+    ),
+
+    url("https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=2000&q=90")
+    center/cover no-repeat;
+
+}
+
+
+.hero-content {
+
+  color:
+    white;
+
+  max-width:
+    650px;
+
+  padding:
+    90px 0;
+
+}
+
+
+.hero-kicker {
+
+  color:
+    #ead3b5;
+
+  font-size:
+    11px;
+
+  font-weight:
+    700;
+
+  letter-spacing:
+    5px;
+
+  text-transform:
+    uppercase;
+
+  margin-bottom:
+    20px;
+
+}
+
+
+.hero h1 {
+
+  font-family:
+    "Playfair Display",
+    serif;
+
+  font-size:
+    clamp(54px, 8vw, 96px);
+
+  line-height:
+    .95;
+
+  font-weight:
+    500;
+
+  margin-bottom:
+    28px;
+
+}
+
+
+.hero h1 span {
+  color:
+    #e9bdc7;
+}
+
+
+.hero p {
+
+  max-width:
+    560px;
+
+  font-size:
+    16px;
+
+  color:
+    #f7eef0;
+
+  margin-bottom:
+    32px;
+
+}
+
+
+.hero-buttons {
+
+  display:
+    flex;
+
+  gap:
+    12px;
+
+  flex-wrap:
+    wrap;
+
+}
+
+
+.btn {
+
+  min-height:
+    48px;
+
+  padding:
+    0 25px;
+
+  border-radius:
+    100px;
+
+  border:
+    1px solid transparent;
+
+  display:
+    inline-flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  font-size:
+    11px;
+
+  font-weight:
+    700;
+
+  letter-spacing:
+    1px;
+
+  text-transform:
+    uppercase;
+
+  transition:
+    .25s;
+
+}
+
+
+.btn-primary {
+
+  background:
+    var(--rose);
+
+  color:
+    white;
+
+}
+
+
+.btn-primary:hover {
+
+  background:
+    var(--rose-dark);
+
+  transform:
+    translateY(-2px);
+
+}
+
+
+.btn-light {
+
+  background:
+    white;
+
+  color:
+    var(--ink);
+
+}
+
+
+.btn-outline {
+
+  background:
+    transparent;
+
+  color:
+    white;
+
+  border-color:
+    rgba(255,255,255,.7);
+
+}
+
+
+/* =========================================================
+   TRUST
+========================================================= */
+
+.trust {
+
+  background:
+    white;
+
+  border-bottom:
+    1px solid var(--line);
+
+}
+
+
+.trust-grid {
+
+  display:
+    grid;
+
+  grid-template-columns:
+    repeat(4,1fr);
+
+}
+
+
+.trust-item {
+
+  padding:
+    24px 15px;
+
+  text-align:
+    center;
+
+  border-right:
+    1px solid var(--line);
+
+}
+
+
+.trust-item:last-child {
+  border:
+    none;
+}
+
+
+.trust-icon {
+
+  font-size:
+    21px;
+
+  margin-bottom:
+    6px;
+
+}
+
+
+.trust-item strong {
+
+  display:
+    block;
+
+  font-size:
+    12px;
+
+}
+
+
+.trust-item span {
+
+  display:
+    block;
+
+  color:
+    var(--muted);
+
+  font-size:
+    10px;
+
+}
+
+
+/* =========================================================
+   SECTION
+========================================================= */
+
+section {
+  padding:
+    90px 0;
+}
+
+
+.section-head {
+
+  margin-bottom:
+    40px;
+
+}
+
+
+.eyebrow {
+
+  color:
+    var(--rose-dark);
+
+  font-size:
+    10px;
+
+  font-weight:
+    800;
+
+  letter-spacing:
+    3px;
+
+  text-transform:
+    uppercase;
+
+  margin-bottom:
+    9px;
+
+}
+
+
+.section-head h2 {
+
+  font-family:
+    "Playfair Display",
+    serif;
+
+  font-size:
+    clamp(38px, 5vw, 60px);
+
+  line-height:
+    1.05;
+
+  font-weight:
+    500;
+
+}
+
+
+.section-head p {
+
+  max-width:
+    650px;
+
+  color:
+    var(--muted);
+
+  margin-top:
+    12px;
+
+  font-size:
+    14px;
+
+}
+
+
+.center {
+  text-align:
+    center;
+}
+
+
+.center p {
+  margin-left:
+    auto;
+
+  margin-right:
+    auto;
+}
+
+
+/* =========================================================
+   CATEGORIES
+========================================================= */
+
+.category-grid {
+
+  display:
+    grid;
+
+  grid-template-columns:
+    repeat(4,1fr);
+
+  gap:
+    18px;
+
+}
+
+
+.category-card {
+
+  height:
+    350px;
+
+  border-radius:
+    var(--radius);
+
+  overflow:
+    hidden;
+
+  position:
+    relative;
+
+  box-shadow:
+    var(--shadow-soft);
+
+}
+
+
+.category-card img {
+
+  height:
+    100%;
+
+  object-fit:
+    cover;
+
+  transition:
+    .6s;
+
+}
+
+
+.category-card:hover img {
+  transform:
+    scale(1.07);
+}
+
+
+.category-overlay {
+
+  position:
+    absolute;
+
+  inset:
+    0;
+
+  display:
+    flex;
+
+  flex-direction:
+    column;
+
+  justify-content:
+    flex-end;
+
+  padding:
+    25px;
+
+  color:
+    white;
+
+  background:
+    linear-gradient(
+      to top,
+      rgba(24,18,20,.82),
+      rgba(24,18,20,.02)
+    );
+
+}
+
+
+.category-overlay h3 {
+
+  font-family:
+    "Playfair Display",
+    serif;
+
+  font-size:
+    28px;
+
+}
+
+
+.category-overlay span {
+
+  font-size:
+    10px;
+
+  text-transform:
+    uppercase;
+
+  letter-spacing:
+    1.5px;
+
+}
+
+
+/* =========================================================
+   PRODUCTS
+========================================================= */
+
+.collection-section {
+  background:
+    var(--cream-dark);
+}
+
+
+.shop-toolbar {
+
+  display:
+    flex;
+
+  justify-content:
+    space-between;
+
+  align-items:
+    center;
+
+  gap:
+    15px;
+
+  flex-wrap:
+    wrap;
+
+  margin-bottom:
+    30px;
+
+}
+
+
+.filters {
+
+  display:
+    flex;
+
+  gap:
+    7px;
+
+  flex-wrap:
+    wrap;
+
+}
+
+
+.filter-btn {
+
+  border:
+    1px solid var(--line);
+
+  background:
+    white;
+
+  padding:
+    9px 15px;
+
+  border-radius:
+    100px;
+
+  font-size:
+    10px;
+
+  font-weight:
+    700;
+
+  transition:
+    .2s;
+
+}
+
+
+.filter-btn.active,
+.filter-btn:hover {
+
+  background:
+    var(--ink);
+
+  color:
+    white;
+
+  border-color:
+    var(--ink);
+
+}
+
+
+.search-box {
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  background:
+    white;
+
+  border:
+    1px solid var(--line);
+
+  border-radius:
+    100px;
+
+  padding:
+    0 15px;
+
+  width:
+    250px;
+
+}
+
+
+.search-box input {
+
+  border:
+    none;
+
+  outline:
+    none;
+
+  background:
+    transparent;
+
+  width:
+    100%;
+
+  padding:
+    11px;
+
+  font-size:
+    11px;
+
+}
+
+
+.products-grid {
+
+  display:
+    grid;
+
+  grid-template-columns:
+    repeat(4,1fr);
+
+  gap:
+    22px;
+
+}
+
+
+.product-card {
+
+  background:
+    white;
+
+  border-radius:
+    17px;
+
+  overflow:
+    hidden;
+
+  box-shadow:
+    var(--shadow-soft);
+
+  transition:
+    .3s;
+
+}
+
+
+.product-card:hover {
+
+  transform:
+    translateY(-5px);
+
+  box-shadow:
+    var(--shadow);
+
+}
+
+
+.product-image {
+
+  aspect-ratio:
+    3/4;
+
+  position:
+    relative;
+
+  overflow:
+    hidden;
+
+  background:
+    #eee;
+
+}
+
+
+.product-image img {
+
+  height:
+    100%;
+
+  object-fit:
+    cover;
+
+  transition:
+    .35s;
+
+}
+
+
+.product-card:hover
+.product-image img {
+  transform:
+    scale(1.035);
+}
+
+
+.product-badge {
+
+  position:
+    absolute;
+
+  top:
+    12px;
+
+  left:
+    12px;
+
+  background:
+    var(--ink);
+
+  color:
+    white;
+
+  padding:
+    5px 9px;
+
+  font-size:
+    8px;
+
+  letter-spacing:
+    1px;
+
+  font-weight:
+    700;
+
+  z-index:
+    10;
+
+}
+
+
+.wishlist {
+
+  position:
+    absolute;
+
+  top:
+    11px;
+
+  right:
+    11px;
+
+  width:
+    34px;
+
+  height:
+    34px;
+
+  border:
+    none;
+
+  border-radius:
+    50%;
+
+  background:
+    rgba(255,255,255,.9);
+
+  z-index:
+    20;
+
+  font-size:
+    16px;
+
+}
+
+
+.gallery-arrow {
+
+  position:
+    absolute;
+
+  top:
+    50%;
+
+  transform:
+    translateY(-50%);
+
+  width:
+    34px;
+
+  height:
+    34px;
+
+  border:
+    none;
+
+  border-radius:
+    50%;
+
+  background:
+    rgba(255,255,255,.9);
+
+  z-index:
+    15;
+
+  opacity:
+    0;
+
+  transition:
+    .25s;
+
+}
+
+
+.product-image:hover
+.gallery-arrow {
+  opacity:
+    1;
+}
+
+
+.gallery-prev {
+  left:
+    10px;
+}
+
+
+.gallery-next {
+  right:
+    10px;
+}
+
+
+.gallery-dots {
+
+  position:
+    absolute;
+
+  bottom:
+    10px;
+
+  left:
+    50%;
+
+  transform:
+    translateX(-50%);
+
+  display:
+    flex;
+
+  gap:
+    5px;
+
+  z-index:
+    15;
+
+}
+
+
+.gallery-dot {
+
+  width:
+    6px;
+
+  height:
+    6px;
+
+  border-radius:
+    50%;
+
+  background:
+    rgba(255,255,255,.65);
+
+}
+
+
+.gallery-dot.active {
+
+  background:
+    white;
+
+  transform:
+    scale(1.3);
+
+}
+
+
+.product-info {
+
+  padding:
+    16px;
+
+}
+
+
+.product-category {
+
+  color:
+    var(--rose-dark);
+
+  font-size:
+    9px;
+
+  font-weight:
+    800;
+
+  text-transform:
+    uppercase;
+
+  letter-spacing:
+    1.5px;
+
+}
+
+
+.product-name {
+
+  font-family:
+    "Playfair Display",
+    serif;
+
+  font-size:
+    19px;
+
+  margin:
+    5px 0;
+
+}
+
+
+.product-description {
+
+  color:
+    var(--muted);
+
+  font-size:
+    11px;
+
+  min-height:
+    36px;
+
+}
+
+
+.product-bottom {
+
+  display:
+    flex;
+
+  justify-content:
+    space-between;
+
+  align-items:
+    center;
+
+  margin-top:
+    13px;
+
+}
+
+
+.product-price {
+
+  font-weight:
+    700;
+
+  font-size:
+    14px;
+
+}
+
+
+.product-actions {
+
+  display:
+    flex;
+
+  gap:
+    5px;
+
+}
+
+
+.small-btn {
+
+  border:
+    none;
+
+  padding:
+    8px 11px;
+
+  border-radius:
+    8px;
+
+  background:
+    var(--ink);
+
+  color:
+    white;
+
+  font-size:
+    9px;
+
+  font-weight:
+    700;
+
+}
+
+
+/* =========================================================
+   FEATURE BANNER
+========================================================= */
+
+.feature-banner {
+
+  min-height:
+    460px;
+
+  border-radius:
+    25px;
+
+  overflow:
+    hidden;
+
+  position:
+    relative;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  background:
+
+    linear-gradient(
+      90deg,
+      rgba(32,25,27,.82),
+      rgba(32,25,27,.28)
+    ),
+
+    url("https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1800&q=90")
+    center/cover no-repeat;
+
+}
+
+
+.feature-content {
+
+  color:
+    white;
+
+  max-width:
+    560px;
+
+  padding:
+    60px;
+
+}
+
+
+.feature-content h2 {
+
+  font-family:
+    "Playfair Display",
+    serif;
+
+  font-size:
+    clamp(40px,5vw,64px);
+
+  line-height:
+    1;
+
+  margin-bottom:
+    15px;
+
+}
+
+
+.feature-content p {
+
+  color:
+    #f4e9eb;
+
+  font-size:
+    14px;
+
+  margin-bottom:
+    25px;
+
+}
+
+
+/* =========================================================
+   WHY US
+========================================================= */
+
+.why-grid {
+
+  display:
+    grid;
+
+  grid-template-columns:
+    repeat(4,1fr);
+
+  gap:
+    18px;
+
+}
+
+
+.why-card {
+
+  background:
+    white;
+
+  padding:
+    30px 22px;
+
+  border:
+    1px solid var(--line);
+
+  border-radius:
+    18px;
+
+}
+
+
+.why-icon {
+
+  font-size:
+    25px;
+
+  margin-bottom:
+    15px;
+
+}
+
+
+.why-card h3 {
+
+  font-family:
+    "Playfair Display",
+    serif;
+
+  font-size:
+    21px;
+
+  margin-bottom:
+    7px;
+
+}
+
+
+.why-card p {
+
+  font-size:
+    11px;
+
+  color:
+    var(--muted);
+
+}
+
+
+/* =========================================================
+   CUSTOM SECTION
+========================================================= */
+
+.custom-section {
+
+  background:
+    var(--rose-light);
+
+}
+
+
+.custom-box {
+
+  display:
+    grid;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  gap:
+    60px;
+
+  align-items:
+    center;
+
+}
+
+
+.custom-box img {
+
+  border-radius:
+    24px;
+
+  height:
+    500px;
+
+  object-fit:
+    cover;
+
+}
+
+
+.custom-content h2 {
+
+  font-family:
+    "Playfair Display",
+    serif;
+
+  font-size:
+    clamp(40px,5vw,64px);
+
+  line-height:
+    1.05;
+
+  margin-bottom:
+    20px;
+
+}
+
+
+.custom-content p {
+
+  color:
+    var(--muted);
+
+  max-width:
+    500px;
+
+  margin-bottom:
+    25px;
+
+}
+
+
+/* =========================================================
+   REVIEWS
+========================================================= */
+
+.review-section {
+  background:
+    white;
+}
+
+
+.review-grid {
+
+  display:
+    grid;
+
+  grid-template-columns:
+    repeat(3,1fr);
+
+  gap:
+    18px;
+
+}
+
+
+.review-card {
+
+  border:
+    1px solid var(--line);
+
+  padding:
+    27px;
+
+  border-radius:
+    18px;
+
+}
+
+
+.stars {
+
+  color:
+    var(--gold);
+
+  letter-spacing:
+    2px;
+
+  margin-bottom:
+    14px;
+
+}
+
+
+.review-card p {
+
+  font-family:
+    "Playfair Display",
+    serif;
+
+  font-size:
+    17px;
+
+  line-height:
+    1.5;
+
+}
+
+
+.review-name {
+
+  margin-top:
+    17px;
+
+  font-size:
+    11px;
+
+  font-weight:
+    700;
+
+}
+
+
+/* =========================================================
+   SOCIAL
+========================================================= */
+
+.social-grid {
+
+  display:
+    grid;
+
+  grid-template-columns:
+    repeat(6,1fr);
+
+  gap:
+    8px;
+
+}
+
+
+.social-grid div {
+
+  aspect-ratio:
+    1;
+
+  overflow:
+    hidden;
+
+}
+
+
+.social-grid img {
+
+  height:
+    100%;
+
+  object-fit:
+    cover;
+
+  transition:
+    .4s;
+
+}
+
+
+.social-grid img:hover {
+  transform:
+    scale(1.07);
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+
+  background:
+    var(--ink);
+
+  color:
+    white;
+
+  padding:
+    70px 0 30px;
+
+}
+
+
+.footer-grid {
+
+  display:
+    grid;
+
+  grid-template-columns:
+    1.5fr 1fr 1fr 1.2fr;
+
+  gap:
+    40px;
+
+}
+
+
+.footer-brand {
+
+  font-family:
+    "Playfair Display",
+    serif;
+
+  font-size:
+    30px;
+
+}
+
+
+.footer-desc {
+
+  color:
+    #c8bec0;
+
+  font-size:
+    11px;
+
+  max-width:
+    330px;
+
+  margin-top:
+    13px;
+
+}
+
+
+.footer-title {
+
+  font-size:
+    11px;
+
+  text-transform:
+    uppercase;
+
+  letter-spacing:
+    2px;
+
+  margin-bottom:
+    16px;
+
+  color:
+    #ead3b5;
+
+}
+
+
+.footer-links a {
+
+  display:
+    block;
+
+  color:
+    #c8bec0;
+
+  font-size:
+    11px;
+
+  margin-bottom:
+    9px;
+
+}
+
+
+.footer-bottom {
+
+  border-top:
+    1px solid rgba(255,255,255,.12);
+
+  margin-top:
+    45px;
+
+  padding-top:
+    20px;
+
+  color:
+    #aaa0a2;
+
+  font-size:
+    10px;
+
+  display:
+    flex;
+
+  justify-content:
+    space-between;
+
+}
+
+
+/* =========================================================
+   ADMIN BUTTON
+========================================================= */
+
+#adminBtn {
+
+  position:
+    fixed;
+
+  left:
+    8px;
+
+  bottom:
+    8px;
+
+  width:
+    30px;
+
+  height:
+    30px;
+
+  padding:
+    0;
+
+  border:
+    1px solid rgba(120,100,105,.25);
+
+  border-radius:
+    50%;
+
+  background:
+    rgba(255,255,255,.78);
+
+  color:
+    #777;
+
+  font-size:
+    13px;
+
+  opacity:
+    .45;
+
+  z-index:
+    99999;
+
+  box-shadow:
+    0 3px 12px rgba(0,0,0,.08);
+
+}
+
+
+#adminBtn:hover {
+  opacity:
+    .9;
+}
+
+
+/* =========================================================
+   ADMIN OVERLAY
+========================================================= */
+
+#adminOverlay {
+
+  display:
+    none;
+
+  position:
+    fixed;
+
+  inset:
+    0;
+
+  z-index:
+    100000;
+
+  background:
+    rgba(20,15,17,.75);
+
+  backdrop-filter:
+    blur(10px);
+
+  overflow-y:
+    auto;
+
+  padding:
+    25px 15px;
+
+}
+
+
+#adminBox {
+
+  width:
+    min(570px,100%);
+
+  margin:
+    20px auto;
+
+  background:
+    #fff;
+
+  border-radius:
+    22px;
+
+  padding:
+    27px;
+
+  box-shadow:
+    0 30px 90px rgba(0,0,0,.25);
+
+}
+
+
+#adminBox h2 {
+
+  font-family:
+    "Playfair Display",
+    serif;
+
+  text-align:
+    center;
+
+  font-size:
+    30px;
+
+}
+
+
+#adminBox h3 {
+
+  text-align:
+    center;
+
+  margin:
+    8px 0 25px;
+
+}
+
+
+.closeAdmin {
+
+  float:
+    right;
+
+  border:
+    none;
+
+  background:
+    #eee;
+
+  border-radius:
+    50%;
+
+  width:
+    35px;
+
+  height:
+    35px;
+
+  cursor:
+    pointer;
+
+  font-size:
+    18px;
+
+}
+
+
+.adminInput,
+.adminSelect,
+.adminTextarea {
+
+  width:
+    100%;
+
+  padding:
+    12px;
+
+  border:
+    1px solid #ddd;
+
+  border-radius:
+    10px;
+
+  margin:
+    7px 0 15px;
+
+  outline:
+    none;
+
+  background:
+    white;
+
+}
+
+
+.adminTextarea {
+
+  min-height:
+    100px;
+
+  resize:
+    vertical;
+
+}
+
+
+.adminButton {
+
+  width:
+    100%;
+
+  padding:
+    13px;
+
+  border:
+    none;
+
+  border-radius:
+    10px;
+
+  background:
+    var(--ink);
+
+  color:
+    white;
+
+  font-weight:
+    700;
+
+  cursor:
+    pointer;
+
+}
+
+
+#adminPreview {
+
+  display:
+    none;
+
+  width:
+    120px;
+
+  height:
+    120px;
+
+  object-fit:
+    cover;
+
+  border-radius:
+    12px;
+
+  margin:
+    10px auto;
+
+}
+
+
+#adminMessage {
+
+  text-align:
+    center;
+
+  margin-top:
+    12px;
+
+  font-size:
+    12px;
+
+  font-weight:
+    700;
+
+}
+
+
+#productForm {
+  display:
+    none;
+}
+
+
+#manageProductsPanel {
+
+  display:
+    none;
+
+  margin-top:
+    25px;
+
+}
+
+
+.manageProduct {
+
+  border:
+    1px solid #ddd;
+
+  border-radius:
+    13px;
+
+  padding:
+    12px;
+
+  margin-bottom:
+    12px;
+
+  background:
+    #fafafa;
+
+  overflow:
+    hidden;
+
+}
+
+
+.manageProduct img {
+
+  width:
+    75px;
+
+  height:
+    75px;
+
+  object-fit:
+    cover;
+
+  border-radius:
+    9px;
+
+  float:
+    left;
+
+  margin-right:
+    12px;
+
+}
+
+
+.manageProductInfo {
+  min-height:
+    75px;
+}
+
+
+.manageProductButtons {
+
+  clear:
+    both;
+
+  display:
+    flex;
+
+  gap:
+    7px;
+
+  margin-top:
+    10px;
+
+}
+
+
+.manageProductButtons button {
+
+  flex:
+    1;
+
+  padding:
+    9px;
+
+  border:
+    none;
+
+  border-radius:
+    7px;
+
+  cursor:
+    pointer;
+
+  font-weight:
+    700;
+
+}
+
+
+.editProductBtn {
+  background:
+    #eee;
+}
+
+
+.deleteProductBtn {
+
+  background:
+    #8d414e;
+
+  color:
+    white;
+
+}
+
+
+#editProductBox {
+
+  display:
+    none;
+
+  margin-top:
+    20px;
+
+  padding:
+    20px;
+
+  background:
+    #f7f3f0;
+
+  border-radius:
+    15px;
+
+}
+
+
+.updateProductBtn,
+.cancelEditBtn {
+
+  width:
+    100%;
+
+  padding:
+    12px;
+
+  border:
+    none;
+
+  border-radius:
+    9px;
+
+  margin-top:
+    8px;
+
+  cursor:
+    pointer;
+
+  font-weight:
+    700;
+
+}
+
+
+.updateProductBtn {
+
+  background:
+    var(--rose-dark);
+
+  color:
+    white;
+
+}
+
+
+.cancelEditBtn {
+  background:
+    #ddd;
+}
+
+
+/* =========================================================
+   PRODUCT MODAL
+========================================================= */
+
+#productModal {
+
+  display:
+    none;
+
+  position:
+    fixed;
+
+  inset:
+    0;
+
+  z-index:
+    90000;
+
+  background:
+    rgba(20,15,17,.75);
+
+  backdrop-filter:
+    blur(8px);
+
+  overflow-y:
+    auto;
+
+  padding:
+    25px;
+
+}
+
+
+.product-modal-box {
+
+  width:
+    min(1000px,100%);
+
+  margin:
+    30px auto;
+
+  background:
+    white;
+
+  border-radius:
+    24px;
+
+  padding:
+    20px;
+
+  position:
+    relative;
+
+}
+
+
+.modal-close {
+
+  position:
+    absolute;
+
+  top:
+    15px;
+
+  right:
+    15px;
+
+  width:
+    38px;
+
+  height:
+    38px;
+
+  border:
+    none;
+
+  border-radius:
+    50%;
+
+  background:
+    rgba(255,255,255,.95);
+
+  z-index:
+    20;
+
+  font-size:
+    20px;
+
+}
+
+
+.modal-product {
+
+  display:
+    grid;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  gap:
+    35px;
+
+}
+
+
+.modal-main-image {
+
+  aspect-ratio:
+    3/4;
+
+  overflow:
+    hidden;
+
+  border-radius:
+    18px;
+
+  background:
+    #eee;
+
+}
+
+
+.modal-main-image img {
+
+  height:
+    100%;
+
+  object-fit:
+    cover;
+
+}
+
+
+.modal-thumbs {
+
+  display:
+    flex;
+
+  gap:
+    7px;
+
+  margin-top:
+    8px;
+
+  overflow:
+    auto;
+
+}
+
+
+.modal-thumbs img {
+
+  width:
+    70px;
+
+  height:
+    80px;
+
+  object-fit:
+    cover;
+
+  border-radius:
+    8px;
+
+  cursor:
+    pointer;
+
+  border:
+    2px solid transparent;
+
+}
+
+
+.modal-thumbs img.active {
+
+  border-color:
+    var(--rose);
+
+}
+
+
+.modal-info {
+
+  padding:
+    35px 20px;
+
+}
+
+
+.modal-category {
+
+  color:
+    var(--rose-dark);
+
+  font-size:
+    10px;
+
+  text-transform:
+    uppercase;
+
+  letter-spacing:
+    2px;
+
+}
+
+
+.modal-info h2 {
+
+  font-family:
+    "Playfair Display",
+    serif;
+
+  font-size:
+    clamp(35px,5vw,58px);
+
+  line-height:
+    1;
+
+  margin:
+    10px 0 15px;
+
+}
+
+
+.modal-price {
+
+  font-size:
+    19px;
+
+  font-weight:
+    700;
+
+  margin-bottom:
+    20px;
+
+}
+
+
+.modal-description {
+
+  color:
+    var(--muted);
+
+  font-size:
+    13px;
+
+  margin-bottom:
+    25px;
+
+}
+
+
+.whatsapp-btn {
+
+  width:
+    100%;
+
+  padding:
+    14px;
+
+  border:
+    none;
+
+  border-radius:
+    100px;
+
+  background:
+    #208c52;
+
+  color:
+    white;
+
+  font-weight:
+    700;
+
+}
+
+
+/* =========================================================
+   CART DRAWER
+========================================================= */
+
+#cartDrawer {
+
+  position:
+    fixed;
+
+  top:
+    0;
+
+  right:
+    -430px;
+
+  width:
+    min(420px,92%);
+
+  height:
+    100vh;
+
+  background:
+    white;
+
+  z-index:
+    95000;
+
+  box-shadow:
+    -15px 0 50px rgba(0,0,0,.15);
+
+  transition:
+    .35s;
+
+  padding:
+    25px;
+
+  overflow-y:
+    auto;
+
+}
+
+
+#cartDrawer.open {
+  right:
+    0;
+}
+
+
+.cart-head {
+
+  display:
+    flex;
+
+  justify-content:
+    space-between;
+
+  align-items:
+    center;
+
+  padding-bottom:
+    18px;
+
+  border-bottom:
+    1px solid var(--line);
+
+}
+
+
+.cart-head h2 {
+
+  font-family:
+    "Playfair Display",
+    serif;
+
+}
+
+
+.cart-item {
+
+  display:
+    grid;
+
+  grid-template-columns:
+    70px 1fr auto;
+
+  gap:
+    10px;
+
+  padding:
+    15px 0;
+
+  border-bottom:
+    1px solid var(--line);
+
+}
+
+
+.cart-item img {
+
+  width:
+    70px;
+
+  height:
+    85px;
+
+  object-fit:
+    cover;
+
+  border-radius:
+    8px;
+
+}
+
+
+.cart-item strong {
+
+  font-size:
+    12px;
+
+}
+
+
+.cart-item small {
+
+  display:
+    block;
+
+  color:
+    var(--muted);
+
+}
+
+
+.remove-cart {
+
+  border:
+    none;
+
+  background:
+    none;
+
+  color:
+    #a33;
+
+}
+
+
+.cart-total {
+
+  display:
+    flex;
+
+  justify-content:
+    space-between;
+
+  margin:
+    22px 0;
+
+  font-weight:
+    700;
+
+}
+
+
+.whatsapp-cart {
+
+  width:
+    100%;
+
+  padding:
+    14px;
+
+  border:
+    none;
+
+  border-radius:
+    100px;
+
+  background:
+    #208c52;
+
+  color:
+    white;
+
+  font-weight:
+    700;
+
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:1000px) {
+
+  .nav-left {
+    display:
+      none;
+  }
+
+  .mobile-menu-btn {
+    display:
+      block;
+  }
+
+  .header-inner {
+
+    grid-template-columns:
+      auto 1fr auto;
+
+  }
+
+  .brand {
+    text-align:
+      center;
+  }
+
+  .category-grid,
+  .products-grid {
+
+    grid-template-columns:
+      repeat(2,1fr);
+
+  }
+
+  .why-grid {
+    grid-template-columns:
+      repeat(2,1fr);
+  }
+
+}
+
+
+@media(max-width:700px) {
+
+  .hero {
+    min-height:
+      600px;
+
+    background-position:
+      62% center;
+
+  }
+
+  .hero h1 {
+    font-size:
+      55px;
+  }
+
+  section {
+    padding:
+      65px 0;
+  }
+
+  .trust-grid {
+
+    grid-template-columns:
+      repeat(2,1fr);
+
+  }
+
+  .trust-item:nth-child(2) {
+    border-right:
+      none;
+  }
+
+  .trust-item:nth-child(-n+2) {
+    border-bottom:
+      1px solid var(--line);
+  }
+
+  .category-grid,
+  .products-grid {
+
+    grid-template-columns:
+      repeat(2,1fr);
+
+    gap:
+      10px;
+
+  }
+
+  .category-card {
+    height:
+      250px;
+  }
+
+  .product-info {
+    padding:
+      11px;
+  }
+
+  .product-name {
+    font-size:
+      16px;
+  }
+
+  .product-description {
+    display:
+      none;
+  }
+
+  .search-box {
+    width:
+      100%;
+  }
+
+  .shop-toolbar {
+    align-items:
+      stretch;
+  }
+
+  .custom-box {
+
+    grid-template-columns:
+      1fr;
+
+    gap:
+      25px;
+
+  }
+
+  .custom-box img {
+    height:
+      370px;
+  }
+
+  .review-grid {
+
+    grid-template-columns:
+      1fr;
+
+  }
+
+  .social-grid {
+
+    grid-template-columns:
+      repeat(3,1fr);
+
+  }
+
+  .footer-grid {
+
+    grid-template-columns:
+      1fr 1fr;
+
+  }
+
+  .footer-bottom {
+
+    flex-direction:
+      column;
+
+    gap:
+      7px;
+
+  }
+
+  .modal-product {
+
+    grid-template-columns:
+      1fr;
+
+  }
+
+  .modal-info {
+    padding:
+      15px;
+  }
+
+}
+
+
+@media(max-width:480px) {
+
+  .brand-name {
+    font-size:
+      22px;
+  }
+
+  .brand-sub {
+    font-size:
+      6px;
+
+    letter-spacing:
+      2px;
+  }
+
+  .header-actions .search-header {
+    display:
+      none;
+  }
+
+  .hero {
+    min-height:
+      560px;
+  }
+
+  .hero h1 {
+    font-size:
+      48px;
+  }
+
+  .hero p {
+    font-size:
+      13px;
+  }
+
+  .category-overlay h3 {
+    font-size:
+      22px;
+  }
+
+  .product-bottom {
+    align-items:
+      flex-start;
+
+    flex-direction:
+      column;
+
+    gap:
+      8px;
+  }
+
+  .product-actions {
+    width:
+      100%;
+  }
+
+  .small-btn {
+    flex:
+      1;
+  }
+
+}
+
+
+/* =========================================================
+   LOADING
+========================================================= */
+
+.loading {
+
+  grid-column:
+    1/-1;
+
+  text-align:
+    center;
+
+  padding:
+    60px;
+
+  color:
+    var(--muted);
+
+}
+
+
+</style>
+
 </head>
+
 
 <body>
 
-  <!-- TOP BAR -->
-  <div class="topbar">
-    ✨ Welcome to MG DREAM ZONE — Your Choice Is Our Best Combination ✨
-  </div>
 
-  <!-- HEADER -->
-  <header>
-    <div class="container header-main">
+<!-- =======================================================
+     TOP BAR
+======================================================= -->
 
-      <button class="mobile-toggle" onclick="openMobileMenu()">
+<div class="topbar">
+
+  ✦ ISLANDWIDE DELIVERY
+  &nbsp; · &nbsp;
+  ✦ WHATSAPP ORDERS
+  &nbsp; · &nbsp;
+  ✦ MADE WITH LOVE
+
+</div>
+
+
+<!-- =======================================================
+     HEADER
+======================================================= -->
+
+<header class="site-header">
+
+  <div class="container header-inner">
+
+    <div>
+
+      <button
+        class="mobile-menu-btn"
+        onclick="toggleMobileMenu()"
+      >
         ☰
       </button>
 
-      <nav class="desktop-nav">
+      <nav class="nav-left">
+
         <a href="#home">Home</a>
+
+        <a href="#new">New In</a>
+
+        <a href="#categories">Collections</a>
+
         <a href="#shop">Shop</a>
-        <a href="#categories">Categories</a>
-        <a href="#custom">Custom Orders</a>
+
+        <a href="#custom">Custom</a>
+
       </nav>
 
-      <a class="brand" href="#home">
-        <div class="brand-name">MG DREAM ZONE</div>
-        <div class="brand-tagline">FASHION • STYLE • ELEGANCE</div>
-      </a>
+    </div>
 
-      <div class="header-actions">
 
-        <button class="icon-btn hide-mobile" title="Search" onclick="focusSearch()">
-          🔍
-        </button>
+    <a
+      href="#home"
+      class="brand"
+    >
 
-        <button class="icon-btn" title="Shopping Bag" onclick="openCart()">
-          🛍
-          <span class="count" id="cartCount">0</span>
-        </button>
-
+      <div class="brand-name">
+        MG DREAM ZONE
       </div>
 
-    </div>
-  </header>
+      <div class="brand-sub">
+        Luxury Fashion Boutique
+      </div>
 
-  <!-- MOBILE MENU -->
-  <div class="mobile-menu" id="mobileMenu" onclick="closeMobileMenu(event)">
-    <div class="mobile-panel" onclick="event.stopPropagation()">
+    </a>
 
-      <button class="mobile-close" onclick="closeMobileMenu()">
-        ×
+
+    <div class="header-actions">
+
+      <button
+        class="icon-btn search-header"
+        onclick="focusSearch()"
+        title="Search"
+      >
+        ⌕
       </button>
 
-      <div class="mobile-links">
-        <a href="#home" onclick="closeMobileMenu()">Home</a>
-        <a href="#shop" onclick="closeMobileMenu()">Shop</a>
-        <a href="#categories" onclick="closeMobileMenu()">Categories</a>
-        <a href="#custom" onclick="closeMobileMenu()">Custom Orders</a>
-        <a href="#about" onclick="closeMobileMenu()">About Us</a>
-        <a href="#reviews" onclick="closeMobileMenu()">Reviews</a>
-        <a href="#contact" onclick="closeMobileMenu()">Contact</a>
-      </div>
+      <button
+        class="icon-btn"
+        onclick="openCart()"
+        title="Cart"
+      >
+
+        🛍
+
+        <span
+          class="cart-count"
+          id="cartCount"
+        >
+          0
+        </span>
+
+      </button>
 
     </div>
+
   </div>
 
-  <main>
 
-    <!-- HERO -->
-    <section class="hero" id="home">
+  <div
+    class="mobile-menu"
+    id="mobileMenu"
+  >
 
-      <div class="container">
+    <a href="#home"
+       onclick="closeMobileMenu()">
+      Home
+    </a>
 
-        <div class="hero-content">
+    <a href="#new"
+       onclick="closeMobileMenu()">
+      New Arrivals
+    </a>
 
-          <div class="hero-kicker">
-            Sri Lankan Women's Fashion
-          </div>
+    <a href="#categories"
+       onclick="closeMobileMenu()">
+      Collections
+    </a>
 
-          <h1>
-            Wear Your<br>
-            <span>Dream.</span>
-          </h1>
+    <a href="#shop"
+       onclick="closeMobileMenu()">
+      Shop
+    </a>
 
-          <p>
-            Discover elegant dresses, stylish saree jackets,
-            beautiful kids wear and custom-made outfits created
-            specially for you.
-          </p>
+    <a href="#custom"
+       onclick="closeMobileMenu()">
+      Custom Design
+    </a>
 
-          <div class="hero-buttons">
+  </div>
 
-            <a href="#shop" class="btn btn-primary">
-              Shop Collection
-            </a>
+</header>
 
-            <a href="#custom" class="btn btn-outline-light">
-              Custom Order
-            </a>
 
-          </div>
+<!-- =======================================================
+     HERO
+======================================================= -->
 
-        </div>
+<section
+  class="hero"
+  id="home"
+>
 
+  <div class="container">
+
+    <div class="hero-content">
+
+      <div class="hero-kicker">
+        The MG Dream Zone Edit
       </div>
 
-    </section>
+      <h1>
 
-    <!-- TRUST -->
-    <div class="trust-strip">
+        Elegance
+        <br>
 
-      <div class="container trust-grid">
+        <span>
+          Made For You.
+        </span>
 
-        <div class="trust-item">
-          <div class="trust-icon">🚚</div>
-          <strong>Islandwide Delivery</strong>
-          <span>Delivery available across Sri Lanka</span>
-        </div>
+      </h1>
 
-        <div class="trust-item">
-          <div class="trust-icon">✂️</div>
-          <strong>Custom Made</strong>
-          <span>Designed to suit your requirements</span>
-        </div>
+      <p>
 
-        <div class="trust-item">
-          <div class="trust-icon">💎</div>
-          <strong>Quality Finishing</strong>
-          <span>Carefully made with attention to detail</span>
-        </div>
+        Discover feminine silhouettes,
+        beautiful details and carefully
+        selected fashion designed to make
+        every moment feel special.
 
-        <div class="trust-item">
-          <div class="trust-icon">💬</div>
-          <strong>WhatsApp Support</strong>
-          <span>Chat directly with MG DREAM ZONE</span>
-        </div>
+      </p>
+
+
+      <div class="hero-buttons">
+
+        <a
+          href="#new"
+          class="btn btn-primary"
+        >
+          Shop New Arrivals
+        </a>
+
+        <a
+          href="#categories"
+          class="btn btn-outline"
+        >
+          Explore Collections
+        </a>
 
       </div>
 
     </div>
 
-    <!-- CATEGORIES -->
-    <section id="categories">
+  </div>
 
-      <div class="container">
+</section>
 
-        <div class="section-head center">
-          <div class="eyebrow">Shop By Category</div>
 
-          <h2>Find Your Style</h2>
+<!-- =======================================================
+     TRUST
+======================================================= -->
 
-          <p>
-            Explore our collections and find something that feels
-            perfect for you.
-          </p>
+<div class="trust">
+
+  <div class="container trust-grid">
+
+    <div class="trust-item">
+
+      <div class="trust-icon">
+        🚚
+      </div>
+
+      <strong>
+        Islandwide Delivery
+      </strong>
+
+      <span>
+        We deliver across Sri Lanka
+      </span>
+
+    </div>
+
+
+    <div class="trust-item">
+
+      <div class="trust-icon">
+        💬
+      </div>
+
+      <strong>
+        WhatsApp Support
+      </strong>
+
+      <span>
+        We're here to help
+      </span>
+
+    </div>
+
+
+    <div class="trust-item">
+
+      <div class="trust-icon">
+        ✦
+      </div>
+
+      <strong>
+        Carefully Selected
+      </strong>
+
+      <span>
+        Fashion you'll love
+      </span>
+
+    </div>
+
+
+    <div class="trust-item">
+
+      <div class="trust-icon">
+        ❤️
+      </div>
+
+      <strong>
+        Made With Love
+      </strong>
+
+      <span>
+        Every order matters
+      </span>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- =======================================================
+     CATEGORIES
+======================================================= -->
+
+<section
+  id="categories"
+>
+
+  <div class="container">
+
+    <div class="section-head center">
+
+      <div class="eyebrow">
+        Discover
+      </div>
+
+      <h2>
+        Shop Your Style
+      </h2>
+
+      <p>
+        Find something beautiful for
+        every mood, moment and occasion.
+      </p>
+
+    </div>
+
+
+    <div class="category-grid">
+
+
+      <a
+        href="#shop"
+        class="category-card"
+        onclick="filterCategory('Dresses')"
+      >
+
+        <img
+          src="https://images.unsplash.com/photo-1539008835657-9e8e9680c956?auto=format&fit=crop&w=900&q=85"
+          alt="Dresses"
+        >
+
+        <div class="category-overlay">
+
+          <h3>
+            Dresses
+          </h3>
+
+          <span>
+            Explore collection →
+          </span>
+
         </div>
 
-        <div class="category-grid">
+      </a>
 
-          <a href="#shop"
-             class="category-card"
-             onclick="selectCategory('Dresses')">
 
-            <img
-              src="https://images.unsplash.com/photo-1539008835657-9e8e9680c956?auto=format&fit=crop&w=900&q=90"
-              alt="Women's Dresses"
-            >
+      <a
+        href="#shop"
+        class="category-card"
+        onclick="filterCategory('Saree Jackets')"
+      >
 
-            <div class="category-overlay">
-              <h3>Dresses</h3>
-              <span>Elegant & feminine</span>
-            </div>
+        <img
+          src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=900&q=85"
+          alt="Saree Jackets"
+        >
 
-          </a>
+        <div class="category-overlay">
 
-          <a href="#shop"
-             class="category-card"
-             onclick="selectCategory('Saree Jackets')">
+          <h3>
+            Saree Jackets
+          </h3>
 
-            <img
-              src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=900&q=90"
-              alt="Saree Jackets"
-            >
-
-            <div class="category-overlay">
-              <h3>Saree Jackets</h3>
-              <span>Traditional with a modern touch</span>
-            </div>
-
-          </a>
-
-          <a href="#shop"
-             class="category-card"
-             onclick="selectCategory('Kids Wear')">
-
-            <img
-              src="https://images.unsplash.com/photo-1503944583220-79d8926ad5e3?auto=format&fit=crop&w=900&q=90"
-              alt="Kids Wear"
-            >
-
-            <div class="category-overlay">
-              <h3>Kids Wear</h3>
-              <span>Sweet, cute & stylish</span>
-            </div>
-
-          </a>
-
-          <a href="#shop"
-             class="category-card"
-             onclick="selectCategory('Custom')">
-
-            <img
-              src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&w=900&q=90"
-              alt="Custom Clothing"
-            >
-
-            <div class="category-overlay">
-              <h3>Custom Made</h3>
-              <span>Created specially for you</span>
-            </div>
-
-          </a>
+          <span>
+            Explore collection →
+          </span>
 
         </div>
+
+      </a>
+
+
+      <a
+        href="#shop"
+        class="category-card"
+        onclick="filterCategory('Kids Wear')"
+      >
+
+        <img
+          src="https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?auto=format&fit=crop&w=900&q=85"
+          alt="Kids Wear"
+        >
+
+        <div class="category-overlay">
+
+          <h3>
+            Kids Wear
+          </h3>
+
+          <span>
+            Explore collection →
+          </span>
+
+        </div>
+
+      </a>
+
+
+      <a
+        href="#custom"
+        class="category-card"
+      >
+
+        <img
+          src="https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=900&q=85"
+          alt="Custom Fashion"
+        >
+
+        <div class="category-overlay">
+
+          <h3>
+            Custom
+          </h3>
+
+          <span>
+            Create your dream look →
+          </span>
+
+        </div>
+
+      </a>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =======================================================
+     NEW ARRIVALS
+======================================================= -->
+
+<section
+  id="new"
+  class="collection-section"
+>
+
+  <div class="container">
+
+    <div class="section-head">
+
+      <div class="eyebrow">
+        Freshly Added
+      </div>
+
+      <h2>
+        New Arrivals
+      </h2>
+
+      <p>
+        Fresh styles added to the
+        MG DREAM ZONE collection.
+      </p>
+
+    </div>
+
+
+    <div
+      class="products-grid"
+      id="newProducts"
+    >
+
+      <div class="loading">
+        Loading beautiful pieces...
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =======================================================
+     SHOP
+======================================================= -->
+
+<section id="shop">
+
+  <div class="container">
+
+    <div class="section-head center">
+
+      <div class="eyebrow">
+        The Collection
+      </div>
+
+      <h2>
+        Find Your Favourite
+      </h2>
+
+      <p>
+        Browse our latest collection
+        and discover something made for you.
+      </p>
+
+    </div>
+
+
+    <div class="shop-toolbar">
+
+      <div
+        class="filters"
+        id="filters"
+      >
+
+        <button
+          class="filter-btn active"
+          onclick="filterCategory('All',this)"
+        >
+          All
+        </button>
+
+        <button
+          class="filter-btn"
+          onclick="filterCategory('Dresses',this)"
+        >
+          Dresses
+        </button>
+
+        <button
+          class="filter-btn"
+          onclick="filterCategory('Saree Jackets',this)"
+        >
+          Saree Jackets
+        </button>
+
+        <button
+          class="filter-btn"
+          onclick="filterCategory('Kids Wear',this)"
+        >
+          Kids
+        </button>
+
+        <button
+          class="filter-btn"
+          onclick="filterCategory('Custom',this)"
+        >
+          Custom
+        </button>
 
       </div>
 
-    </section>
 
-    <!-- SHOP -->
-    <section class="collection-section" id="shop">
+      <div class="search-box">
 
-      <div class="container">
+        🔍
 
-        <div class="section-head">
-
-          <div class="eyebrow">New & Noteworthy</div>
-
-          <h2>Shop Our Collection</h2>
-
-          <p>
-            Beautiful styles for everyday wear, special occasions
-            and everything in between.
-          </p>
-
-        </div>
-
-        <div class="shop-controls">
-
-          <div class="filter-tabs">
-
-            <button
-              class="filter-btn active"
-              onclick="selectCategory('All')"
-              id="filter-All"
-            >
-              All
-            </button>
-
-            <button
-              class="filter-btn"
-              onclick="selectCategory('Dresses')"
-              id="filter-Dresses"
-            >
-              Dresses
-            </button>
-
-            <button
-              class="filter-btn"
-              onclick="selectCategory('Saree Jackets')"
-              id="filter-Saree Jackets"
-            >
-              Saree Jackets
-            </button>
-
-            <button
-              class="filter-btn"
-              onclick="selectCategory('Kids Wear')"
-              id="filter-Kids Wear"
-            >
-              Kids Wear
-            </button>
-
-            <button
-              class="filter-btn"
-              onclick="selectCategory('Custom')"
-              id="filter-Custom"
-            >
-              Custom
-            </button>
-
-          </div>
-
-          <div class="search-box">
-
-            <input
-              type="search"
-              id="searchInput"
-              placeholder="Search products..."
-              oninput="renderProducts()"
-            >
-
-          </div>
-
-        </div>
-
-        <div class="products-grid" id="productsGrid"></div>
+        <input
+          id="searchInput"
+          type="search"
+          placeholder="Search products..."
+          oninput="searchProducts()"
+        >
 
       </div>
 
-    </section>
+    </div>
 
-    <!-- EDITORIAL -->
-    <section class="editorial">
 
-      <div class="container">
+    <div
+      class="products-grid"
+      id="productsGrid"
+    >
 
-        <div class="editorial-content">
-
-          <div class="eyebrow" style="color:#f4ccdd;">
-            Your Style. Your Story.
-          </div>
-
-          <h2>
-            Made for<br>
-            Your Moments.
-          </h2>
-
-          <p>
-            From a simple day out to a special celebration,
-            discover fashion that helps you feel confident,
-            feminine and beautifully yourself.
-          </p>
-
-          <a href="#shop" class="btn btn-white">
-            Explore Styles
-          </a>
-
-        </div>
-
+      <div class="loading">
+        Loading products...
       </div>
 
-    </section>
+    </div>
 
-    <!-- CUSTOM ORDERS -->
-    <section class="custom-section" id="custom">
+  </div>
 
-      <div class="container custom-grid">
+</section>
 
-        <div class="custom-image">
 
-          <img
-            src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=1200&q=90"
-            alt="Custom Dress Design"
-          >
+<!-- =======================================================
+     BRAND BANNER
+======================================================= -->
 
-        </div>
+<section>
 
-        <div class="custom-content">
+  <div class="container">
 
-          <div class="eyebrow">
-            Custom Clothing
-          </div>
+    <div class="feature-banner">
 
-          <h2>
-            Your Dream Dress,
-            Made Your Way.
-          </h2>
-
-          <p>
-            Have your own design in mind? Send us your inspiration,
-            fabric, measurements and preferred style. We'll discuss
-            your requirements and help bring your idea to life.
-          </p>
-
-          <div class="steps">
-
-            <div class="step">
-              <div class="step-num">01</div>
-              <div>
-                <strong>Send Your Design</strong>
-                <span>Share your inspiration photo or idea.</span>
-              </div>
-            </div>
-
-            <div class="step">
-              <div class="step-num">02</div>
-              <div>
-                <strong>Choose Your Details</strong>
-                <span>Colour, fabric, measurements and finishing.</span>
-              </div>
-            </div>
-
-            <div class="step">
-              <div class="step-num">03</div>
-              <div>
-                <strong>Confirm Your Order</strong>
-                <span>We discuss price, details and delivery.</span>
-              </div>
-            </div>
-
-            <div class="step">
-              <div class="step-num">04</div>
-              <div>
-                <strong>We Create It</strong>
-                <span>Your outfit is prepared with care.</span>
-              </div>
-            </div>
-
-          </div>
-
-          <a
-            href="https://wa.me/94769284052?text=Hello%20MG%20DREAM%20ZONE%2C%20I%20would%20like%20to%20place%20a%20custom%20order."
-            target="_blank"
-            class="btn btn-primary"
-          >
-            WhatsApp Custom Order
-          </a>
-
-        </div>
-
-      </div>
-
-    </section>
-
-    <!-- WHY US -->
-    <section id="about">
-
-      <div class="container">
-
-        <div class="section-head center">
-
-          <div class="eyebrow">Why MG DREAM ZONE</div>
-
-          <h2>Made With Care</h2>
-
-          <p>
-            We believe beautiful clothing is about more than just
-            fashion. It's about comfort, confidence and feeling like you.
-          </p>
-
-        </div>
-
-        <div class="why-grid">
-
-          <div class="why-card">
-            <div class="why-icon">✂️</div>
-            <h3>Thoughtful Craftsmanship</h3>
-            <p>
-              Every piece is prepared with care and attention
-              to the little details that matter.
-            </p>
-          </div>
-
-          <div class="why-card">
-            <div class="why-icon">💗</div>
-            <h3>Made For You</h3>
-            <p>
-              Custom options allow you to choose details
-              that match your own style and preferences.
-            </p>
-          </div>
-
-          <div class="why-card">
-            <div class="why-icon">✨</div>
-            <h3>Elegant Designs</h3>
-            <p>
-              Feminine and modern designs suitable for
-              everyday wear and special occasions.
-            </p>
-          </div>
-
-          <div class="why-card">
-            <div class="why-icon">🤝</div>
-            <h3>Personal Service</h3>
-            <p>
-              We communicate directly with you to understand
-              your order and design requirements.
-            </p>
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-    <!-- REVIEWS -->
-    <section class="reviews-section" id="reviews">
-
-      <div class="container">
-
-        <div class="section-head center">
-
-          <div class="eyebrow">Customer Love</div>
-
-          <h2>What Our Customers Say</h2>
-
-          <p>
-            Your happiness is at the heart of MG DREAM ZONE.
-          </p>
-
-        </div>
-
-        <div class="review-grid">
-
-          <div class="review-card">
-
-            <div class="review-stars">
-              ★★★★★
-            </div>
-
-            <div class="review-text">
-              “The dress was exactly what I wanted.
-              Beautiful finishing and a lovely fit.”
-            </div>
-
-            <div class="review-name">
-              Customer Review
-            </div>
-
-            <div class="review-location">
-              Sri Lanka
-            </div>
-
-          </div>
-
-          <div class="review-card">
-
-            <div class="review-stars">
-              ★★★★★
-            </div>
-
-            <div class="review-text">
-              “Very happy with the quality and the attention
-              given to my custom design.”
-            </div>
-
-            <div class="review-name">
-              Customer Review
-            </div>
-
-            <div class="review-location">
-              Sri Lanka
-            </div>
-
-          </div>
-
-          <div class="review-card">
-
-            <div class="review-stars">
-              ★★★★★
-            </div>
-
-            <div class="review-text">
-              “Beautiful work, comfortable outfit and excellent
-              service. Highly recommended.”
-            </div>
-
-            <div class="review-name">
-              Customer Review
-            </div>
-
-            <div class="review-location">
-              Sri Lanka
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-    <!-- FAQ -->
-    <section>
-
-      <div class="container">
-
-        <div class="section-head center">
-
-          <div class="eyebrow">Need To Know</div>
-
-          <h2>Frequently Asked Questions</h2>
-
-        </div>
-
-        <div class="faq-wrap">
-
-          <div class="faq-item">
-
-            <button class="faq-question" onclick="toggleFaq(this)">
-              Do you accept custom orders?
-              <span class="faq-plus">+</span>
-            </button>
-
-            <div class="faq-answer">
-              <p>
-                Yes. Selected dresses, saree jackets and other
-                clothing can be made according to your preferred
-                design and measurements.
-              </p>
-            </div>
-
-          </div>
-
-          <div class="faq-item">
-
-            <button class="faq-question" onclick="toggleFaq(this)">
-              Can I provide my own fabric?
-              <span class="faq-plus">+</span>
-            </button>
-
-            <div class="faq-answer">
-              <p>
-                Customer-provided fabric can be accepted for selected
-                designs and sewing orders. Please contact us before
-                placing your order.
-              </p>
-            </div>
-
-          </div>
-
-          <div class="faq-item">
-
-            <button class="faq-question" onclick="toggleFaq(this)">
-              Can I request custom measurements?
-              <span class="faq-plus">+</span>
-            </button>
-
-            <div class="faq-answer">
-              <p>
-                Yes. Custom measurements can be discussed for
-                suitable custom-made orders.
-              </p>
-            </div>
-
-          </div>
-
-          <div class="faq-item">
-
-            <button class="faq-question" onclick="toggleFaq(this)">
-              How can I place an order?
-              <span class="faq-plus">+</span>
-            </button>
-
-            <div class="faq-answer">
-              <p>
-                Choose a product, click Order or Add to Bag,
-                and contact us through WhatsApp to confirm your
-                order details.
-              </p>
-            </div>
-
-          </div>
-
-          <div class="faq-item">
-
-            <button class="faq-question" onclick="toggleFaq(this)">
-              Do you accept bulk orders?
-              <span class="faq-plus">+</span>
-            </button>
-
-            <div class="faq-answer">
-              <p>
-                Yes. Bulk orders can be discussed depending on the
-                design, quantity and production requirements.
-              </p>
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-    <!-- NEWSLETTER -->
-    <section class="newsletter">
-
-      <div class="container newsletter-inner">
+      <div class="feature-content">
 
         <div class="eyebrow">
-          Stay In Touch
+          MG DREAM ZONE
         </div>
 
         <h2>
-          Get New Styles First.
+          More Than Fashion.
+          <br>
+          It's Your Moment.
         </h2>
 
         <p>
-          Join our mailing list for new collections, special offers
-          and MG DREAM ZONE updates.
+
+          Beautiful pieces,
+          feminine details and
+          styles selected with love
+          for the woman you are.
+
         </p>
 
-        <form class="newsletter-form" onsubmit="subscribeNewsletter(event)">
-
-          <input
-            id="emailInput"
-            type="email"
-            placeholder="Your email address"
-            required
-          >
-
-          <button type="submit">
-            JOIN US
-          </button>
-
-        </form>
-
-        <div id="newsletterMsg">
-          Thank you! You are on the list. 💗
-        </div>
+        <a
+          href="#shop"
+          class="btn btn-light"
+        >
+          Shop The Collection
+        </a>
 
       </div>
 
-    </section>
+    </div>
 
-    <!-- CONTACT -->
-    <section id="contact">
+  </div>
 
-      <div class="container">
+</section>
 
-        <div class="section-head center">
 
-          <div class="eyebrow">Let's Connect</div>
+<!-- =======================================================
+     WHY MG DREAM ZONE
+======================================================= -->
 
-          <h2>Contact MG DREAM ZONE</h2>
+<section>
 
-          <p>
-            Ready to order or have a design in mind?
-            Send us a message.
-          </p>
+  <div class="container">
 
+    <div class="section-head center">
+
+      <div class="eyebrow">
+        The MG Difference
+      </div>
+
+      <h2>
+        Why You'll Love Us
+      </h2>
+
+    </div>
+
+
+    <div class="why-grid">
+
+
+      <div class="why-card">
+
+        <div class="why-icon">
+          ✦
         </div>
 
-        <div class="contact-grid">
+        <h3>
+          Curated Fashion
+        </h3>
 
-          <div class="contact-card">
-
-            <h3>Let's Talk</h3>
-
-            <p>
-              We are happy to help with product details,
-              custom orders and general inquiries.
-            </p>
-
-            <div class="contact-info">
-
-              <div class="contact-line">
-                📱 <strong>WhatsApp</strong><br>
-                <a href="https://wa.me/94769284052" target="_blank">
-                  076-9284052
-                </a>
-              </div>
-
-              <div class="contact-line">
-                📍 <strong>Location</strong><br>
-                Sri Lanka
-              </div>
-
-              <div class="contact-line">
-                🧵 <strong>Services</strong><br>
-                Women's Wear • Kids Wear • Saree Jackets • Custom Orders
-              </div>
-
-            </div>
-
-            <div class="socials">
-
-              <a
-                class="social"
-                href="https://wa.me/94769284052"
-                target="_blank"
-              >
-                WhatsApp
-              </a>
-
-              <!-- Replace # with your Facebook link -->
-              <a class="social" href="#" target="_blank">
-                Facebook
-              </a>
-
-              <!-- Replace # with your Instagram link -->
-              <a class="social" href="#" target="_blank">
-                Instagram
-              </a>
-
-              <!-- Replace # with your TikTok link -->
-              <a class="social" href="#" target="_blank">
-                TikTok
-              </a>
-
-            </div>
-
-          </div>
-
-          <div class="contact-card">
-
-            <h3>Your Choice.</h3>
-
-            <p>
-              Your choice is our best combination.
-            </p>
-
-            <p>
-              Whether you want something from our collection
-              or have a completely unique idea, we're here to
-              create something beautiful for you.
-            </p>
-
-            <a
-              href="https://wa.me/94769284052?text=Hello%20MG%20DREAM%20ZONE"
-              target="_blank"
-              class="btn btn-primary"
-            >
-              Chat On WhatsApp
-            </a>
-
-          </div>
-
-        </div>
+        <p>
+          Every piece is selected
+          with attention to style,
+          beauty and quality.
+        </p>
 
       </div>
 
-    </section>
 
-  </main>
+      <div class="why-card">
 
-  <!-- FOOTER -->
-  <footer>
+        <div class="why-icon">
+          🚚
+        </div>
 
-    <div class="container footer-grid">
+        <h3>
+          Islandwide
+        </h3>
 
-      <div class="footer-brand">
+        <p>
+          Your favourite pieces
+          delivered safely across
+          Sri Lanka.
+        </p>
 
-        <div class="brand">
-          <div class="brand-name">MG DREAM ZONE</div>
-          <div class="brand-tagline">FASHION • STYLE • ELEGANCE</div>
+      </div>
+
+
+      <div class="why-card">
+
+        <div class="why-icon">
+          💬
+        </div>
+
+        <h3>
+          Personal Support
+        </h3>
+
+        <p>
+          Need help choosing?
+          Message us and we'll
+          help you find the right piece.
+        </p>
+
+      </div>
+
+
+      <div class="why-card">
+
+        <div class="why-icon">
+          ❤️
+        </div>
+
+        <h3>
+          Made With Love
+        </h3>
+
+        <p>
+          From selecting the piece
+          to packing your order,
+          every detail matters.
+        </p>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =======================================================
+     CUSTOM DESIGN
+======================================================= -->
+
+<section
+  id="custom"
+  class="custom-section"
+>
+
+  <div class="container custom-box">
+
+
+    <img
+      src="https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?auto=format&fit=crop&w=1200&q=90"
+      alt="Custom Fashion"
+    >
+
+
+    <div class="custom-content">
+
+      <div class="eyebrow">
+        Your Dream. Your Design.
+      </div>
+
+      <h2>
+        Create Something
+        Beautifully Yours.
+      </h2>
+
+      <p>
+
+        Have a design you've always
+        dreamed about?
+
+        Send us your inspiration,
+        preferred fabric, colours and
+        measurements.
+
+        Let's talk about creating
+        something special for you.
+
+      </p>
+
+      <a
+        href="https://wa.me/94764866828?text=Hello%20MG%20DREAM%20ZONE%2C%20I%20would%20like%20to%20discuss%20a%20custom%20design."
+        target="_blank"
+        class="btn btn-primary"
+      >
+        Discuss Your Design
+      </a>
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+<!-- =======================================================
+     REVIEWS
+======================================================= -->
+
+<section
+  class="review-section"
+>
+
+  <div class="container">
+
+    <div class="section-head center">
+
+      <div class="eyebrow">
+        Customer Love
+      </div>
+
+      <h2>
+        Loved By You
+      </h2>
+
+      <p>
+        Your happiness is the most
+        beautiful part of MG DREAM ZONE.
+      </p>
+
+    </div>
+
+
+    <div class="review-grid">
+
+
+      <div class="review-card">
+
+        <div class="stars">
+          ★★★★★
         </div>
 
         <p>
-          Elegant women's fashion, custom clothing and beautiful
-          designs created with care.
+          “The dress was even more
+          beautiful in real life.
+          Absolutely loved it.”
+        </p>
+
+        <div class="review-name">
+          — Happy Customer
+        </div>
+
+      </div>
+
+
+      <div class="review-card">
+
+        <div class="stars">
+          ★★★★★
+        </div>
+
+        <p>
+          “Beautiful quality and
+          the service was amazing.
+          Highly recommended.”
+        </p>
+
+        <div class="review-name">
+          — Happy Customer
+        </div>
+
+      </div>
+
+
+      <div class="review-card">
+
+        <div class="stars">
+          ★★★★★
+        </div>
+
+        <p>
+          “Exactly what I wanted.
+          Thank you MG DREAM ZONE ❤️”
+        </p>
+
+        <div class="review-name">
+          — Happy Customer
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =======================================================
+     SOCIAL GALLERY
+======================================================= -->
+
+<section>
+
+  <div class="container">
+
+    <div class="section-head center">
+
+      <div class="eyebrow">
+        Follow Our Journey
+      </div>
+
+      <h2>
+        @MG DREAM ZONE
+      </h2>
+
+    </div>
+
+
+    <div class="social-grid">
+
+      <div>
+        <img
+          src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=700&q=85"
+          alt=""
+        >
+      </div>
+
+      <div>
+        <img
+          src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=700&q=85"
+          alt=""
+        >
+      </div>
+
+      <div>
+        <img
+          src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?auto=format&fit=crop&w=700&q=85"
+          alt=""
+        >
+      </div>
+
+      <div>
+        <img
+          src="https://images.unsplash.com/photo-1485968579580-b6d095142e6e?auto=format&fit=crop&w=700&q=85"
+          alt=""
+        >
+      </div>
+
+      <div>
+        <img
+          src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=700&q=85"
+          alt=""
+        >
+      </div>
+
+      <div>
+        <img
+          src="https://images.unsplash.com/photo-1506629905607-d4b9f39f88b3?auto=format&fit=crop&w=700&q=85"
+          alt=""
+        >
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =======================================================
+     FOOTER
+======================================================= -->
+
+<footer>
+
+  <div class="container">
+
+    <div class="footer-grid">
+
+
+      <div>
+
+        <div class="footer-brand">
+          MG DREAM ZONE
+        </div>
+
+        <p class="footer-desc">
+
+          Luxury-inspired fashion
+          made for beautiful moments.
+
+          Discover dresses,
+          saree jackets,
+          kidswear and
+          custom creations.
+
         </p>
 
       </div>
+
 
       <div>
 
@@ -2426,1249 +4192,236 @@
         </div>
 
         <div class="footer-links">
-          <a href="#shop">All Products</a>
-          <a href="#shop" onclick="selectCategory('Dresses')">Dresses</a>
-          <a href="#shop" onclick="selectCategory('Saree Jackets')">Saree Jackets</a>
-          <a href="#shop" onclick="selectCategory('Kids Wear')">Kids Wear</a>
-          <a href="#custom">Custom Orders</a>
+
+          <a href="#shop">
+            All Products
+          </a>
+
+          <a href="#new">
+            New Arrivals
+          </a>
+
+          <a href="#categories">
+            Collections
+          </a>
+
+          <a href="#custom">
+            Custom Design
+          </a>
+
         </div>
 
       </div>
 
-      <div>
-
-        <div class="footer-title">
-          Customer Care
-        </div>
-
-        <div class="footer-links">
-          <a href="#custom">How To Order</a>
-          <a href="#contact">Contact Us</a>
-          <a href="#">Size Guide</a>
-          <a href="#">Delivery Information</a>
-          <a href="#">Returns & Exchanges</a>
-        </div>
-
-      </div>
 
       <div>
 
         <div class="footer-title">
-          Follow Us
+          Help
         </div>
 
         <div class="footer-links">
+
+          <a href="#home">
+            Home
+          </a>
+
+          <a href="#shop">
+            Shop
+          </a>
+
+          <a href="#custom">
+            Custom Orders
+          </a>
 
           <a
-            href="https://wa.me/94769284052"
+            href="https://wa.me/94764866828"
             target="_blank"
           >
             WhatsApp
           </a>
 
-          <!-- Replace # -->
-          <a href="#" target="_blank">
-            Facebook
+        </div>
+
+      </div>
+
+
+      <div>
+
+        <div class="footer-title">
+          Get In Touch
+        </div>
+
+        <div class="footer-links">
+
+          <a
+            href="https://wa.me/94764866828"
+            target="_blank"
+          >
+            WhatsApp Us
           </a>
 
-          <!-- Replace # -->
-          <a href="#" target="_blank">
-            Instagram
-          </a>
-
-          <!-- Replace # -->
-          <a href="#" target="_blank">
-            TikTok
+          <a href="#">
+            Sri Lanka
           </a>
 
         </div>
 
       </div>
 
+
     </div>
 
-    <div class="container copyright">
-      © 2026 MG DREAM ZONE. All Rights Reserved.
-      <br>
-      Your Choice Is Our Best Combination.
-    </div>
 
-  </footer>
+    <div class="footer-bottom">
 
-  <!-- FLOATING WHATSAPP -->
-  <a
-    class="wa-float"
-    href="https://wa.me/94769284052?text=Hello%20MG%20DREAM%20ZONE"
-    target="_blank"
-    aria-label="WhatsApp"
-  >
-    ☎
-  </a>
+      <span>
+        © 2026 MG DREAM ZONE. All rights reserved.
+      </span>
 
-  <!-- CART -->
-  <div class="cart-overlay" id="cartOverlay">
-
-    <div class="cart-drawer">
-
-      <div class="cart-head">
-        <h3>Your Bag</h3>
-
-        <button class="close-cart" onclick="closeCart()">
-          ×
-        </button>
-      </div>
-
-      <div class="cart-items" id="cartItems"></div>
-
-      <div class="cart-footer">
-
-        <div class="cart-total">
-          <span>Estimated Total</span>
-          <span id="cartTotal">Rs. 0</span>
-        </div>
-
-        <button
-          class="btn btn-primary"
-          style="width:100%;"
-          onclick="checkoutWhatsApp()"
-        >
-          Order Via WhatsApp
-        </button>
-
-      </div>
+      <span>
+        Made with ❤️ in Sri Lanka
+      </span>
 
     </div>
 
   </div>
 
-  <!-- PRODUCT MODAL -->
-  <div class="modal" id="productModal">
+</footer>
 
-    <div class="modal-box">
 
-      <button class="modal-close" onclick="closeProductModal()">
-        ×
-      </button>
-
-      <div class="modal-image">
-        <img id="modalImage" src="" alt="">
-      </div>
-
-      <div class="modal-content">
-
-        <div class="modal-category" id="modalCategory"></div>
-
-        <h2 id="modalTitle"></h2>
-
-        <div class="stars">
-          ★★★★★
-        </div>
-
-        <p id="modalDescription"></p>
-
-        <div class="modal-price" id="modalPrice"></div>
-
-        <div class="size-label">
-          SELECT SIZE
-        </div>
-
-        <div class="size-row" id="sizeRow">
-
-          <button class="size" onclick="selectSize(this)">
-            S
-          </button>
-
-          <button class="size" onclick="selectSize(this)">
-            M
-          </button>
-
-          <button class="size" onclick="selectSize(this)">
-            L
-          </button>
-
-          <button class="size" onclick="selectSize(this)">
-            XL
-          </button>
-
-          <button class="size" onclick="selectSize(this)">
-            XXL
-          </button>
-
-        </div>
-
-        <div class="modal-actions">
-
-          <button
-            class="btn btn-primary"
-            onclick="addCurrentProductToCart()"
-          >
-            Add To Bag
-          </button>
-
-          <button
-            class="btn"
-            style="background:#25d366;color:#fff;"
-            onclick="orderCurrentProduct()"
-          >
-            WhatsApp Order
-          </button>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-  <script>
-
-    /* ==========================================
-       PRODUCT DATA
-       ========================================== */
-
-    const products = [
-
-      {
-        id: 1,
-        name: "Blush Grace Dress",
-        category: "Dresses",
-        price: 3900,
-        badge: "NEW",
-        image:
-          "https://fbyofjnguoadmgaxgaxw.supabase.co/storage/v1/object/public/product-images/WhatsApp%20Image%202026-08-28%20at%2017.25.20.jpeg",
-        description:
-          "A feminine and elegant dress designed for special occasions, brunches and beautiful everyday moments."
-      },
-
-      {
-        id: 2,
-        name: "Rose Bloom Frock",
-        category: "Dresses",
-        price: 4200,
-        badge: "POPULAR",
-        image:
-          "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=1000&q=90",
-        description:
-          "A soft and romantic silhouette with a graceful feminine finish."
-      },
-
-      {
-        id: 3,
-        name: "Elegant Tiered Dress",
-        category: "Dresses",
-        price: 4500,
-        badge: "NEW",
-        image:
-          "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1000&q=90",
-        description:
-          "A stylish tiered design with a comfortable flowing shape."
-      },
-
-      {
-        id: 4,
-        name: "Lavender Dream Frock",
-        category: "Dresses",
-        price: 3800,
-        badge: "FEATURED",
-        image:
-          "https://images.unsplash.com/photo-1506629905607-d4b9f39f88b3?auto=format&fit=crop&w=1000&q=90",
-        description:
-          "Soft colours and graceful styling make this a beautiful choice for feminine everyday fashion."
-      },
-
-      {
-        id: 5,
-        name: "Classic Saree Jacket",
-        category: "Saree Jackets",
-        price: 1800,
-        badge: "NEW",
-        image:
-          "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1000&q=90",
-        description:
-          "A refined saree jacket designed to complement traditional and modern saree looks."
-      },
-
-      {
-        id: 6,
-        name: "Modern Saree Blouse",
-        category: "Saree Jackets",
-        price: 2200,
-        badge: "POPULAR",
-        image:
-          "https://images.unsplash.com/photo-1583391733956-6c78276477e2?auto=format&fit=crop&w=1000&q=90",
-        description:
-          "A modern silhouette designed with elegant details for your special occasions."
-      },
-
-      {
-        id: 7,
-        name: "Little Princess Frock",
-        category: "Kids Wear",
-        price: 2500,
-        badge: "NEW",
-        image:
-          "https://images.unsplash.com/photo-1503944583220-79d8926ad5e3?auto=format&fit=crop&w=1000&q=90",
-        description:
-          "A sweet and comfortable little girls' dress designed for celebrations and special moments."
-      },
-
-      {
-        id: 8,
-        name: "Sweet Petal Kids Dress",
-        category: "Kids Wear",
-        price: 2800,
-        badge: "FEATURED",
-        image:
-          "https://images.unsplash.com/photo-1518831959646-742c3a14ebf7?auto=format&fit=crop&w=1000&q=90",
-        description:
-          "A charming kidswear style combining comfort, sweetness and elegant detailing."
-      },
-
-      {
-        id: 9,
-        name: "Your Dream Custom Dress",
-        category: "Custom",
-        price: 0,
-        badge: "CUSTOM",
-        image:
-          "https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=1000&q=90",
-        description:
-          "Have your own design? Send your inspiration, fabric and measurements and we can discuss a custom creation."
-      }
-
-    ];
-/* ==========================================
-   LOAD PRODUCTS FROM SUPABASE
-   ========================================== */
-
-const SUPABASE_URL =
-  "https://fbyofjnguoadmgaxgaxw.supabase.co";
-
-const SUPABASE_KEY =
-  "sb_publishable_RW7ymqiUq4Qor-LuQErzHA_snTpHTTJ";
-
-async function loadSupabaseProducts() {
-
-  try {
-
-    const response = await fetch(
-      `${SUPABASE_URL}/rest/v1/products?select=id,name,price,category,image_url,details&order=id.asc`,
-      {
-        headers: {
-          "apikey": SUPABASE_KEY,
-          "Authorization": `Bearer ${SUPABASE_KEY}`
-        }
-      }
-    );
-
-    if (!response.ok) {
-      console.error(
-        "Supabase error:",
-        await response.text()
-      );
-      return;
-    }
-
-    const data = await response.json();
-
-    data.forEach(function(product) {
-
-      products.push({
-
-        id: 10000 + Number(product.id),
-
-        name: product.name || "Product",
-
-        category: product.category || "Other",
-
-        price: Number(product.price) || 0,
-
-        badge: "NEW",
-
-        image: product.image_url,
-
-        description: product.details || ""
-
-      });
-
-    });
-
-    renderProducts();
-
-  } catch (error) {
-
-    console.error(
-      "Supabase connection error:",
-      error
-    );
-
-  }
-
-}
-
-loadSupabaseProducts();
-
-    /* ==========================================
-       STATE
-       ========================================== */
-
-    let activeCategory = "All";
-    let selectedProduct = null;
-    let cart = JSON.parse(localStorage.getItem("mgDreamZoneCart")) || [];
-
-
-    /* ==========================================
-       INIT
-       ========================================== */
-
-    document.addEventListener("DOMContentLoaded", function() {
-
-      renderProducts();
-      updateCart();
-
-    });
-
-
-    /* ==========================================
-       RENDER PRODUCTS
-       ========================================== */
-
-    function renderProducts() {
-
-      const grid = document.getElementById("productsGrid");
-
-      const search =
-        document
-          .getElementById("searchInput")
-          .value
-          .toLowerCase()
-          .trim();
-
-      let filtered = products.filter(function(product) {
-
-        const categoryMatch =
-          activeCategory === "All" ||
-          product.category === activeCategory;
-
-        const searchMatch =
-          product.name.toLowerCase().includes(search) ||
-          product.category.toLowerCase().includes(search);
-
-        return categoryMatch && searchMatch;
-
-      });
-
-      if (filtered.length === 0) {
-
-        grid.innerHTML = `
-          <div style="
-            grid-column:1/-1;
-            text-align:center;
-            padding:50px 20px;
-            color:#746b73;
-          ">
-            No products found.
-          </div>
-        `;
-
-        return;
-      }
-
-      grid.innerHTML = filtered.map(function(product) {
-
-        const priceText =
-          product.price > 0
-            ? `Rs. ${product.price.toLocaleString()}`
-            : "Custom Price";
-
-        return `
-
-          <div class="product-card">
-
-            <div class="product-image">
-
-              <span class="product-badge">
-                ${product.badge}
-              </span>
-
-              <button
-                class="heart"
-                onclick="toggleWishlist(event, ${product.id})"
-                aria-label="Wishlist"
-              >
-                ♡
-              </button>
-
-              <img
-                src="${product.image}"
-                alt="${product.name}"
-                loading="lazy"
-              >
-
-            </div>
-
-            <div class="product-info">
-
-              <div class="product-category">
-                ${product.category}
-              </div>
-
-              <div class="product-name">
-                ${product.name}
-              </div>
-
-              <div class="stars">
-                ★★★★★
-              </div>
-
-              <div class="product-description">
-                ${product.description}
-              </div>
-
-              <div class="product-bottom">
-
-                <div class="price">
-                  ${priceText}
-                </div>
-
-                <button
-                  class="small-order"
-                  onclick="openProduct(${product.id})"
-                >
-                  VIEW
-                </button>
-
-              </div>
-
-            </div>
-
-          </div>
-
-        `;
-
-      }).join("");
-
-    }
-
-
-    /* ==========================================
-       CATEGORY FILTER
-       ========================================== */
-
-    function selectCategory(category) {
-
-      activeCategory = category;
-
-      document.querySelectorAll(".filter-btn")
-        .forEach(function(button) {
-
-          button.classList.remove("active");
-
-        });
-
-      const activeButton =
-        document.getElementById("filter-" + category);
-
-      if (activeButton) {
-        activeButton.classList.add("active");
-      }
-
-      renderProducts();
-
-      if (category !== "All") {
-
-        document
-          .getElementById("shop")
-          .scrollIntoView({
-            behavior: "smooth"
-          });
-
-      }
-
-    }
-
-
-    /* ==========================================
-       SEARCH
-       ========================================== */
-
-    function focusSearch() {
-
-      const searchInput =
-        document.getElementById("searchInput");
-
-      document
-        .getElementById("shop")
-        .scrollIntoView({
-          behavior: "smooth"
-        });
-
-      setTimeout(function() {
-
-        searchInput.focus();
-
-      }, 500);
-
-    }
-
-
-    /* ==========================================
-       PRODUCT MODAL
-       ========================================== */
-
-    function openProduct(id) {
-
-      selectedProduct =
-        products.find(function(product) {
-          return product.id === id;
-        });
-
-      if (!selectedProduct) return;
-
-      document.getElementById("modalImage").src =
-        selectedProduct.image;
-
-      document.getElementById("modalImage").alt =
-        selectedProduct.name;
-
-      document.getElementById("modalCategory").textContent =
-        selectedProduct.category;
-
-      document.getElementById("modalTitle").textContent =
-        selectedProduct.name;
-
-      document.getElementById("modalDescription").textContent =
-        selectedProduct.description;
-
-      document.getElementById("modalPrice").textContent =
-        selectedProduct.price > 0
-          ? `Rs. ${selectedProduct.price.toLocaleString()}`
-          : "Custom Price";
-
-      document
-        .querySelectorAll(".size")
-        .forEach(function(size) {
-          size.classList.remove("selected");
-        });
-
-      document
-        .getElementById("productModal")
-        .classList.add("open");
-
-      document.body.classList.add("no-scroll");
-
-    }
-
-
-    function closeProductModal() {
-
-      document
-        .getElementById("productModal")
-        .classList.remove("open");
-
-      document.body.classList.remove("no-scroll");
-
-    }
-
-
-    document
-      .getElementById("productModal")
-      .addEventListener("click", function(event) {
-
-        if (event.target === this) {
-          closeProductModal();
-        }
-
-      });
-
-
-    /* ==========================================
-       SIZE
-       ========================================== */
-
-    function selectSize(button) {
-
-      document
-        .querySelectorAll(".size")
-        .forEach(function(size) {
-          size.classList.remove("selected");
-        });
-
-      button.classList.add("selected");
-
-    }
-
-
-    function getSelectedSize() {
-
-      const selected =
-        document.querySelector(".size.selected");
-
-      return selected
-        ? selected.textContent.trim()
-        : "Not selected";
-
-    }
-
-
-    /* ==========================================
-       CART
-       ========================================== */
-
-    function addCurrentProductToCart() {
-
-      if (!selectedProduct) return;
-
-      const size = getSelectedSize();
-
-      const existing =
-        cart.find(function(item) {
-
-          return (
-            item.id === selectedProduct.id &&
-            item.size === size
-          );
-
-        });
-
-      if (existing) {
-
-        existing.quantity += 1;
-
-      } else {
-
-        cart.push({
-
-          id: selectedProduct.id,
-
-          name: selectedProduct.name,
-
-          price: selectedProduct.price,
-
-          size: size,
-
-          image: selectedProduct.image,
-
-          quantity: 1
-
-        });
-
-      }
-
-      saveCart();
-
-      closeProductModal();
-
-      openCart();
-
-    }
-
-
-    function removeFromCart(index) {
-
-      cart.splice(index, 1);
-
-      saveCart();
-
-    }
-
-
-    function saveCart() {
-
-      localStorage.setItem(
-        "mgDreamZoneCart",
-        JSON.stringify(cart)
-      );
-
-      updateCart();
-
-    }
-
-
-    function updateCart() {
-
-      const count =
-        cart.reduce(function(total, item) {
-          return total + item.quantity;
-        }, 0);
-
-      document.getElementById("cartCount").textContent =
-        count;
-
-      const cartItems =
-        document.getElementById("cartItems");
-
-      if (cart.length === 0) {
-
-        cartItems.innerHTML = `
-          <div class="cart-empty">
-            Your bag is empty.<br><br>
-            Add your favourite style to get started. 💗
-          </div>
-        `;
-
-      } else {
-
-        cartItems.innerHTML =
-          cart.map(function(item, index) {
-
-            const priceText =
-              item.price > 0
-                ? `Rs. ${item.price.toLocaleString()}`
-                : "Custom Price";
-
-            return `
-
-              <div class="cart-item">
-
-                <img
-                  src="${item.image}"
-                  alt="${item.name}"
-                >
-
-                <div>
-
-                  <h4>${item.name}</h4>
-
-                  <p>
-                    Size: ${item.size}
-                  </p>
-
-                  <p>
-                    ${priceText} × ${item.quantity}
-                  </p>
-
-                </div>
-
-                <button
-                  class="remove-cart"
-                  onclick="removeFromCart(${index})"
-                >
-                  ×
-                </button>
-
-              </div>
-
-            `;
-
-          }).join("");
-
-      }
-
-      const total =
-        cart.reduce(function(sum, item) {
-
-          if (item.price > 0) {
-            return sum + item.price * item.quantity;
-          }
-
-          return sum;
-
-        }, 0);
-
-      document.getElementById("cartTotal").textContent =
-        `Rs. ${total.toLocaleString()}`;
-
-    }
-
-
-    function openCart() {
-
-      updateCart();
-
-      document
-        .getElementById("cartOverlay")
-        .classList.add("open");
-
-      document.body.classList.add("no-scroll");
-
-    }
-
-
-    function closeCart() {
-
-      document
-        .getElementById("cartOverlay")
-        .classList.remove("open");
-
-      document.body.classList.remove("no-scroll");
-
-    }
-
-
-    document
-      .getElementById("cartOverlay")
-      .addEventListener("click", function(event) {
-
-        if (event.target === this) {
-          closeCart();
-        }
-
-      });
-
-
-    /* ==========================================
-       WHATSAPP CHECKOUT
-       ========================================== */
-
-    function checkoutWhatsApp() {
-
-      if (cart.length === 0) {
-
-        alert("Your bag is empty.");
-
-        return;
-
-      }
-
-      let message =
-        "Hello MG DREAM ZONE,%0A%0AI would like to place an order:%0A%0A";
-
-      cart.forEach(function(item, index) {
-
-        const priceText =
-          item.price > 0
-            ? `Rs. ${item.price.toLocaleString()}`
-            : "Custom Price";
-
-        message +=
-          `${index + 1}. ${item.name}%0A` +
-          `Size: ${item.size}%0A` +
-          `Price: ${priceText}%0A` +
-          `Quantity: ${item.quantity}%0A%0A`;
-
-      });
-
-      message +=
-        "Please let me know the next steps. Thank you!";
-
-      window.open(
-        "https://wa.me/94769284052?text=" + message,
-        "_blank"
-      );
-
-    }
-
-
-    function orderCurrentProduct() {
-
-      if (!selectedProduct) return;
-
-      const size = getSelectedSize();
-
-      const priceText =
-        selectedProduct.price > 0
-          ? `Rs. ${selectedProduct.price.toLocaleString()}`
-          : "Custom Price";
-
-      const message =
-        `Hello MG DREAM ZONE,%0A%0A` +
-        `I am interested in:%0A` +
-        `${selectedProduct.name}%0A` +
-        `Category: ${selectedProduct.category}%0A` +
-        `Price: ${priceText}%0A` +
-        `Size: ${size}%0A%0A` +
-        `Please send me more details.`;
-
-      window.open(
-        "https://wa.me/94769284052?text=" + message,
-        "_blank"
-      );
-
-    }
-
-
-    /* ==========================================
-       WISHLIST
-       ========================================== */
-
-    function toggleWishlist(event, id) {
-
-      event.stopPropagation();
-
-      const button = event.currentTarget;
-
-      if (button.textContent.trim() === "♡") {
-
-        button.textContent = "♥";
-
-        button.style.color = "#c76c91";
-
-      } else {
-
-        button.textContent = "♡";
-
-        button.style.color = "";
-
-      }
-
-    }
-
-
-    /* ==========================================
-       MOBILE MENU
-       ========================================== */
-
-    function openMobileMenu() {
-
-      document
-        .getElementById("mobileMenu")
-        .classList.add("open");
-
-      document.body.classList.add("no-scroll");
-
-    }
-
-
-    function closeMobileMenu(event) {
-
-      if (
-        event &&
-        event.target !== document.getElementById("mobileMenu")
-      ) {
-        return;
-      }
-
-      document
-        .getElementById("mobileMenu")
-        .classList.remove("open");
-
-      document.body.classList.remove("no-scroll");
-
-    }
-
-
-    /* ==========================================
-       FAQ
-       ========================================== */
-
-    function toggleFaq(button) {
-
-      const item =
-        button.parentElement;
-
-      const answer =
-        item.querySelector(".faq-answer");
-
-      const isOpen =
-        item.classList.contains("open");
-
-      document
-        .querySelectorAll(".faq-item")
-        .forEach(function(otherItem) {
-
-          otherItem.classList.remove("open");
-
-          otherItem
-            .querySelector(".faq-answer")
-            .style.maxHeight = null;
-
-        });
-
-      if (!isOpen) {
-
-        item.classList.add("open");
-
-        answer.style.maxHeight =
-          answer.scrollHeight + "px";
-
-      }
-
-    }
-
-
-    /* ==========================================
-       NEWSLETTER
-       ========================================== */
-
-    function subscribeNewsletter(event) {
-
-      event.preventDefault();
-
-      const email =
-        document
-          .getElementById("emailInput")
-          .value;
-
-      if (!email) return;
-
-      document.getElementById("newsletterMsg")
-        .style.display = "block";
-
-      document.getElementById("emailInput")
-        .value = "";
-
-    }
-
-  </script>
-  function subscribeNewsletter(event) {
-
-      event.preventDefault();
-
-      const email =
-        document
-          .getElementById("emailInput")
-          .value;
-
-      if (!email) return;
-
-      document.getElementById("newsletterMsg")
-        .style.display = "block";
-
-      document.getElementById("emailInput")
-        .value = "";
-
-    }
-
-  </script>
-<!-- ================================
-     MG DREAM ZONE ADMIN PANEL
-     ================================ -->
-
-<style>
-#adminBtn {
-  position: fixed;
-  right: 18px;
-  bottom: 18px;
-  z-index: 9999;
-  background: #b03a72;
-  color: white;
-  border: none;
-  border-radius: 50px;
-  padding: 12px 18px;
-  font-weight: bold;
-  cursor: pointer;
-  box-shadow: 0 4px 15px rgba(0,0,0,.2);
-}
-
-#adminOverlay {
-  display: none;
-  position: fixed;
-  inset: 0;
-  z-index: 10000;
-  background: rgba(0,0,0,.65);
-  overflow-y: auto;
-  padding: 25px 15px;
-}
-
-#adminBox {
-  max-width: 600px;
-  margin: 20px auto;
-  background: white;
-  border-radius: 18px;
-  padding: 25px;
-  color: #333;
-}
-
-#adminBox h2 {
-  text-align: center;
-  color: #b03a72;
-}
-
-.adminInput,
-.adminSelect,
-.adminTextarea {
-  width: 100%;
-  padding: 12px;
-  margin: 7px 0 14px;
-  border: 1px solid #ddd;
-  border-radius: 9px;
-  font-size: 16px;
-}
-
-.adminTextarea {
-  min-height: 100px;
-}
-
-.adminButton {
-  width: 100%;
-  padding: 13px;
-  border: none;
-  border-radius: 9px;
-  background: #b03a72;
-  color: white;
-  font-weight: bold;
-  font-size: 16px;
-  cursor: pointer;
-  margin-top: 8px;
-}
-
-.closeAdmin {
-  float: right;
-  border: none;
-  background: #eee;
-  border-radius: 50%;
-  width: 35px;
-  height: 35px;
-  cursor: pointer;
-  font-size: 18px;
-}
-
-#adminLogin {
-  display: block;
-}
-
-#productForm {
-  display: none;
-}
-
-#adminMessage {
-  text-align: center;
-  margin-top: 15px;
-  font-weight: bold;
-}
-
-#adminPreview {
-  display: none;
-  width: 150px;
-  height: 150px;
-  object-fit: cover;
-  border-radius: 12px;
-  margin: 10px auto;
-}
-</style>
-
+<!-- =======================================================
+     SMALL ADMIN BUTTON
+======================================================= -->
 
 <button
   id="adminBtn"
   onclick="openAdmin()"
-  style="
-    position: fixed;
-    left: 8px;
-    bottom: 8px;
-    z-index: 9999;
-    width: 34px;
-    height: 34px;
-    padding: 0;
-    border: none;
-    border-radius: 50%;
-    background: #eeeeee;
-    color: #777777;
-    font-size: 15px;
-    cursor: pointer;
-    opacity: 0.65;
-  "
   title="Admin"
 >
   🔐
 </button>
 
 
-<div id="adminOverlay">
+<!-- =======================================================
+     PRODUCT MODAL
+======================================================= -->
+
+<div
+  id="productModal"
+  onclick="closeProductModal(event)"
+>
+
+  <div
+    class="product-modal-box"
+    onclick="event.stopPropagation()"
+  >
+
+    <button
+      class="modal-close"
+      onclick="closeProductModal()"
+    >
+      ×
+    </button>
+
+    <div
+      id="modalProductContent"
+      class="modal-product"
+    >
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- =======================================================
+     CART
+======================================================= -->
+
+<div
+  id="cartDrawer"
+>
+
+  <div class="cart-head">
+
+    <h2>
+      Your Bag
+    </h2>
+
+    <button
+      class="modal-close"
+      style="position:static"
+      onclick="closeCart()"
+    >
+      ×
+    </button>
+
+  </div>
+
+
+  <div id="cartItems">
+  </div>
+
+
+  <div
+    class="cart-total"
+  >
+
+    <span>
+      Total
+    </span>
+
+    <span id="cartTotal">
+      Rs. 0
+    </span>
+
+  </div>
+
+
+  <button
+    class="whatsapp-cart"
+    onclick="orderCartWhatsApp()"
+  >
+    ORDER VIA WHATSAPP
+  </button>
+
+</div>
+
+
+<!-- =======================================================
+     ADMIN OVERLAY
+======================================================= -->
+
+<div
+  id="adminOverlay"
+>
 
   <div id="adminBox">
 
-    <button class="closeAdmin" onclick="closeAdmin()">×</button>
+    <button
+      class="closeAdmin"
+      onclick="closeAdmin()"
+    >
+      ×
+    </button>
 
-    <h2>MG DREAM ZONE</h2>
+
+    <h2>
+      MG DREAM ZONE
+    </h2>
 
 
     <!-- LOGIN -->
 
-    <div id="adminLogin">
+    <div
+      id="adminLogin"
+    >
 
-      <h3>Admin Login</h3>
+      <h3>
+        Admin Login
+      </h3>
+
 
       <input
         id="adminEmail"
@@ -3677,12 +4430,14 @@ loadSupabaseProducts();
         placeholder="Email"
       >
 
+
       <input
         id="adminPassword"
         class="adminInput"
         type="password"
         placeholder="Password"
       >
+
 
       <button
         class="adminButton"
@@ -3691,16 +4446,35 @@ loadSupabaseProducts();
         LOGIN
       </button>
 
+
+      <div
+        id="loginMessage"
+        style="
+          text-align:center;
+          margin-top:12px;
+          font-size:12px;
+          font-weight:bold;
+        "
+      >
+      </div>
+
     </div>
 
 
     <!-- PRODUCT FORM -->
 
-    <div id="productForm">
+    <div
+      id="productForm"
+    >
 
-      <h3>Add New Product</h3>
+      <h3>
+        Add New Product
+      </h3>
 
-      <label>Product Photo</label>
+
+      <label>
+        Photo 1 *
+      </label>
 
       <input
         id="adminPhoto"
@@ -3709,38 +4483,52 @@ loadSupabaseProducts();
         accept="image/*"
       >
 
+
+      <label>
+        Photo 2
+      </label>
+
+      <input
+        id="adminPhoto2"
+        class="adminInput"
+        type="file"
+        accept="image/*"
+      >
+
+
+      <label>
+        Photo 3
+      </label>
+
+      <input
+        id="adminPhoto3"
+        class="adminInput"
+        type="file"
+        accept="image/*"
+      >
+
+
+      <label>
+        Photo 4
+      </label>
+
+      <input
+        id="adminPhoto4"
+        class="adminInput"
+        type="file"
+        accept="image/*"
+      >
+
+
       <img
         id="adminPreview"
         alt="Preview"
       >
-<label>Photo 2</label>
 
-<input
-  id="adminPhoto2"
-  class="adminInput"
-  type="file"
-  accept="image/*"
->
 
-<label>Photo 3</label>
-
-<input
-  id="adminPhoto3"
-  class="adminInput"
-  type="file"
-  accept="image/*"
->
-
-<label>Photo 4</label>
-
-<input
-  id="adminPhoto4"
-  class="adminInput"
-  type="file"
-  accept="image/*"
->
-
-      <label>Product Name</label>
+      <label>
+        Product Name
+      </label>
 
       <input
         id="adminName"
@@ -3750,7 +4538,9 @@ loadSupabaseProducts();
       >
 
 
-      <label>Price</label>
+      <label>
+        Price
+      </label>
 
       <input
         id="adminPrice"
@@ -3760,7 +4550,9 @@ loadSupabaseProducts();
       >
 
 
-      <label>Category</label>
+      <label>
+        Category
+      </label>
 
       <select
         id="adminCategory"
@@ -3768,11 +4560,19 @@ loadSupabaseProducts();
       >
 
         <option value="">
-          Select Category
+          Select category
         </option>
 
         <option value="Dresses">
           Dresses
+        </option>
+
+        <option value="Saree Jackets">
+          Saree Jackets
+        </option>
+
+        <option value="Kids Wear">
+          Kids Wear
         </option>
 
         <option value="Tops">
@@ -3783,16 +4583,16 @@ loadSupabaseProducts();
           Bottoms
         </option>
 
-        <option value="Kids">
-          Kids
-        </option>
-
         <option value="Accessories">
           Accessories
         </option>
 
         <option value="Beauty">
           Beauty
+        </option>
+
+        <option value="Custom">
+          Custom
         </option>
 
         <option value="Other">
@@ -3802,7 +4602,9 @@ loadSupabaseProducts();
       </select>
 
 
-      <label>Details</label>
+      <label>
+        Details
+      </label>
 
       <textarea
         id="adminDetails"
@@ -3819,7 +4621,59 @@ loadSupabaseProducts();
         ADD PRODUCT
       </button>
 
-      <div id="adminMessage"></div>
+
+      <button
+        class="adminButton"
+        style="
+          background:#555;
+          margin-top:10px;
+        "
+        onclick="loadManageProducts()"
+      >
+        MANAGE PRODUCTS
+      </button>
+
+
+      <button
+        class="adminButton"
+        style="
+          background:#eee;
+          color:#333;
+          margin-top:10px;
+        "
+        onclick="adminLogout()"
+      >
+        LOGOUT
+      </button>
+
+
+      <div
+        id="adminMessage"
+      >
+      </div>
+
+
+      <div
+        id="manageProductsPanel"
+      >
+
+        <h3>
+          Manage Products
+        </h3>
+
+        <div
+          id="manageProductsList"
+        >
+        </div>
+
+
+        <div
+          id="editProductBox"
+        >
+        </div>
+
+      </div>
+
 
     </div>
 
@@ -3829,6 +4683,10 @@ loadSupabaseProducts();
 
 
 <script>
+
+/* =========================================================
+   SUPABASE
+========================================================= */
 
 const ADMIN_SUPABASE_URL =
   "https://fbyofjnguoadmgaxgaxw.supabase.co";
@@ -3840,60 +4698,1347 @@ const ADMIN_BUCKET =
   "product-images";
 
 
-function openAdmin() {
+let mgProducts = [];
 
-  const overlay =
-    document.getElementById("adminOverlay");
+let productBeingEdited = null;
 
-  const login =
-    document.getElementById("adminLogin");
+let activeCategory = "All";
 
-  const productForm =
-    document.getElementById("productForm");
-
-  const message =
-    document.getElementById("adminMessage");
+let cart = [];
 
 
-  overlay.style.display = "block";
+/* =========================================================
+   SUPABASE LOAD
+========================================================= */
 
-  /* Always show login when Admin is opened */
-  login.style.display = "block";
+async function loadSupabaseProducts() {
 
-  /* Hide product form until login */
-  productForm.style.display = "none";
+  try {
 
-  /* Clear old message */
-  if (message) {
-    message.textContent = "";
+    const response =
+      await fetch(
+        ADMIN_SUPABASE_URL +
+        "/rest/v1/products?select=id,name,price,category,image_url,image_url_2,image_url_3,image_url_4,details&order=id.desc",
+        {
+
+          headers: {
+
+            "apikey":
+              ADMIN_SUPABASE_KEY
+
+          }
+
+        }
+      );
+
+
+    if (!response.ok) {
+
+      throw new Error(
+        await response.text()
+      );
+
+    }
+
+
+    const data =
+      await response.json();
+
+
+    mgProducts =
+      Array.isArray(data)
+        ? data
+        : [];
+
+
+    window.mgProducts =
+      mgProducts;
+
+
+    renderProducts();
+
+
+  } catch(error) {
+
+    console.error(error);
+
+    document.getElementById(
+      "productsGrid"
+    ).innerHTML = `
+      <div class="loading">
+        Products could not be loaded.
+      </div>
+    `;
+
   }
 
 }
 
-function closeAdmin() {
 
-  document.getElementById("adminOverlay").style.display =
+/* =========================================================
+   PRODUCT IMAGE ARRAY
+========================================================= */
+
+function getProductImages(product) {
+
+  return [
+
+    product.image_url,
+
+    product.image_url_2,
+
+    product.image_url_3,
+
+    product.image_url_4
+
+  ].filter(Boolean);
+
+}
+
+
+/* =========================================================
+   PRODUCT CARD
+========================================================= */
+
+function productCard(product) {
+
+  const images =
+    getProductImages(product);
+
+
+  const firstImage =
+    images[0] || "";
+
+
+  const safeName =
+    escapeHTML(
+      product.name || "Product"
+    );
+
+
+  const safeCategory =
+    escapeHTML(
+      product.category || ""
+    );
+
+
+  const description =
+    escapeHTML(
+      product.details || ""
+    );
+
+
+  const price =
+    Number(product.price || 0)
+      .toLocaleString();
+
+
+  const imageData =
+    encodeURIComponent(
+      JSON.stringify(images)
+    );
+
+
+  return `
+
+    <article
+      class="product-card"
+    >
+
+      <div
+        class="product-image"
+        data-images="${imageData}"
+        data-index="0"
+      >
+
+        ${
+          firstImage
+          ?
+
+          `<img
+            src="${escapeAttribute(firstImage)}"
+            alt="${safeName}"
+            loading="lazy"
+          >`
+
+          :
+
+          `<div
+            style="
+              height:100%;
+              display:flex;
+              align-items:center;
+              justify-content:center;
+              color:#888;
+            "
+          >
+            No Image
+          </div>`
+        }
+
+
+        ${
+          product.badge
+          ?
+
+          `<span class="product-badge">
+            ${escapeHTML(product.badge)}
+          </span>`
+
+          :
+
+          ""
+        }
+
+
+        <button
+          class="wishlist"
+          onclick="event.stopPropagation(); toggleWishlist(this)"
+        >
+          ♡
+        </button>
+
+
+        ${
+          images.length > 1
+
+          ?
+
+          `
+
+          <button
+            class="gallery-arrow gallery-prev"
+            onclick="changeProductImage(event,this,-1)"
+          >
+            ‹
+          </button>
+
+
+          <button
+            class="gallery-arrow gallery-next"
+            onclick="changeProductImage(event,this,1)"
+          >
+            ›
+          </button>
+
+
+          <div
+            class="gallery-dots"
+          >
+
+            ${images.map(function(_,i){
+
+              return `
+                <span
+                  class="gallery-dot ${
+                    i === 0
+                      ? "active"
+                      : ""
+                  }"
+                ></span>
+              `;
+
+            }).join("")}
+
+          </div>
+
+          `
+
+          :
+
+          ""
+
+        }
+
+      </div>
+
+
+      <div
+        class="product-info"
+      >
+
+        <div
+          class="product-category"
+        >
+          ${safeCategory}
+        </div>
+
+
+        <div
+          class="product-name"
+        >
+          ${safeName}
+        </div>
+
+
+        <div
+          class="product-description"
+        >
+          ${description}
+        </div>
+
+
+        <div
+          class="product-bottom"
+        >
+
+          <div
+            class="product-price"
+          >
+            Rs. ${price}
+          </div>
+
+
+          <div
+            class="product-actions"
+          >
+
+            <button
+              class="small-btn"
+              onclick="openProductModal(${Number(product.id)})"
+            >
+              VIEW
+            </button>
+
+            <button
+              class="small-btn"
+              onclick="addToCart(${Number(product.id)})"
+            >
+              ADD
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </article>
+
+  `;
+
+}
+
+
+/* =========================================================
+   RENDER PRODUCTS
+========================================================= */
+
+function renderProducts() {
+
+  const grid =
+    document.getElementById(
+      "productsGrid"
+    );
+
+
+  const newGrid =
+    document.getElementById(
+      "newProducts"
+    );
+
+
+  const search =
+    document.getElementById(
+      "searchInput"
+    );
+
+
+  const query =
+    search
+      ? search.value.trim().toLowerCase()
+      : "";
+
+
+  let filtered =
+    mgProducts.filter(function(product){
+
+      const categoryMatch =
+        activeCategory === "All" ||
+        product.category === activeCategory;
+
+
+      const searchMatch =
+        !query ||
+
+        String(product.name || "")
+          .toLowerCase()
+          .includes(query)
+
+        ||
+
+        String(product.category || "")
+          .toLowerCase()
+          .includes(query);
+
+
+      return (
+        categoryMatch &&
+        searchMatch
+      );
+
+    });
+
+
+  if (!filtered.length) {
+
+    grid.innerHTML = `
+      <div class="loading">
+        No products found.
+      </div>
+    `;
+
+  } else {
+
+    grid.innerHTML =
+      filtered
+        .map(productCard)
+        .join("");
+
+  }
+
+
+  const newest =
+    mgProducts.slice(0,8);
+
+
+  if (!newest.length) {
+
+    newGrid.innerHTML = `
+      <div class="loading">
+        New arrivals will appear here.
+      </div>
+    `;
+
+  } else {
+
+    newGrid.innerHTML =
+      newest
+        .map(productCard)
+        .join("");
+
+  }
+
+}
+
+
+/* =========================================================
+   CATEGORY FILTER
+========================================================= */
+
+function filterCategory(
+  category,
+  button
+) {
+
+  activeCategory =
+    category;
+
+
+  if (button) {
+
+    document
+      .querySelectorAll(".filter-btn")
+      .forEach(function(btn){
+
+        btn.classList.remove(
+          "active"
+        );
+
+      });
+
+
+    button.classList.add(
+      "active"
+    );
+
+  }
+
+
+  renderProducts();
+
+
+  const shop =
+    document.getElementById(
+      "shop"
+    );
+
+
+  if (
+    category !== "All" &&
+    shop
+  ) {
+
+    shop.scrollIntoView({
+      behavior:"smooth"
+    });
+
+  }
+
+}
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+function searchProducts() {
+
+  activeCategory =
+    "All";
+
+
+  document
+    .querySelectorAll(".filter-btn")
+    .forEach(function(btn){
+
+      btn.classList.remove(
+        "active"
+      );
+
+    });
+
+
+  const all =
+    document.querySelector(
+      ".filter-btn"
+    );
+
+
+  if (all) {
+    all.classList.add(
+      "active"
+    );
+  }
+
+
+  renderProducts();
+
+}
+
+
+/* =========================================================
+   GALLERY
+========================================================= */
+
+function changeProductImage(
+  event,
+  button,
+  direction
+) {
+
+  event.stopPropagation();
+
+
+  const gallery =
+    button.closest(
+      ".product-image"
+    );
+
+
+  if (!gallery) {
+    return;
+  }
+
+
+  const images =
+    JSON.parse(
+      decodeURIComponent(
+        gallery.dataset.images
+      )
+    );
+
+
+  if (
+    images.length <= 1
+  ) {
+    return;
+  }
+
+
+  let index =
+    Number(
+      gallery.dataset.index || 0
+    );
+
+
+  index +=
+    direction;
+
+
+  if (index < 0) {
+    index =
+      images.length - 1;
+  }
+
+
+  if (
+    index >= images.length
+  ) {
+    index = 0;
+  }
+
+
+  gallery.dataset.index =
+    index;
+
+
+  const img =
+    gallery.querySelector(
+      "img"
+    );
+
+
+  if (img) {
+
+    img.src =
+      images[index];
+
+  }
+
+
+  const dots =
+    gallery.querySelectorAll(
+      ".gallery-dot"
+    );
+
+
+  dots.forEach(function(dot,i){
+
+    dot.classList.toggle(
+      "active",
+      i === index
+    );
+
+  });
+
+}
+
+
+/* =========================================================
+   MOBILE SWIPE
+========================================================= */
+
+let touchStartX = 0;
+
+
+document.addEventListener(
+  "touchstart",
+  function(event){
+
+    const gallery =
+      event.target.closest(
+        ".product-image"
+      );
+
+
+    if (!gallery) {
+      return;
+    }
+
+
+    touchStartX =
+      event.touches[0].clientX;
+
+  },
+  {passive:true}
+);
+
+
+document.addEventListener(
+  "touchend",
+  function(event){
+
+    const gallery =
+      event.target.closest(
+        ".product-image"
+      );
+
+
+    if (!gallery) {
+      return;
+    }
+
+
+    const touchEndX =
+      event.changedTouches[0].clientX;
+
+
+    const diff =
+      touchStartX -
+      touchEndX;
+
+
+    if (
+      Math.abs(diff) < 40
+    ) {
+      return;
+    }
+
+
+    const fakeButton =
+      document.createElement(
+        "button"
+      );
+
+
+    fakeButton.className =
+      "gallery-arrow";
+
+
+    gallery.appendChild(
+      fakeButton
+    );
+
+
+    changeProductImage(
+      {
+        stopPropagation:function(){}
+      },
+      fakeButton,
+      diff > 0 ? 1 : -1
+    );
+
+
+    fakeButton.remove();
+
+  },
+  {passive:true}
+);
+
+
+/* =========================================================
+   PRODUCT MODAL
+========================================================= */
+
+function openProductModal(id) {
+
+  const product =
+    mgProducts.find(function(item){
+
+      return Number(item.id) ===
+        Number(id);
+
+    });
+
+
+  if (!product) {
+    return;
+  }
+
+
+  const images =
+    getProductImages(product);
+
+
+  const content =
+    document.getElementById(
+      "modalProductContent"
+    );
+
+
+  content.innerHTML = `
+
+    <div>
+
+      <div
+        class="modal-main-image"
+      >
+
+        <img
+          id="modalMainImage"
+          src="${escapeAttribute(images[0] || "")}"
+          alt="${escapeAttribute(product.name || "")}"
+        >
+
+      </div>
+
+
+      <div
+        class="modal-thumbs"
+      >
+
+        ${images.map(function(image,index){
+
+          return `
+
+            <img
+              src="${escapeAttribute(image)}"
+              class="${index === 0 ? "active" : ""}"
+              onclick="changeModalImage(this,'${escapeAttribute(image)}')"
+            >
+
+          `;
+
+        }).join("")}
+
+      </div>
+
+    </div>
+
+
+    <div
+      class="modal-info"
+    >
+
+      <div
+        class="modal-category"
+      >
+        ${escapeHTML(product.category || "")}
+      </div>
+
+
+      <h2>
+        ${escapeHTML(product.name || "")}
+      </h2>
+
+
+      <div
+        class="modal-price"
+      >
+        Rs.
+        ${Number(product.price || 0).toLocaleString()}
+      </div>
+
+
+      <p
+        class="modal-description"
+      >
+        ${escapeHTML(product.details || "Beautifully selected for you.")}
+      </p>
+
+
+      <button
+        class="btn btn-primary"
+        style="width:100%;margin-bottom:10px"
+        onclick="addToCart(${Number(product.id)})"
+      >
+        ADD TO BAG
+      </button>
+
+
+      <button
+        class="whatsapp-btn"
+        onclick="orderProductWhatsApp(${Number(product.id)})"
+      >
+        ORDER VIA WHATSAPP
+      </button>
+
+    </div>
+
+  `;
+
+
+  document.getElementById(
+    "productModal"
+  ).style.display =
+    "block";
+
+
+  document.body.classList.add(
+    "no-scroll"
+  );
+
+}
+
+
+function changeModalImage(
+  element,
+  image
+) {
+
+  const main =
+    document.getElementById(
+      "modalMainImage"
+    );
+
+
+  if (main) {
+    main.src =
+      image;
+  }
+
+
+  document
+    .querySelectorAll(
+      ".modal-thumbs img"
+    )
+    .forEach(function(img){
+
+      img.classList.remove(
+        "active"
+      );
+
+    });
+
+
+  element.classList.add(
+    "active"
+  );
+
+}
+
+
+function closeProductModal(
+  event
+) {
+
+  if (
+    event &&
+    event.target !==
+      document.getElementById(
+        "productModal"
+      )
+  ) {
+
+    return;
+
+  }
+
+
+  document.getElementById(
+    "productModal"
+  ).style.display =
+    "none";
+
+
+  document.body.classList.remove(
+    "no-scroll"
+  );
+
+}
+
+
+/* =========================================================
+   CART
+========================================================= */
+
+function addToCart(id) {
+
+  const product =
+    mgProducts.find(function(item){
+
+      return Number(item.id) ===
+        Number(id);
+
+    });
+
+
+  if (!product) {
+    return;
+  }
+
+
+  const existing =
+    cart.find(function(item){
+
+      return Number(item.id) ===
+        Number(id);
+
+    });
+
+
+  if (existing) {
+
+    existing.qty += 1;
+
+  } else {
+
+    cart.push({
+
+      id:
+        product.id,
+
+      name:
+        product.name,
+
+      price:
+        Number(product.price || 0),
+
+      image:
+        product.image_url,
+
+      qty:
+        1
+
+    });
+
+  }
+
+
+  updateCart();
+
+
+  alert(
+    product.name +
+    " added to your bag ❤️"
+  );
+
+}
+
+
+function updateCart() {
+
+  const count =
+    cart.reduce(
+      function(total,item){
+
+        return total + item.qty;
+
+      },
+      0
+    );
+
+
+  document.getElementById(
+    "cartCount"
+  ).textContent =
+    count;
+
+
+  const container =
+    document.getElementById(
+      "cartItems"
+    );
+
+
+  if (!cart.length) {
+
+    container.innerHTML = `
+      <p
+        style="
+          text-align:center;
+          padding:40px 0;
+          color:#777;
+        "
+      >
+        Your bag is empty.
+      </p>
+    `;
+
+  } else {
+
+    container.innerHTML =
+      cart.map(function(item){
+
+        return `
+
+          <div
+            class="cart-item"
+          >
+
+            <img
+              src="${escapeAttribute(item.image || "")}"
+              alt=""
+            >
+
+            <div>
+
+              <strong>
+                ${escapeHTML(item.name)}
+              </strong>
+
+              <small>
+                Rs.
+                ${item.price.toLocaleString()}
+                × ${item.qty}
+          × ${item.qty}
+              </small>
+
+            </div>
+
+            <button
+              class="remove-cart"
+              onclick="removeCart(${Number(item.id)})"
+            >
+              ×
+            </button>
+
+          </div>
+
+        `;
+
+      }).join("");
+
+  }
+
+
+  const total =
+    cart.reduce(
+      function(sum,item){
+
+        return sum +
+          item.price *
+          item.qty;
+
+      },
+      0
+    );
+
+
+  document.getElementById(
+    "cartTotal"
+  ).textContent =
+    "Rs. " +
+    total.toLocaleString();
+
+}
+
+
+function removeCart(id) {
+
+  cart =
+    cart.filter(function(item){
+
+      return Number(item.id) !==
+        Number(id);
+
+    });
+
+
+  updateCart();
+
+}
+
+
+function openCart() {
+
+  updateCart();
+
+  document
+    .getElementById(
+      "cartDrawer"
+    )
+    .classList.add(
+      "open"
+    );
+
+}
+
+
+function closeCart() {
+
+  document
+    .getElementById(
+      "cartDrawer"
+    )
+    .classList.remove(
+      "open"
+    );
+
+}
+
+
+/* =========================================================
+   WHATSAPP
+========================================================= */
+
+const WHATSAPP_NUMBER =
+  "94764866828";
+
+
+function orderProductWhatsApp(id) {
+
+  const product =
+    mgProducts.find(function(item){
+
+      return Number(item.id) ===
+        Number(id);
+
+    });
+
+
+  if (!product) {
+    return;
+  }
+
+
+  const message =
+    "Hello MG DREAM ZONE ❤️\n\n" +
+
+    "I would like to order:\n\n" +
+
+    "Product: " +
+    product.name +
+
+    "\nPrice: Rs. " +
+    Number(product.price || 0)
+      .toLocaleString() +
+
+    "\n\nPlease send me the available sizes and order details.";
+
+
+  window.open(
+    "https://wa.me/" +
+    WHATSAPP_NUMBER +
+    "?text=" +
+    encodeURIComponent(message),
+    "_blank"
+  );
+
+}
+
+
+function orderCartWhatsApp() {
+
+  if (!cart.length) {
+
+    alert(
+      "Your bag is empty."
+    );
+
+    return;
+
+  }
+
+
+  let message =
+    "Hello MG DREAM ZONE ❤️\n\nI would like to place an order:\n\n";
+
+
+  cart.forEach(function(item){
+
+    message +=
+
+      "• " +
+      item.name +
+
+      " × " +
+      item.qty +
+
+      " - Rs. " +
+      (
+        item.price *
+        item.qty
+      ).toLocaleString() +
+
+      "\n";
+
+  });
+
+
+  const total =
+    cart.reduce(
+      function(sum,item){
+
+        return sum +
+          item.price *
+          item.qty;
+
+      },
+      0
+    );
+
+
+  message +=
+
+    "\nTotal: Rs. " +
+    total.toLocaleString() +
+
+    "\n\nPlease send me the order details. Thank you ❤️";
+
+
+  window.open(
+    "https://wa.me/" +
+    WHATSAPP_NUMBER +
+    "?text=" +
+    encodeURIComponent(message),
+    "_blank"
+  );
+
+}
+
+
+/* =========================================================
+   WISHLIST
+========================================================= */
+
+function toggleWishlist(button) {
+
+  button.textContent =
+    button.textContent === "♡"
+      ? "♥"
+      : "♡";
+
+}
+
+
+/* =========================================================
+   ADMIN OPEN/CLOSE
+========================================================= */
+
+function openAdmin() {
+
+  const overlay =
+    document.getElementById(
+      "adminOverlay"
+    );
+
+
+  const login =
+    document.getElementById(
+      "adminLogin"
+    );
+
+
+  const productForm =
+    document.getElementById(
+      "productForm"
+    );
+
+
+  overlay.style.display =
+    "block";
+
+
+  login.style.display =
+    "block";
+
+
+  productForm.style.display =
     "none";
 
 }
 
 
+function closeAdmin() {
+
+  document.getElementById(
+    "adminOverlay"
+  ).style.display =
+    "none";
+
+}
+
+
+/* =========================================================
+   ADMIN LOGIN
+========================================================= */
+
 async function adminLogin() {
 
   const email =
-    document.getElementById("adminEmail").value.trim();
+    document.getElementById(
+      "adminEmail"
+    ).value.trim();
+
 
   const password =
-    document.getElementById("adminPassword").value;
+    document.getElementById(
+      "adminPassword"
+    ).value;
+
 
   const message =
-    document.getElementById("adminMessage");
+    document.getElementById(
+      "loginMessage"
+    );
 
 
   if (!email || !password) {
 
     message.textContent =
-      "Enter email and password.";
+      "Please enter email and password.";
 
     message.style.color =
       "crimson";
@@ -3903,10 +6048,6 @@ async function adminLogin() {
   }
 
 
-  message.textContent =
-    "Logging in...";
-
-
   try {
 
     const response =
@@ -3914,17 +6055,31 @@ async function adminLogin() {
         ADMIN_SUPABASE_URL +
         "/auth/v1/token?grant_type=password",
         {
-          method: "POST",
+
+          method:
+            "POST",
 
           headers: {
-            "apikey": ADMIN_SUPABASE_KEY,
-            "Content-Type": "application/json"
+
+            "apikey":
+              ADMIN_SUPABASE_KEY,
+
+            "Content-Type":
+              "application/json"
+
           },
 
-          body: JSON.stringify({
-            email: email,
-            password: password
-          })
+          body:
+            JSON.stringify({
+
+              email:
+                email,
+
+              password:
+                password
+
+            })
+
         }
       );
 
@@ -3952,21 +6107,29 @@ async function adminLogin() {
 
     document.getElementById(
       "adminLogin"
-    ).style.display = "none";
+    ).style.display =
+      "none";
 
 
     document.getElementById(
       "productForm"
-    ).style.display = "block";
+    ).style.display =
+      "block";
 
 
-    message.textContent =
+    document.getElementById(
+      "loginMessage"
+    ).textContent =
+      "";
+
+
+    document.getElementById(
+      "adminMessage"
+    ).textContent =
       "Login successful ❤️";
 
-    message.style.color =
-      "green";
 
-  } catch (error) {
+  } catch(error) {
 
     message.textContent =
       error.message;
@@ -3979,35 +6142,139 @@ async function adminLogin() {
 }
 
 
-document.getElementById("adminPhoto")
-  .addEventListener("change", function () {
+/* =========================================================
+   ADMIN LOGOUT
+========================================================= */
 
-    const file =
-      this.files[0];
+function adminLogout() {
 
-    const preview =
-      document.getElementById("adminPreview");
-
-
-    if (!file) {
-
-      preview.style.display =
-        "none";
-
-      return;
-
-    }
+  sessionStorage.removeItem(
+    "mg_admin_access_token"
+  );
 
 
-    preview.src =
-      URL.createObjectURL(file);
+  document.getElementById(
+    "productForm"
+  ).style.display =
+    "none";
 
-    preview.style.display =
-      "block";
 
-  });
+  document.getElementById(
+    "adminLogin"
+  ).style.display =
+    "block";
 
-```javascript
+
+  document.getElementById(
+    "adminEmail"
+  ).value =
+    "";
+
+
+  document.getElementById(
+    "adminPassword"
+  ).value =
+    "";
+
+}
+
+
+/* =========================================================
+   UPLOAD IMAGE
+========================================================= */
+
+async function uploadAdminImage(
+  file,
+  token,
+  productName,
+  index
+) {
+
+  const extension =
+    file.name.includes(".")
+      ? file.name.substring(
+          file.name.lastIndexOf(".")
+        )
+      : "";
+
+
+  const safeName =
+    productName
+      .toLowerCase()
+      .replace(
+        /[^a-z0-9]+/g,
+        "-"
+      );
+
+
+  const fileName =
+    Date.now() +
+    "-" +
+    index +
+    "-" +
+    safeName +
+    extension;
+
+
+  const response =
+    await fetch(
+      ADMIN_SUPABASE_URL +
+      "/storage/v1/object/" +
+      ADMIN_BUCKET +
+      "/" +
+      fileName,
+      {
+
+        method:
+          "POST",
+
+        headers: {
+
+          "apikey":
+            ADMIN_SUPABASE_KEY,
+
+          "Authorization":
+            "Bearer " + token,
+
+          "Content-Type":
+            file.type
+
+        },
+
+        body:
+          file
+
+      }
+    );
+
+
+  if (!response.ok) {
+
+    throw new Error(
+      "Photo " +
+      index +
+      " upload failed: " +
+      await response.text()
+    );
+
+  }
+
+
+  return (
+    ADMIN_SUPABASE_URL +
+    "/storage/v1/object/public/" +
+    ADMIN_BUCKET +
+    "/" +
+    fileName
+  );
+
+}
+
+
+/* =========================================================
+   ADD PRODUCT
+========================================================= */
+
 async function addProductFromHome() {
 
   const token =
@@ -4015,139 +6282,145 @@ async function addProductFromHome() {
       "mg_admin_access_token"
     );
 
+
   if (!token) {
-    alert("Please login first.");
+
+    alert(
+      "Please login first."
+    );
+
     return;
+
   }
 
+
   const files = [
-    document.getElementById("adminPhoto").files[0],
-    document.getElementById("adminPhoto2").files[0],
-    document.getElementById("adminPhoto3").files[0],
-    document.getElementById("adminPhoto4").files[0]
-  ].filter(Boolean);
+
+    document.getElementById(
+      "adminPhoto"
+    ).files[0],
+
+    document.getElementById(
+      "adminPhoto2"
+    ).files[0],
+
+    document.getElementById(
+      "adminPhoto3"
+    ).files[0],
+
+    document.getElementById(
+      "adminPhoto4"
+    ).files[0]
+
+  ];
+
 
   const name =
-    document.getElementById("adminName").value.trim();
+    document.getElementById(
+      "adminName"
+    ).value.trim();
+
 
   const price =
-    document.getElementById("adminPrice").value;
+    document.getElementById(
+      "adminPrice"
+    ).value;
+
 
   const category =
-    document.getElementById("adminCategory").value;
+    document.getElementById(
+      "adminCategory"
+    ).value;
+
 
   const details =
-    document.getElementById("adminDetails").value.trim();
+    document.getElementById(
+      "adminDetails"
+    ).value.trim();
+
 
   const message =
-    document.getElementById("adminMessage");
+    document.getElementById(
+      "adminMessage"
+    );
+
+
+  const button =
+    document.getElementById(
+      "adminAddButton"
+    );
+
 
   if (
-    files.length === 0 ||
+    !files[0] ||
     !name ||
     !price ||
     !category
   ) {
 
     message.textContent =
-      "Please add at least Photo 1 and fill all required fields.";
+      "Please fill Photo 1, Name, Price and Category.";
 
     message.style.color =
       "crimson";
 
     return;
+
   }
 
-  const button =
-    document.getElementById("adminAddButton");
 
-  button.disabled = true;
-  button.textContent = "Uploading...";
+  button.disabled =
+    true;
+
+  button.textContent =
+    "Uploading...";
+
 
   try {
 
     const imageURLs = [];
 
-    for (let i = 0; i < files.length; i++) {
 
-      const file = files[i];
+    for (
+      let i = 0;
+      i < files.length;
+      i++
+    ) {
 
-      const extension =
-        file.name.includes(".")
-          ? file.name.substring(
-              file.name.lastIndexOf(".")
-            )
-          : "";
-
-      const safeName =
-        name
-          .toLowerCase()
-          .replace(/[^a-z0-9]+/g, "-");
-
-      const fileName =
-        Date.now() +
-        "-" +
-        i +
-        "-" +
-        safeName +
-        extension;
-
-      const uploadResponse =
-        await fetch(
-          ADMIN_SUPABASE_URL +
-          "/storage/v1/object/" +
-          ADMIN_BUCKET +
-          "/" +
-          fileName,
-          {
-            method: "POST",
-
-            headers: {
-              "apikey":
-                ADMIN_SUPABASE_KEY,
-
-              "Authorization":
-                "Bearer " + token,
-
-              "Content-Type":
-                file.type
-            },
-
-            body: file
-          }
-        );
-
-      if (!uploadResponse.ok) {
-
-        throw new Error(
-          "Photo " +
-          (i + 1) +
-          " upload failed: " +
-          await uploadResponse.text()
-        );
+      if (!files[i]) {
+        continue;
       }
 
-      const imageURL =
-        ADMIN_SUPABASE_URL +
-        "/storage/v1/object/public/" +
-        ADMIN_BUCKET +
-        "/" +
-        fileName;
 
-      imageURLs.push(imageURL);
+      const url =
+        await uploadAdminImage(
+          files[i],
+          token,
+          name,
+          i + 1
+        );
+
+
+      imageURLs.push(
+        url
+      );
+
     }
 
 
     const productData = {
 
-      name: name,
+      name:
+        name,
 
-      price: Number(price),
+      price:
+        Number(price),
 
-      category: category,
+      category:
+        category,
 
       image_url:
-        imageURLs[0] || null,
+        imageURLs[0] || "",
 
       image_url_2:
         imageURLs[1] || null,
@@ -4158,19 +6431,23 @@ async function addProductFromHome() {
       image_url_4:
         imageURLs[3] || null,
 
-      details: details
+      details:
+        details
 
     };
 
 
-    const productResponse =
+    const response =
       await fetch(
         ADMIN_SUPABASE_URL +
         "/rest/v1/products",
         {
-          method: "POST",
+
+          method:
+            "POST",
 
           headers: {
+
             "apikey":
               ADMIN_SUPABASE_KEY,
 
@@ -4182,20 +6459,24 @@ async function addProductFromHome() {
 
             "Prefer":
               "return=minimal"
+
           },
 
           body:
-            JSON.stringify(productData)
+            JSON.stringify(
+              productData
+            )
+
         }
       );
 
 
-    if (!productResponse.ok) {
+    if (!response.ok) {
 
       throw new Error(
-        "Product could not be saved: " +
-        await productResponse.text()
+        await response.text()
       );
+
     }
 
 
@@ -4208,34 +6489,56 @@ async function addProductFromHome() {
 
     document.getElementById(
       "adminPhoto"
-    ).value = "";
+    ).value =
+      "";
+
 
     document.getElementById(
       "adminPhoto2"
-    ).value = "";
+    ).value =
+      "";
+
 
     document.getElementById(
       "adminPhoto3"
-    ).value = "";
+    ).value =
+      "";
+
 
     document.getElementById(
       "adminPhoto4"
-    ).value = "";
+    ).value =
+      "";
+
 
     document.getElementById(
       "adminName"
-    ).value = "";
+    ).value =
+      "";
+
 
     document.getElementById(
       "adminPrice"
-    ).value = "";
+    ).value =
+      "";
+
+
+    document.getElementById(
+      "adminCategory"
+    ).value =
+      "";
+
 
     document.getElementById(
       "adminDetails"
-    ).value = "";
+    ).value =
+      "";
 
 
-  } catch (error) {
+    await loadSupabaseProducts();
+
+
+  } catch(error) {
 
     console.error(error);
 
@@ -4256,172 +6559,11 @@ async function addProductFromHome() {
   }
 
 }
-```
 
 
-</script>
-
-<!-- ================================
-     MANAGE PRODUCTS
-     ================================ -->
-
-<style>
-#manageProductsBtn {
-  width: 100%;
-  padding: 13px;
-  margin-top: 12px;
-  border: none;
-  border-radius: 9px;
-  background: #444;
-  color: white;
-  font-weight: bold;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-#manageProductsPanel {
-  display: none;
-  margin-top: 20px;
-}
-
-.manageProduct {
-  border: 1px solid #ddd;
-  border-radius: 12px;
-  padding: 12px;
-  margin-bottom: 12px;
-  background: #fafafa;
-}
-
-.manageProduct img {
-  width: 80px;
-  height: 80px;
-  object-fit: cover;
-  border-radius: 8px;
-  float: left;
-  margin-right: 12px;
-}
-
-.manageProductInfo {
-  min-height: 80px;
-}
-
-.manageProductButtons {
-  clear: both;
-  display: flex;
-  gap: 8px;
-  margin-top: 10px;
-}
-
-.manageProductButtons button {
-  flex: 1;
-  padding: 9px;
-  border: none;
-  border-radius: 7px;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-.editProductBtn {
-  background: #b03a72;
-  color: white;
-}
-
-.deleteProductBtn {
-  background: #d9534f;
-  color: white;
-}
-
-#editProductBox {
-  display: none;
-  margin-top: 20px;
-  padding: 15px;
-  border-radius: 12px;
-  background: #f7f7f7;
-}
-
-#editProductBox h3 {
-  color: #b03a72;
-}
-
-.editInput,
-.editSelect,
-.editTextarea {
-  width: 100%;
-  box-sizing: border-box;
-  padding: 11px;
-  margin: 6px 0 12px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  font-size: 15px;
-}
-
-.editTextarea {
-  min-height: 90px;
-}
-
-.updateProductBtn {
-  width: 100%;
-  padding: 12px;
-  border: none;
-  border-radius: 8px;
-  background: #b03a72;
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.cancelEditBtn {
-  width: 100%;
-  padding: 10px;
-  margin-top: 8px;
-  border: none;
-  border-radius: 8px;
-  background: #ddd;
-  cursor: pointer;
-}
-</style>
-
-
-<script>
-
-let productBeingEdited = null;
-
-
-/* ==========================================
-   MANAGE PRODUCTS BUTTON
-   ========================================== */
-
-function createManageProductsButton() {
-
-  const productForm =
-    document.getElementById("productForm");
-
-  if (!productForm) return;
-
-  if (document.getElementById("manageProductsBtn")) {
-    return;
-  }
-
-  const button =
-    document.createElement("button");
-
-  button.id =
-    "manageProductsBtn";
-
-  button.textContent =
-    "✏️ Manage Products";
-
-  button.onclick =
-    loadManageProducts;
-
-  productForm.appendChild(button);
-
-}
-
-
-/* ==========================================
-   LOAD PRODUCTS
-   ========================================== */
+/* =========================================================
+   MANAGE PRODUCTS
+========================================================= */
 
 async function loadManageProducts() {
 
@@ -4430,40 +6572,35 @@ async function loadManageProducts() {
       "mg_admin_access_token"
     );
 
+
   if (!token) {
 
-    alert("Please login first.");
+    alert(
+      "Please login first."
+    );
 
     return;
 
   }
 
 
-  let panel =
+  const panel =
     document.getElementById(
       "manageProductsPanel"
     );
 
 
-  if (!panel) {
-
-    panel =
-      document.createElement("div");
-
-    panel.id =
-      "manageProductsPanel";
-
+  const list =
     document.getElementById(
-      "productForm"
-    ).appendChild(panel);
-
-  }
+      "manageProductsList"
+    );
 
 
   panel.style.display =
     "block";
 
-  panel.innerHTML =
+
+  list.innerHTML =
     "<p>Loading products...</p>";
 
 
@@ -4472,15 +6609,19 @@ async function loadManageProducts() {
     const response =
       await fetch(
         ADMIN_SUPABASE_URL +
-        "/rest/v1/products?select=*&order=id.desc",
+        "/rest/v1/products?select=id,name,price,category,image_url,image_url_2,image_url_3,image_url_4,details&order=id.desc",
         {
+
           headers: {
+
             "apikey":
               ADMIN_SUPABASE_KEY,
 
             "Authorization":
               "Bearer " + token
+
           }
+
         }
       );
 
@@ -4500,7 +6641,7 @@ async function loadManageProducts() {
 
     if (!products.length) {
 
-      panel.innerHTML =
+      list.innerHTML =
         "<p>No products found.</p>";
 
       return;
@@ -4508,200 +6649,258 @@ async function loadManageProducts() {
     }
 
 
-    panel.innerHTML =
-      "<h3>🛍️ Your Products</h3>";
+    list.innerHTML =
+      products.map(function(product){
 
+        return `
 
-    products.forEach(function(product) {
-
-      const item =
-        document.createElement("div");
-
-      item.className =
-        "manageProduct";
-
-
-      item.innerHTML = `
-
-        <img
-          src="${escapeHTML(product.image_url || "")}"
-          alt=""
-        >
-
-        <div class="manageProductInfo">
-
-          <strong>
-            ${escapeHTML(product.name || "Product")}
-          </strong>
-
-          <br>
-
-          Rs.
-          ${Number(product.price || 0).toLocaleString()}
-
-          <br>
-
-          <small>
-            ${escapeHTML(product.category || "")}
-          </small>
-
-        </div>
-
-        <div class="manageProductButtons">
-
-          <button
-            class="editProductBtn"
-            onclick="openEditProduct(${Number(product.id)})"
+          <div
+            class="manageProduct"
           >
-            ✏️ Edit
-          </button>
 
-          <button
-            class="deleteProductBtn"
-            onclick="deleteProduct(${Number(product.id)})"
-          >
-            🗑️ Delete
-          </button>
+            <img
+              src="${escapeAttribute(product.image_url || "")}"
+              alt=""
+            >
 
-        </div>
+            <div
+              class="manageProductInfo"
+            >
+
+              <strong>
+                ${escapeHTML(product.name)}
+              </strong>
+
+              <div>
+                Rs.
+                ${Number(product.price || 0).toLocaleString()}
+              </div>
+
+              <small>
+                ${escapeHTML(product.category || "")}
+              </small>
+
+            </div>
+
+
+            <div
+              class="manageProductButtons"
+            >
+
+              <button
+                class="editProductBtn"
+                onclick="openEditProduct(${Number(product.id)})"
+              >
+                ✏️ Edit
+              </button>
+
+
+              <button
+                class="deleteProductBtn"
+                onclick="deleteProduct(${Number(product.id)})"
+              >
+                🗑 Delete
+              </button>
+
+            </div>
+
+          </div>
+
+        `;
+
+      }).join("");
+
+
+  } catch(error) {
+
+    list.innerHTML =
+      `
+        <p style="color:crimson">
+          ${escapeHTML(error.message)}
+        </p>
       `;
-
-
-      panel.appendChild(item);
-
-    });
-
-
-    window.mgProducts =
-      products;
-
-
-  } catch (error) {
-
-    panel.innerHTML =
-      "<p style='color:red'>" +
-      escapeHTML(error.message) +
-      "</p>";
 
   }
 
 }
 
 
-/* ==========================================
+/* =========================================================
    EDIT PRODUCT
-   ========================================== */
+========================================================= */
 
 function openEditProduct(id) {
 
   const product =
-    (window.mgProducts || [])
-      .find(function(item) {
-        return Number(item.id) === Number(id);
-      });
+    mgProducts.find(function(item){
+
+      return Number(item.id) ===
+        Number(id);
+
+    });
+
 
   if (!product) {
-    alert("Product not found.");
+
+    alert(
+      "Product not found."
+    );
+
     return;
+
   }
 
-  productBeingEdited = product;
 
-  let box =
-    document.getElementById("editProductBox");
+  productBeingEdited =
+    product;
 
-  if (!box) {
 
-    box =
-      document.createElement("div");
-
-    box.id =
-      "editProductBox";
-
+  const box =
     document.getElementById(
-      "manageProductsPanel"
-    ).appendChild(box);
-  }
+      "editProductBox"
+    );
 
-  box.style.display = "block";
+
+  box.style.display =
+    "block";
+
 
   box.innerHTML = `
 
-    <h3>✏️ Edit Product</h3>
+    <h3>
+      ✏️ Edit Product
+    </h3>
 
-    <label>Photo 1</label>
+
+    <label>
+      New Photo 1
+    </label>
+
     <input
       id="editPhoto1"
-      class="editInput"
+      class="adminInput"
       type="file"
       accept="image/*"
     >
 
-    <label>Photo 2</label>
+
+    <label>
+      New Photo 2
+    </label>
+
     <input
       id="editPhoto2"
-      class="editInput"
+      class="adminInput"
       type="file"
       accept="image/*"
     >
 
-    <label>Photo 3</label>
+
+    <label>
+      New Photo 3
+    </label>
+
     <input
       id="editPhoto3"
-      class="editInput"
+      class="adminInput"
       type="file"
       accept="image/*"
     >
 
-    <label>Photo 4</label>
+
+    <label>
+      New Photo 4
+    </label>
+
     <input
       id="editPhoto4"
-      class="editInput"
+      class="adminInput"
       type="file"
       accept="image/*"
     >
 
-    <label>Product Name</label>
+
+    <label>
+      Product Name
+    </label>
 
     <input
       id="editName"
-      class="editInput"
+      class="adminInput"
       type="text"
       value="${escapeAttribute(product.name || "")}"
     >
 
-    <label>Price</label>
+
+    <label>
+      Price
+    </label>
 
     <input
       id="editPrice"
-      class="editInput"
+      class="adminInput"
       type="number"
       value="${Number(product.price || 0)}"
     >
 
-    <label>Category</label>
+
+    <label>
+      Category
+    </label>
 
     <select
       id="editCategory"
-      class="editSelect"
+      class="adminSelect"
     >
 
-      <option value="Dresses">Dresses</option>
-      <option value="Tops">Tops</option>
-      <option value="Bottoms">Bottoms</option>
-      <option value="Kids">Kids</option>
-      <option value="Accessories">Accessories</option>
-      <option value="Beauty">Beauty</option>
-      <option value="Other">Other</option>
+      <option value="Dresses">
+        Dresses
+      </option>
+
+      <option value="Saree Jackets">
+        Saree Jackets
+      </option>
+
+      <option value="Kids Wear">
+        Kids Wear
+      </option>
+
+      <option value="Tops">
+        Tops
+      </option>
+
+      <option value="Bottoms">
+        Bottoms
+      </option>
+
+      <option value="Accessories">
+        Accessories
+      </option>
+
+      <option value="Beauty">
+        Beauty
+      </option>
+
+      <option value="Custom">
+        Custom
+      </option>
+
+      <option value="Other">
+        Other
+      </option>
 
     </select>
 
-    <label>Details</label>
+
+    <label>
+      Details
+    </label>
 
     <textarea
       id="editDetails"
-      class="editTextarea"
+      class="adminTextarea"
     >${escapeHTML(product.details || "")}</textarea>
+
 
     <button
       class="updateProductBtn"
@@ -4709,6 +6908,7 @@ function openEditProduct(id) {
     >
       💾 SAVE CHANGES
     </button>
+
 
     <button
       class="cancelEditBtn"
@@ -4719,21 +6919,24 @@ function openEditProduct(id) {
 
   `;
 
+
   document.getElementById(
     "editCategory"
   ).value =
     product.category || "Other";
 
+
   box.scrollIntoView({
-    behavior: "smooth"
+    behavior:
+      "smooth"
   });
 
 }
 
 
-/* ==========================================
+/* =========================================================
    UPDATE PRODUCT
-   ========================================== */
+========================================================= */
 
 async function updateProduct() {
 
@@ -4742,30 +6945,40 @@ async function updateProduct() {
       "mg_admin_access_token"
     );
 
+
   if (!token) {
-    alert("Please login first.");
+
+    alert(
+      "Please login first."
+    );
+
+    return;
+
+  }
+
+
+  if (!productBeingEdited) {
     return;
   }
 
-  if (!productBeingEdited) {
-    alert("No product selected.");
-    return;
-  }
 
   const name =
     document.getElementById(
       "editName"
     ).value.trim();
 
+
   const price =
     document.getElementById(
       "editPrice"
     ).value;
 
+
   const category =
     document.getElementById(
       "editCategory"
     ).value;
+
 
   const details =
     document.getElementById(
@@ -4773,40 +6986,60 @@ async function updateProduct() {
     ).value.trim();
 
 
-  if (!name || !price || !category) {
+  if (
+    !name ||
+    !price ||
+    !category
+  ) {
+
     alert(
       "Please fill all required fields."
     );
+
     return;
+
   }
-
-
-  const files = [
-    document.getElementById("editPhoto1").files[0],
-    document.getElementById("editPhoto2").files[0],
-    document.getElementById("editPhoto3").files[0],
-    document.getElementById("editPhoto4").files[0]
-  ];
 
 
   try {
 
     const updates = {
 
-      name: name,
+      name:
+        name,
 
-      price: Number(price),
+      price:
+        Number(price),
 
-      category: category,
+      category:
+        category,
 
-      details: details
+      details:
+        details
 
     };
 
 
-    /* ================================
-       UPLOAD NEW PHOTOS
-       ================================ */
+    const files = [
+
+      document.getElementById(
+        "editPhoto1"
+      ).files[0],
+
+      document.getElementById(
+        "editPhoto2"
+      ).files[0],
+
+      document.getElementById(
+        "editPhoto3"
+      ).files[0],
+
+      document.getElementById(
+        "editPhoto4"
+      ).files[0]
+
+    ];
+
 
     for (
       let i = 0;
@@ -4814,115 +7047,53 @@ async function updateProduct() {
       i++
     ) {
 
-      const file = files[i];
-
-      if (!file) {
+      if (!files[i]) {
         continue;
       }
 
 
-      const extension =
-        file.name.includes(".")
-          ? file.name.substring(
-              file.name.lastIndexOf(".")
-            )
-          : "";
-
-
-      const safeName =
-        name
-          .toLowerCase()
-          .replace(
-            /[^a-z0-9]+/g,
-            "-"
-          );
-
-
-      const fileName =
-        Date.now() +
-        "-" +
-        i +
-        "-" +
-        safeName +
-        extension;
-
-
-      const uploadResponse =
-        await fetch(
-          ADMIN_SUPABASE_URL +
-          "/storage/v1/object/" +
-          ADMIN_BUCKET +
-          "/" +
-          fileName,
-          {
-
-            method: "POST",
-
-            headers: {
-
-              "apikey":
-                ADMIN_SUPABASE_KEY,
-
-              "Authorization":
-                "Bearer " + token,
-
-              "Content-Type":
-                file.type
-
-            },
-
-            body: file
-
-          }
+      const url =
+        await uploadAdminImage(
+          files[i],
+          token,
+          name,
+          "edit-" + (i + 1)
         );
-
-
-      if (!uploadResponse.ok) {
-
-        throw new Error(
-          "Photo " +
-          (i + 1) +
-          " upload failed: " +
-          await uploadResponse.text()
-        );
-
-      }
-
-
-      const imageURL =
-        ADMIN_SUPABASE_URL +
-        "/storage/v1/object/public/" +
-        ADMIN_BUCKET +
-        "/" +
-        fileName;
 
 
       if (i === 0) {
+
         updates.image_url =
-          imageURL;
+          url;
+
       }
+
 
       if (i === 1) {
+
         updates.image_url_2 =
-          imageURL;
+          url;
+
       }
+
 
       if (i === 2) {
+
         updates.image_url_3 =
-          imageURL;
+          url;
+
       }
 
+
       if (i === 3) {
+
         updates.image_url_4 =
-          imageURL;
+          url;
+
       }
 
     }
 
-
-    /* ================================
-       UPDATE PRODUCT
-       ================================ */
 
     const response =
       await fetch(
@@ -4933,7 +7104,8 @@ async function updateProduct() {
         ),
         {
 
-          method: "PATCH",
+          method:
+            "PATCH",
 
           headers: {
 
@@ -4978,36 +7150,19 @@ async function updateProduct() {
       null;
 
 
-    const box =
-      document.getElementById(
-        "editProductBox"
-      );
+    document.getElementById(
+      "editProductBox"
+    ).style.display =
+      "none";
 
 
-    if (box) {
-
-      box.style.display =
-        "none";
-
-    }
+    await loadSupabaseProducts();
 
 
     await loadManageProducts();
 
 
-    if (
-      typeof loadSupabaseProducts ===
-      "function"
-    ) {
-
-      await loadSupabaseProducts();
-
-    }
-
-
-  } catch (error) {
-
-    console.error(error);
+  } catch(error) {
 
     alert(
       "Update failed: " +
@@ -5018,9 +7173,32 @@ async function updateProduct() {
 
 }
 
-/* ==========================================
+
+/* =========================================================
+   CANCEL EDIT
+========================================================= */
+
+function cancelEdit() {
+
+  productBeingEdited =
+    null;
+
+
+  const box =
+    document.getElementById(
+      "editProductBox"
+    );
+
+
+  box.style.display =
+    "none";
+
+}
+
+
+/* =========================================================
    DELETE PRODUCT
-   ========================================== */
+========================================================= */
 
 async function deleteProduct(id) {
 
@@ -5032,7 +7210,9 @@ async function deleteProduct(id) {
 
   if (!token) {
 
-    alert("Please login first.");
+    alert(
+      "Please login first."
+    );
 
     return;
 
@@ -5040,32 +7220,29 @@ async function deleteProduct(id) {
 
 
   const product =
-    (window.mgProducts || [])
-      .find(function(item) {
+    mgProducts.find(function(item){
 
-        return Number(item.id) === Number(id);
+      return Number(item.id) ===
+        Number(id);
 
-      });
+    });
 
 
-  const productName =
-    product
-      ? product.name
-      : "this product";
+  if (!product) {
+    return;
+  }
 
 
   const confirmed =
     confirm(
       "Delete " +
-      productName +
-      " permanently?"
+      product.name +
+      "?"
     );
 
 
   if (!confirmed) {
-
     return;
-
   }
 
 
@@ -5077,7 +7254,9 @@ async function deleteProduct(id) {
         "/rest/v1/products?id=eq." +
         encodeURIComponent(id),
         {
-          method: "DELETE",
+
+          method:
+            "DELETE",
 
           headers: {
 
@@ -5085,10 +7264,7 @@ async function deleteProduct(id) {
               ADMIN_SUPABASE_KEY,
 
             "Authorization":
-              "Bearer " + token,
-
-            "Prefer":
-              "return=minimal"
+              "Bearer " + token
 
           }
 
@@ -5110,20 +7286,13 @@ async function deleteProduct(id) {
     );
 
 
+    await loadSupabaseProducts();
+
+
     await loadManageProducts();
 
 
-    if (
-      typeof loadSupabaseProducts ===
-      "function"
-    ) {
-
-      await loadSupabaseProducts();
-
-    }
-
-
-  } catch (error) {
+  } catch(error) {
 
     alert(
       "Delete failed: " +
@@ -5135,80 +7304,166 @@ async function deleteProduct(id) {
 }
 
 
-/* ==========================================
-   CANCEL EDIT
-   ========================================== */
-
-function cancelEdit() {
-
-  productBeingEdited =
-    null;
-
-
-  const box =
-    document.getElementById(
-      "editProductBox"
-    );
-
-
-  if (box) {
-
-    box.style.display =
-      "none";
-
-  }
-
-}
-
-
-/* ==========================================
-   SECURITY HELPERS
-   ========================================== */
+/* =========================================================
+   HELPERS
+========================================================= */
 
 function escapeHTML(value) {
 
   return String(value || "")
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#039;");
+    .replace(
+      /&/g,
+      "&amp;"
+    )
+    .replace(
+      /</g,
+      "&lt;"
+    )
+    .replace(
+      />/g,
+      "&gt;"
+    )
+    .replace(
+      /"/g,
+      "&quot;"
+    )
+    .replace(
+      /'/g,
+      "&#039;"
+    );
 
 }
 
 
 function escapeAttribute(value) {
 
-  return escapeHTML(value);
-
-}
-
-
-/* ==========================================
-   ADD MANAGE BUTTON AFTER LOGIN
-   ========================================== */
-
-const oldAdminLogin =
-  window.adminLogin;
-
-
-if (typeof oldAdminLogin === "function") {
-
-  console.log(
-    "Admin login detected."
+  return escapeHTML(
+    value
   );
 
 }
 
 
-setTimeout(
-  createManageProductsButton,
-  1000
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+function toggleMobileMenu() {
+
+  document
+    .getElementById(
+      "mobileMenu"
+    )
+    .classList.toggle(
+      "open"
+    );
+
+}
+
+
+function closeMobileMenu() {
+
+  document
+    .getElementById(
+      "mobileMenu"
+    )
+    .classList.remove(
+      "open"
+    );
+
+}
+
+
+/* =========================================================
+   SEARCH FOCUS
+========================================================= */
+
+function focusSearch() {
+
+  const search =
+    document.getElementById(
+      "searchInput"
+    );
+
+
+  if (search) {
+
+    search.focus();
+
+    document
+      .getElementById(
+        "shop"
+      )
+      .scrollIntoView({
+        behavior:
+          "smooth"
+      });
+
+  }
+
+}
+
+
+/* =========================================================
+   ADMIN PHOTO PREVIEW
+========================================================= */
+
+document.addEventListener(
+  "change",
+  function(event){
+
+    if (
+      event.target.id ===
+      "adminPhoto"
+    ) {
+
+      const file =
+        event.target.files[0];
+
+
+      const preview =
+        document.getElementById(
+          "adminPreview"
+        );
+
+
+      if (
+        file &&
+        preview
+      ) {
+
+        preview.src =
+          URL.createObjectURL(
+            file
+          );
+
+        preview.style.display =
+          "block";
+
+      }
+
+    }
+
+  }
+);
+
+
+/* =========================================================
+   INIT
+========================================================= */
+
+document.addEventListener(
+  "DOMContentLoaded",
+  function(){
+
+    loadSupabaseProducts();
+
+    updateCart();
+
+  }
 );
 
 </script>
-</script>
-</body>
-</html>
+
 </body>
 </html>
