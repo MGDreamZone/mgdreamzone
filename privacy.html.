@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Privacy Policy | MG DREAM ZONE</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --pink: #c76c91;
+      --pink-dark: #a74f73;
+      --pink-soft: #f9edf3;
+      --cream: #fffdfc;
+      --black: #292329;
+      --gray: #686168;
+      --border: #eadde3;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "DM Sans", sans-serif;
+      background: var(--cream);
+      color: var(--black);
+      line-height: 1.8;
+    }
+
+    header {
+      background: var(--black);
+      padding: 22px 20px;
+      text-align: center;
+    }
+
+    .logo {
+      color: white;
+      font-family: "Playfair Display", serif;
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-decoration: none;
+    }
+
+    .subtitle {
+      color: #e8cfd9;
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    .hero {
+      background: var(--pink-soft);
+      text-align: center;
+      padding: 55px 20px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero h1 {
+      font-family: "Playfair Display", serif;
+      font-size: 42px;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      color: var(--gray);
+      font-size: 14px;
+    }
+
+    .container {
+      width: min(900px, 92%);
+      margin: 45px auto 70px;
+    }
+
+    .intro {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 25px;
+      margin-bottom: 32px;
+    }
+
+    section {
+      margin-bottom: 35px;
+    }
+
+    h2 {
+      font-family: "Playfair Display", serif;
+      font-size: 25px;
+      color: var(--pink-dark);
+      margin-bottom: 12px;
+    }
+
+    p {
+      margin-bottom: 12px;
+      color: #4f494f;
+      font-size: 15px;
+    }
+
+    ul {
+      padding-left: 25px;
+      color: #4f494f;
+      font-size: 15px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    .back {
+      display: inline-block;
+      margin-top: 5px;
+      padding: 11px 22px;
+      background: var(--pink);
+      color: white;
+      text-decoration: none;
+      border-radius: 25px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .back:hover {
+      background: var(--pink-dark);
+    }
+
+    footer {
+      background: var(--black);
+      color: #ddd;
+      text-align: center;
+      padding: 28px 20px;
+      font-size: 13px;
+    }
+
+    footer a {
+      color: #e8a9c3;
+      text-decoration: none;
+      margin: 0 8px;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 32px;
+      }
+
+      h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <a href="index.html" class="logo">MG DREAM ZONE</a>
+    <div class="subtitle">Women's Fashion Boutique</div>
+  </header>
+
+  <div class="hero">
+    <h1>Privacy Policy</h1>
+    <p>Last updated: August 31, 2026</p>
+  </div>
+
+  <main class="container">
+
+    <div class="intro">
+      <p>
+        <strong>MG DREAM ZONE</strong> respects your privacy and is committed
+        to protecting the personal information you provide when using our
+        website and purchasing our products.
+      </p>
+    </div>
+
+    <section>
+      <h2>1. Information We Collect</h2>
+      <p>
+        When you place an order, contact us or use certain features of our
+        website, we may collect information such as:
+      </p>
+
+      <ul>
+        <li>Name</li>
+        <li>Telephone number</li>
+        <li>Email address, where provided</li>
+        <li>Delivery address</li>
+        <li>Order and product information</li>
+        <li>Payment-related information required to process an order</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>2. How We Use Your Information</h2>
+      <p>We may use your information to:</p>
+
+      <ul>
+        <li>Process and manage your orders.</li>
+        <li>Arrange delivery of purchased products.</li>
+        <li>Communicate with you about your order.</li>
+        <li>Respond to customer inquiries.</li>
+        <li>Process returns, exchanges and refunds.</li>
+        <li>Improve our website, products and customer service.</li>
+        <li>Prevent fraudulent or unauthorized activities.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>3. Payment Information</h2>
+      <p>
+        Online payments may be processed through third-party payment service
+        providers.
+      </p>
+
+      <p>
+        MG DREAM ZONE does not intentionally store complete card details such
+        as full card numbers or CVV information on our website.
+      </p>
+
+      <p>
+        Payment information may be handled directly by the relevant payment
+        provider according to its own terms and privacy practices.
+      </p>
+    </section>
+
+    <section>
+      <h2>4. Sharing Information</h2>
+      <p>
+        We do not sell or rent customers' personal information.
+      </p>
+
+      <p>
+        We may share necessary information with trusted service providers
+        when required to complete your order, such as delivery or payment
+        service providers.
+      </p>
+
+      <p>
+        Information may also be disclosed where required by applicable law
+        or by a lawful request from an authorized authority.
+      </p>
+    </section>
+
+    <section>
+      <h2>5. Delivery Information</h2>
+      <p>
+        To deliver your order, we may need to provide the customer's name,
+        telephone number and delivery address to the relevant delivery or
+        courier service.
+      </p>
+    </section>
+
+    <section>
+      <h2>6. Cookies & Website Data</h2>
+      <p>
+        Our website may use basic cookies, browser storage or similar
+        technologies to improve website functionality and user experience.
+      </p>
+
+      <p>
+        These technologies may help remember preferences, maintain website
+        functionality or understand how visitors use the website.
+      </p>
+    </section>
+
+    <section>
+      <h2>7. Data Security</h2>
+      <p>
+        We take reasonable measures to protect customer information against
+        unauthorized access, misuse, alteration or disclosure.
+      </p>
+
+      <p>
+        However, no method of transmitting or storing information online can
+        be guaranteed to be completely secure.
+      </p>
+    </section>
+
+    <section>
+      <h2>8. Third-Party Services</h2>
+      <p>
+        Our website may use third-party services for functions such as
+        payments, hosting, analytics, delivery or other website services.
+      </p>
+
+      <p>
+        These third parties may process information according to their own
+        privacy policies and terms.
+      </p>
+    </section>
+
+    <section>
+      <h2>9. Children's Privacy</h2>
+      <p>
+        Our website is intended for general customers and is not specifically
+        directed at children. We do not knowingly collect personal information
+        from children for purposes unrelated to providing our services.
+      </p>
+    </section>
+
+    <section>
+      <h2>10. Your Information</h2>
+      <p>
+        If you have questions about the personal information we hold about
+        you, or if you believe your information needs to be corrected, please
+        contact MG DREAM ZONE through the contact information provided on our
+        website.
+      </p>
+    </section>
+
+    <section>
+      <h2>11. Changes to This Privacy Policy</h2>
+      <p>
+        MG DREAM ZONE may update this Privacy Policy from time to time.
+        Changes will be published on this page together with the updated
+        date.
+      </p>
+    </section>
+
+    <section>
+      <h2>12. Contact</h2>
+      <p>
+        If you have any questions about this Privacy Policy or how your
+        information is handled, please contact MG DREAM ZONE through the
+        contact details available on our website.
+      </p>
+    </section>
+
+    <a href="index.html" class="back">← Back to MG DREAM ZONE</a>
+
+  </main>
+
+  <footer>
+    <div>© 2026 MG DREAM ZONE. All Rights Reserved.</div>
+
+    <div style="margin-top:10px;">
+      <a href="terms.html">Terms & Conditions</a>
+      <a href="return-refund.html">Return & Refund</a>
+      <a href="privacy.html">Privacy Policy</a>
+    </div>
+  </footer>
+
+</body>
+</html>
