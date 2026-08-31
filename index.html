@@ -2741,7 +2741,31 @@ footer {
     700;
 
 }
+.whatsapp-float {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #25D366;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.18);
+  z-index: 9999;
+  transition: 0.3s ease;
+}
 
+.whatsapp-float:hover {
+  transform: scale(1.08);
+}
+
+.whatsapp-float svg {
+  width: 26px;
+  height: 26px;
+}
 
 /* =========================================================
    CART DRAWER
@@ -7464,6 +7488,31 @@ document.addEventListener(
 );
 
 </script>
+<!-- WhatsApp Floating Icon -->
+<a
+  href="https://wa.me/94769284052"
+  class="whatsapp-float"
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="Chat with MG Dream Zone on WhatsApp"
+>
+  <svg
+    viewBox="0 0 32 32"
+    width="26"
+    height="26"
+    aria-hidden="true"
+  >
+    <path
+      fill="#ffffff"
+      d="M19.11 17.21c-.28-.14-1.65-.81-1.91-.9-.26-.1-.45-.14-.64.14-.19.28-.73.9-.89 1.08-.16.19-.33.21-.61.07-.28-.14-1.17-.43-2.23-1.38-.82-.73-1.38-1.62-1.54-1.9-.16-.28-.02-.43.12-.57.13-.13.28-.33.42-.49.14-.16.19-.28.28-.47.09-.19.05-.35-.02-.49-.07-.14-.64-1.53-.88-2.1-.23-.55-.47-.48-.64-.49h-.55c-.19 0-.49.07-.75.35-.26.28-.98.96-.98 2.34s1 2.71 1.14 2.9c.14.19 1.96 2.99 4.75 4.19.66.28 1.18.45 1.58.57.66.21 1.26.18 1.74.11.53-.08 1.65-.67 1.88-1.31.23-.64.23-1.19.16-1.31-.07-.12-.26-.19-.54-.33z"
+    />
+    <path
+      fill="#ffffff"
+      d="M16.01 3.2c-7.06 0-12.8 5.74-12.8 12.8 0 2.26.59 4.47 1.72 6.41L3.1 28.8l6.54-1.72a12.75 12.75 0 0 0 6.37 1.7h.01c7.06 0 12.8-5.74 12.8-12.8S23.08 3.2 16.01 3.2zm0 23.45h-.01c-2.01 0-3.98-.54-5.7-1.57l-.41-.24-3.88 1.02 1.04-3.78-.27-.43a10.63 10.63 0 1 1 9.23 5z"
+    />
+  </svg>
+</a>
 
+</body>
 </body>
 </html>
